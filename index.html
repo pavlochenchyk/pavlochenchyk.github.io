@@ -445,22 +445,19 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .dx-qd p{margin:0}
 .dx-qd__t{font-size:28px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px!important}
 .dx-qd__d{font-size:15px;line-height:1.45;color:var(--ink-2);max-width:300px}
-.dx-more__card{position:relative;display:flex;flex-direction:column;width:calc((100% - 24px) / 3);min-width:300px;background:var(--panel);border-radius:24px;padding:10px;color:var(--ink);text-decoration:none;box-shadow:var(--card-shadow);transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s,background-color .45s}
-.dx-more__pic{display:block;border-radius:16px;overflow:hidden;isolation:isolate;aspect-ratio:580/355}
+.dx-more__card{display:flex;align-items:center;gap:24px;width:50%;min-width:520px;background:var(--panel);border-radius:24px;padding:10px;color:var(--ink);text-decoration:none;box-shadow:0 0 0 rgba(23,23,27,0);transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s,background-color .45s}
+.dx-more__pic{flex:none;width:44%;border-radius:16px;overflow:hidden;isolation:isolate;aspect-ratio:580/355}
 .dx-more__pic img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,.61,.36,1)}
-.dx-more__txt{display:flex;flex-direction:column;padding:20px 64px 22px 16px}
-.dx-more__k{font-size:13px;color:var(--muted);margin-bottom:10px}
+.dx-more__txt{flex:1;min-width:0;display:flex;flex-direction:column;padding:12px 20px 12px 0}
 .dx-more__t{font-size:20px;line-height:1.3;letter-spacing:-.01em;color:var(--ink)}
 .dx-more__s{font-size:14px;line-height:1.45;color:var(--ink-2);margin-top:8px}
-.dx-more__go{position:absolute;right:24px;bottom:24px;width:26px;height:26px;fill:var(--ink);transition:transform .35s cubic-bezier(.22,.61,.36,1)}
 .dx-more__card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(23,23,27,.12)}
-.dx-more__card:hover .dx-more__go{transform:translateX(4px)}
 .dx-more__card:hover .dx-more__pic img{transform:scale(1.04)}
 .dx-more__card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 :root[data-theme="dark"]:not([data-site-theme="light"]) .dx-more__card:hover,:root[data-site-theme="dark"] .dx-more__card:hover{box-shadow:0 24px 56px rgba(0,0,0,.5)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .dx-more__card:hover{box-shadow:0 24px 56px rgba(0,0,0,.5)}}
-@media (prefers-reduced-motion:reduce){.dx-more__card,.dx-more__pic img,.dx-more__go{transition:none}.dx-more__card:hover{transform:none}}
-@media (max-width:700px){.dx-more__card{width:auto;min-width:0}}
+@media (prefers-reduced-motion:reduce){.dx-more__card,.dx-more__pic img{transition:none}.dx-more__card:hover{transform:none}}
+@media (max-width:700px){.dx-more__card{width:auto;min-width:0;flex-direction:column;align-items:stretch;gap:0}.dx-more__pic{width:auto}.dx-more__txt{padding:18px 14px 16px}}
 @media (max-width:600px){.dx-qd ul{grid-template-columns:minmax(0,1fr)}.dx-qd li{padding:22px 22px 120px;min-height:0}.dx-qd__t{font-size:23px}.dx-qd li>p{max-width:none}.dx-qd__p{width:130px;height:130px}}
 /* ---------- case study: student writing freelance marketplace (NDA) ---------- */
 .wr{--green:#2FBF8A;--drop:#FF7A2F}
@@ -1269,7 +1266,8 @@ layout();})();</script></section>
 
   <hr class="rule">
   <div class="tab__section dx-more">
-    <a class="dx-more__card" href="#writers"><span class="dx-more__pic"><img src="assets/cover-writers.jpg?v=2" width="580" height="355" alt="" loading="lazy"></span><span class="dx-more__txt"><span class="dx-more__k">The approach in practice</span><span class="dx-more__t">Choosing a writer: +14% in an A/B test</span><span class="dx-more__s">Freelance marketplace for student writing &#183; NDA</span></span><svg class="dx-more__go" viewBox="0 0 11 11" aria-hidden="true"><circle cx="0.5" cy="4.5" r=".4"/><circle cx="0.5" cy="5.5" r=".4"/><circle cx="0.5" cy="6.5" r=".4"/><circle cx="1.5" cy="4.5" r=".4"/><circle cx="1.5" cy="5.5" r=".4"/><circle cx="1.5" cy="6.5" r=".4"/><circle cx="2.5" cy="4.5" r=".4"/><circle cx="2.5" cy="5.5" r=".4"/><circle cx="2.5" cy="6.5" r=".4"/><circle cx="3.5" cy="4.5" r=".4"/><circle cx="3.5" cy="5.5" r=".4"/><circle cx="3.5" cy="6.5" r=".4"/><circle cx="4.5" cy="4.5" r=".4"/><circle cx="4.5" cy="5.5" r=".4"/><circle cx="4.5" cy="6.5" r=".4"/><circle cx="5.5" cy="0.5" r=".4"/><circle cx="5.5" cy="1.5" r=".4"/><circle cx="5.5" cy="2.5" r=".4"/><circle cx="5.5" cy="3.5" r=".4"/><circle cx="5.5" cy="4.5" r=".4"/><circle cx="5.5" cy="5.5" r=".4"/><circle cx="5.5" cy="6.5" r=".4"/><circle cx="5.5" cy="7.5" r=".4"/><circle cx="5.5" cy="8.5" r=".4"/><circle cx="5.5" cy="9.5" r=".4"/><circle cx="5.5" cy="10.5" r=".4"/><circle cx="6.5" cy="1.5" r=".4"/><circle cx="6.5" cy="2.5" r=".4"/><circle cx="6.5" cy="3.5" r=".4"/><circle cx="6.5" cy="4.5" r=".4"/><circle cx="6.5" cy="5.5" r=".4"/><circle cx="6.5" cy="6.5" r=".4"/><circle cx="6.5" cy="7.5" r=".4"/><circle cx="6.5" cy="8.5" r=".4"/><circle cx="6.5" cy="9.5" r=".4"/><circle cx="7.5" cy="2.5" r=".4"/><circle cx="7.5" cy="3.5" r=".4"/><circle cx="7.5" cy="4.5" r=".4"/><circle cx="7.5" cy="5.5" r=".4"/><circle cx="7.5" cy="6.5" r=".4"/><circle cx="7.5" cy="7.5" r=".4"/><circle cx="7.5" cy="8.5" r=".4"/><circle cx="8.5" cy="3.5" r=".4"/><circle cx="8.5" cy="4.5" r=".4"/><circle cx="8.5" cy="5.5" r=".4"/><circle cx="8.5" cy="6.5" r=".4"/><circle cx="8.5" cy="7.5" r=".4"/><circle cx="9.5" cy="4.5" r=".4"/><circle cx="9.5" cy="5.5" r=".4"/><circle cx="9.5" cy="6.5" r=".4"/><circle cx="10.5" cy="5.5" r=".4"/></svg></a>
+    <h2 class="tab__h">The approach in practice</h2>
+    <a class="dx-more__card" href="#writers"><span class="dx-more__pic"><img src="assets/cover-writers.jpg?v=2" width="580" height="355" alt="" loading="lazy"></span><span class="dx-more__txt"><span class="dx-more__t">Choosing a writer: +14% in an A/B test</span><span class="dx-more__s">Freelance marketplace for student writing&nbsp;&#183;&nbsp;NDA</span></span></a>
   </div>
 </div>
 <a class="totop" href="#dx-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 10l6-6.2M18 10l-6-6.2M12 3.8V19" stroke="currentColor" stroke-width="1.5"/></svg></a>
