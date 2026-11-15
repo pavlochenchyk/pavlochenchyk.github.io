@@ -445,9 +445,21 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .dx-qd p{margin:0}
 .dx-qd__t{font-size:28px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px!important}
 .dx-qd__d{font-size:15px;line-height:1.45;color:var(--ink-2);max-width:300px}
-.dx-more{display:flex;flex-direction:column;gap:10px}
-.dx-more__link{font-size:22px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--tint-12);align-self:flex-start;padding-bottom:4px;transition:border-color .2s}
-.dx-more__link:hover{border-color:var(--ink)}
+.dx-more__card{display:flex;align-items:stretch;gap:32px;background:var(--panel);border-radius:24px;padding:12px 12px 12px 36px;color:var(--ink);text-decoration:none;transition:background-color .45s}
+.dx-more__txt{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:24px 0}
+.dx-more__k{font-size:14px;color:var(--muted);margin-bottom:12px}
+.dx-more__t{font-size:26px;line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
+.dx-more__s{font-size:15px;color:var(--ink-2);margin-top:8px}
+.dx-more__go{width:44px;height:44px;margin-top:28px;border-radius:50%;border:1px solid var(--tint-12);display:grid;place-items:center;transition:background-color .25s,border-color .25s,color .25s}
+.dx-more__go svg{width:20px;height:20px;transition:transform .3s cubic-bezier(.22,.61,.36,1)}
+.dx-more__pic{flex:none;width:340px;border-radius:16px;overflow:hidden;isolation:isolate}
+.dx-more__pic img{display:block;width:100%;height:100%;min-height:208px;object-fit:cover;object-position:0 30%;transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+.dx-more__card:hover .dx-more__go{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.dx-more__card:hover .dx-more__go svg{transform:translateX(2px)}
+.dx-more__card:hover .dx-more__pic img{transform:scale(1.04)}
+.dx-more__card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.dx-more__pic img,.dx-more__go svg{transition:none}}
+@media (max-width:700px){.dx-more__card{flex-direction:column-reverse;gap:0;padding:12px}.dx-more__txt{padding:20px 12px 12px}.dx-more__pic{width:auto}.dx-more__t{font-size:22px}.dx-more__go{margin-top:20px}}
 @media (max-width:600px){.dx-qd ul{grid-template-columns:minmax(0,1fr)}.dx-qd li{padding:22px 22px 120px;min-height:0}.dx-qd__t{font-size:23px}.dx-qd li>p{max-width:none}.dx-qd__p{width:130px;height:130px}}
 /* ---------- case study: student writing freelance marketplace (NDA) ---------- */
 .wr{--green:#2FBF8A;--drop:#FF7A2F}
@@ -1256,8 +1268,7 @@ layout();})();</script></section>
 
   <hr class="rule">
   <div class="tab__section dx-more">
-    <p class="wr-note" style="margin:0">The approach in practice</p>
-    <a class="dx-more__link" href="#writers">Choosing a writer: +14% in an A/B test <span aria-hidden="true">&#8594;</span></a>
+    <a class="dx-more__card" href="#writers"><span class="dx-more__txt"><span class="dx-more__k">The approach in practice</span><span class="dx-more__t">Choosing a writer: +14% in an A/B test</span><span class="dx-more__s">Freelance marketplace for student writing &#183; NDA</span><span class="dx-more__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6.5l5.5 5.5-5.5 5.5" stroke="currentColor" stroke-width="1.5"/></svg></span></span><span class="dx-more__pic"><img src="assets/cover-writers.jpg?v=2" width="580" height="355" alt="" loading="lazy"></span></a>
   </div>
 </div>
 <a class="totop" href="#dx-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 10l6-6.2M18 10l-6-6.2M12 3.8V19" stroke="currentColor" stroke-width="1.5"/></svg></a>
