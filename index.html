@@ -442,6 +442,9 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .dx-qd__p{position:absolute;right:0;bottom:0;width:180px;height:180px;fill:var(--dot);opacity:.7}
 .dx-qd--o{--tb:#FAE4D1;--dot:#E5824C}.dx-qd--g{--tb:#E3EAFB;--dot:#4F7BE0}.dx-qd--v{--tb:#E8E2F4;--dot:#8A6BD6}.dx-qd--m{--tb:#E2F0DC;--dot:#3F7E5E}
 
+.dx-qd li::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(75% 95% at 100% 100%,color-mix(in srgb,var(--dot) var(--qg,16%),transparent),transparent 72%)}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .dx-qd,:root[data-site-theme="dark"] .dx-qd{--qg:24%}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .dx-qd{--qg:24%}}
 .dx-qd p{margin:0}
 .dx-qd__t{font-size:28px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px!important}
 .dx-qd__d{font-size:15px;line-height:1.45;color:var(--ink-2);max-width:300px}
