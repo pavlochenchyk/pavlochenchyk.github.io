@@ -443,6 +443,18 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .dx-qd--o{--tb:#FAE4D1;--dot:#E5824C}.dx-qd--g{--tb:#E3EAFB;--dot:#4F7BE0}.dx-qd--v{--tb:#E8E2F4;--dot:#8A6BD6}.dx-qd--m{--tb:#E2F0DC;--dot:#3F7E5E}
 
 .dx-qd p{margin:0}
+/* responsibility illustrations: dot wave on reveal, meaning on hover */
+.qd-arm .dx-qd__p circle{opacity:0}
+.qd-arm li.qd-on .dx-qd__p circle{animation:qdDot .55s cubic-bezier(.22,.61,.36,1) var(--d,0ms) both;transform-box:fill-box;transform-origin:center}
+.qd-arm li.qd-done .dx-qd__p circle{animation:none;opacity:1}
+@keyframes qdDot{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
+.dx-qd--v .dx-qd__p{transform-origin:54% 54%}
+@media (hover:hover){
+  .qd-arm .dx-qd--v.qd-done:hover .dx-qd__p{animation:qdBlink .42s cubic-bezier(.45,0,.55,1) .05s}
+  .qd-arm .dx-qd--o.qd-done:hover .dx-qd__p circle{animation:qdFlow .45s cubic-bezier(.45,0,.55,1) var(--x,0ms);transform-box:fill-box;transform-origin:center}
+}
+@keyframes qdBlink{0%,100%{transform:scaleY(1)}45%,55%{transform:scaleY(.08)}}
+@keyframes qdFlow{0%,100%{opacity:1;transform:none}40%{opacity:.25;transform:translateX(3px) scale(.75)}}
 .dx-qd__t{font-size:28px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px!important}
 .dx-qd__d{font-size:15px;line-height:1.45;color:var(--ink-2);max-width:300px}
 .dx-more__card{display:flex;align-items:center;gap:24px;width:50%;min-width:520px;background:var(--panel);border-radius:24px;padding:10px;color:var(--ink);text-decoration:none;box-shadow:0 0 0 rgba(23,23,27,0);transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s,background-color .45s}
@@ -2016,6 +2028,30 @@ layout();})();</script></section>
   }
   function enter(z){ if(still) return; z.classList.add('is-float'); aim(z); }
   function leave(z){ if(still) return; var o=S(z); o.tx=o.ty=0; o.ts=1; z.classList.remove('is-float'); kick(z); }
+})();
+</script>
+<script>
+// responsibility illustrations: dot wave on reveal
+(function(){
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var box=document.querySelector('.dx-qd'); if(!box) return;
+  var lis=[].slice.call(box.querySelectorAll('li'));
+  lis.forEach(function(li){
+    var cs=li.querySelectorAll('.dx-qd__p circle'), n=cs.length, last=null, max=0;
+    [].forEach.call(cs,function(c){
+      var x=+c.getAttribute('cx'), y=+c.getAttribute('cy'), d=Math.hypot(165-x,165-y)/233*650;
+      c.style.setProperty('--d',Math.round(d)+'ms'); c.style.setProperty('--x',Math.round(x/165*600)+'ms');
+      if(d>=max){ max=d; last=c; }
+    });
+    if(last) last.addEventListener('animationend',function f(e){ if(e.animationName!=='qdDot') return; li.classList.add('qd-done'); last.removeEventListener('animationend',f); });
+  });
+  box.classList.add('qd-arm');
+  var io=new IntersectionObserver(function(es){
+    if(!es.some(function(e){ return e.isIntersecting; })) return;
+    io.disconnect();
+    lis.forEach(function(li,i){ setTimeout(function(){ li.classList.add('qd-on'); },350+i*150); });
+  },{rootMargin:'0px 0px -8% 0px'});
+  io.observe(box);
 })();
 </script>
 </body>
