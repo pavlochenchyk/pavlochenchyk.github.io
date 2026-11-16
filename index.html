@@ -726,6 +726,35 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 @media (max-width:520px){.meta{grid-template-columns:1fr}.persona__head{grid-template-columns:1fr}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.view[hidden]{display:none!important}</style><script>try{var __t=localStorage.getItem("site-theme");if(__t)document.documentElement.setAttribute("data-site-theme",__t);}catch(e){}</script>
 
+<script>
+/* GoatCounter: privacy-friendly visit counter, no cookies. Counts views per section; only on the live domain. */
+(function(){
+  var CODE='pavlochenchyk';
+  var live=location.hostname==='pavlochenchyk.github.io';
+  var q=[], ref=null;
+  try{ ref=new URLSearchParams(location.search).get('ref'); }catch(e){}
+  window.goatcounter={no_onload:true};
+  window.pcTrack=function(o){ if(!live) return; q.push(o); flush(); };
+  function flush(){ var gc=window.goatcounter; if(!gc||!gc.count) return; while(q.length) gc.count(q.shift()); }
+  window.pcTrackView=function(view,first){
+    var o={path:location.pathname+(view==='home'?'':'#'+view),title:view};
+    if(first&&ref) o.referrer=ref;
+    window.pcTrack(o);
+  };
+  if(live){
+    var s=document.createElement('script'); s.async=true; s.src='//gc.zgo.at/count.js';
+    s.setAttribute('data-goatcounter','https://'+CODE+'.goatcounter.com/count');
+    s.onload=flush; document.head.appendChild(s);
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a'); if(!a) return;
+    var h=a.getAttribute('href')||'';
+    if(/Pavlo_Chenchyk_CV/.test(h)) window.pcTrack({path:'cv-download',title:'Download CV',event:true});
+    else if(/linkedin\.com/.test(h)) window.pcTrack({path:'click-linkedin',title:'LinkedIn',event:true});
+    else if(/^mailto:/.test(h)) window.pcTrack({path:'click-email',title:'Email',event:true});
+  },true);
+})();
+</script>
 </head>
 <body>
 <section class="view home" id="view-home">
@@ -1403,6 +1432,7 @@ layout();})();</script></section>
   }
   function render(r){
     var changed=r.view!==current;
+    if(changed&&window.pcTrackView) window.pcTrackView(r.view,current===null);
     all.forEach(function(v){v.hidden=v.id!==views[r.view];});
     current=r.view;
     if(r.anchor){var el=document.getElementById(r.anchor);if(el){el.scrollIntoView({block:'start',behavior:reduce?'auto':'smooth'});}}
