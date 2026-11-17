@@ -44,6 +44,72 @@
 .dx-ov__b::before{content:"";position:absolute;left:5px;top:2px;width:2px;height:20px;border-radius:2px;background:#7A4AA0;transform:rotate(22deg)}
 :root[data-theme="dark"]:not([data-site-theme="light"]) .dx-ov__b::before,:root[data-site-theme="dark"] .dx-ov__b::before{background:#C79BDF}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .dx-ov__b::before{background:#C79BDF}}
+
+/* ---------- Readberry case: split story (sticky floating phone + steps) ---------- */
+.rb-tagline{margin:0;font-size:18px;color:var(--muted)}
+.rb-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 72px;margin-top:100px}
+.rb-stage{position:relative}
+.rb-stage__card{--c1:#f6b2d8;--c2:#b9a8ff;--c3:#ffe3a3;--c4:#8f7bff;--c5:#ffd0e6;position:sticky;top:80px;height:calc(100vh - 120px);min-height:560px;max-height:900px;border-radius:36px;overflow:hidden;background:#f3ebe1;isolation:isolate;display:grid;place-items:center;perspective:1400px}
+.rb-stage__card[data-tone="lilac"]{--c1:#cfc5ff;--c2:#f4d6ff;--c3:#ffe9c7;--c4:#9d8cff;--c5:#e3dcff}
+.rb-stage__card[data-tone="indigo"]{--c1:#6a54ff;--c2:#9fd2ff;--c3:#c9b8ff;--c4:#4a28e6;--c5:#ffc6e4}
+.rb-stage__card[data-tone="sun"]{--c1:#ffe08a;--c2:#ffb3a1;--c3:#c4b5ff;--c4:#ffcf5c;--c5:#fff1c4}
+.rb-stage__card[data-tone="mint"]{--c1:#9ee6b0;--c2:#c8f0ff;--c3:#d6ccff;--c4:#57c98a;--c5:#fff3b8}
+.rb-blobs{position:absolute;inset:-12%;z-index:-1;filter:blur(56px) saturate(1.15)}
+.rb-blobs i{position:absolute;width:58%;aspect-ratio:1;border-radius:50%;left:21%;top:21%;opacity:.85;transition:background-color 1.4s ease;will-change:transform}
+.rb-blobs i:nth-child(1){background:var(--c1)}
+.rb-blobs i:nth-child(2){background:var(--c2)}
+.rb-blobs i:nth-child(3){background:var(--c3)}
+.rb-blobs i:nth-child(4){background:var(--c4);opacity:.55;width:44%}
+.rb-blobs i:nth-child(5){background:var(--c5);width:40%}
+.rb-device{position:relative;height:min(78%,700px);aspect-ratio:390/852;transform-style:preserve-3d;will-change:transform}
+.rb-phone{position:absolute;inset:0;border-radius:15%/7%;padding:3.2%;background:linear-gradient(145deg,#2c2a33,#0d0c11 55%,#26242c);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14),inset 0 0 0 4px #000,0 2px 4px rgba(0,0,0,.18),0 30px 60px -18px rgba(40,22,110,.45),0 60px 120px -40px rgba(40,22,110,.35)}
+.rb-phone::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.16),rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(255,255,255,.07))}
+.rb-phone__screen{position:relative;width:100%;height:100%;border-radius:12.5%/5.9%;overflow:hidden;background:#f1e6d7}
+.rb-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.025);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rb-shot.is-on{opacity:1;transform:none}
+.rb-floor{position:absolute;left:50%;bottom:6%;width:46%;height:5%;margin-left:-23%;border-radius:50%;background:rgba(36,20,90,.32);filter:blur(18px);z-index:-1;will-change:transform,opacity}
+.rb-stage__count{position:absolute;left:28px;bottom:22px;margin:0;font-size:14px;color:rgba(43,44,51,.6);font-variant-numeric:tabular-nums}
+.rb-stage__count b{font-weight:600;color:#2b2c33}
+.rb-steps{list-style:none;margin:0;padding:0 0 0 36px;position:relative}
+.rb-steps::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--tint-12)}
+.rb-step{min-height:72vh;display:flex;align-items:center;position:relative;opacity:.32;transition:opacity .5s ease}
+.rb-step.is-on{opacity:1}
+.rb-step::before{content:"";position:absolute;left:-40px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--muted);transition:background-color .4s,box-shadow .4s,transform .4s}
+.rb-step.is-on::before{background:#4a28e6;box-shadow:0 0 0 4px rgba(74,40,230,.18);transform:scale(1.15)}
+.rb-step:first-child{min-height:60vh}
+.rb-step:last-child{min-height:80vh}
+.rb-step__shot{display:none}
+.rb-step__k{display:flex;gap:12px;align-items:baseline;margin:0 0 14px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rb-step__k span{font-variant-numeric:tabular-nums;color:#4a28e6;letter-spacing:0}
+.rb-step__t{margin:0 0 16px;font-size:30px;line-height:1.25;font-weight:500;letter-spacing:-.01em;color:var(--ink);max-width:520px}
+.rb-step__d{margin:0;font-size:18px;line-height:1.6;color:var(--ink-2);max-width:520px}
+.rb-step__notes{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.rb-step__notes li{font-size:14px;line-height:1;padding:9px 12px;border-radius:999px;background:var(--tint-12);color:var(--ink-2)}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-stage__card,:root[data-site-theme="dark"] .rb-stage__card{background:#1d1926}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-blobs,:root[data-site-theme="dark"] .rb-blobs{opacity:.55}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-stage__count,:root[data-site-theme="dark"] .rb-stage__count{color:rgba(255,255,255,.55)}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-stage__count b,:root[data-site-theme="dark"] .rb-stage__count b{color:#fff}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-step.is-on::before,:root[data-site-theme="dark"] .rb-step.is-on::before{background:#a99bf2;box-shadow:0 0 0 4px rgba(169,155,242,.2)}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-step__k span,:root[data-site-theme="dark"] .rb-step__k span{color:#a99bf2}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-stage__card{background:#1d1926}
+  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-blobs{opacity:.55}
+  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-stage__count{color:rgba(255,255,255,.55)}
+  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-stage__count b{color:#fff}
+  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-step.is-on::before{background:#a99bf2;box-shadow:0 0 0 4px rgba(169,155,242,.2)}
+  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-step__k span{color:#a99bf2}
+}
+@media (max-width:900px){
+  .rb-story{grid-template-columns:1fr;margin-top:60px}
+  .rb-stage{display:none}
+  .rb-steps{padding:0}
+  .rb-steps::before,.rb-step::before{display:none}
+  .rb-step,.rb-step:first-child,.rb-step:last-child{min-height:0;opacity:1;display:block;padding:0 0 64px}
+  .rb-step__shot{display:grid;place-items:center;padding:36px 0;margin:0 0 28px;border-radius:28px;background:radial-gradient(60% 50% at 30% 30%,#f6b2d8,transparent),radial-gradient(60% 60% at 75% 70%,#b9a8ff,transparent),#f3ebe1}
+  .rb-step__shot img{width:min(62%,260px);height:auto;border-radius:30px;box-shadow:0 0 0 6px #111,0 24px 50px -16px rgba(40,22,110,.45)}
+  .rb-step__t{font-size:24px}
+  .rb-step__d{font-size:16px}
+}
 </style>
 <title>Pavlo Chenchyk — Head of Design · Design Lead</title><link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png"><link rel="icon" href="assets/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><meta name="description" content="Pavlo Chenchyk — Head of Design and Design Lead with 10+ years in product design. Former Chief Design Officer who grew a design and research team from 2 to 17 people."><meta property="og:type" content="website"><meta property="og:url" content="https://pavlochenchyk.github.io/"><meta property="og:title" content="Pavlo Chenchyk — Head of Design · Design Lead"><meta property="og:description" content="Pavlo Chenchyk — Head of Design and Design Lead with 10+ years in product design. Former Chief Design Officer who grew a design and research team from 2 to 17 people."><meta property="og:image" content="https://pavlochenchyk.github.io/assets/og-image.jpg?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,700;1,400&display=swap"><style>
 /* Layout: inner pages = grey canvas with a fixed white column on the right (Tilda "Pavel Chen" portfolio); home = 50/50 split. */
@@ -1331,6 +1397,43 @@ layout();})();</script></section>
   </div>
 </div>
 <a class="totop" href="#dx-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 10l6-6.2M18 10l-6-6.2M12 3.8V19" stroke="currentColor" stroke-width="1.5"/></svg></a>
+</section><section class="view" id="view-readberry" hidden>
+<div class="case rb" id="rb-top">
+  <a class="back" href="#projects"><svg viewBox="0 0 81 12" fill="none" aria-hidden="true"><path d="M1 6h80M1 6l5.984-5M1 6l5.984 5" stroke="currentColor"/></svg>projects</a><a class="back back--next" href="#develux">next case<svg viewBox="0 0 81 12" fill="none" aria-hidden="true"><path d="M0 6h80M80 6l-5.984-5M80 6l-5.984 5" stroke="currentColor"/></svg></a>
+  <div class="wr-head"><p class="wr-head__name">Readberry</p><p class="rb-tagline">Listen to what you need to read, and remember it</p></div>
+  <dl class="meta">
+    <div><dt>Role</dt><dd>Founder, product designer</dd></div>
+    <div><dt>Platform</dt><dd>iOS</dd></div>
+    <div><dt>Period of time</dt><dd>Mar &#8211; Nov 2026</dd></div>
+  </dl>
+  <div class="rb-story">
+    <div class="rb-stage" aria-hidden="true">
+      <div class="rb-stage__card" data-tone="pink">
+        <div class="rb-blobs"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="rb-device"><div class="rb-phone"><div class="rb-phone__screen"><img class="rb-shot is-on" src="assets/rb/s00.webp" width="390" height="852" alt="Readberry screen: A calm splash, then straight to the streak"><img class="rb-shot" src="assets/rb/s02.webp" width="390" height="852" alt="Readberry screen: The streak shows how close the next reward is"><img class="rb-shot" src="assets/rb/s03.webp" width="390" height="852" alt="Readberry screen: Library: everything you need to get through" loading="lazy"><img class="rb-shot" src="assets/rb/s04.webp" width="390" height="852" alt="Readberry screen: Upload from wherever the text lives" loading="lazy"><img class="rb-shot" src="assets/rb/s05.webp" width="390" height="852" alt="Readberry screen: Pick only the pages you need" loading="lazy"><img class="rb-shot" src="assets/rb/s06.webp" width="390" height="852" alt="Readberry screen: Smart Cleanup or Keep Original" loading="lazy"><img class="rb-shot" src="assets/rb/s07.webp" width="390" height="852" alt="Readberry screen: Processing takes minutes, so people can leave" loading="lazy"><img class="rb-shot" src="assets/rb/s08.webp" width="390" height="852" alt="Readberry screen: The file appears in the library while it’s processed" loading="lazy"><img class="rb-shot" src="assets/rb/s09.webp" width="390" height="852" alt="Readberry screen: Text split into chapters and quizzes" loading="lazy"><img class="rb-shot" src="assets/rb/s10.webp" width="390" height="852" alt="Readberry screen: Focus line: one sentence at a time" loading="lazy"><img class="rb-shot" src="assets/rb/s11.webp" width="390" height="852" alt="Readberry screen: Settings without leaving the player" loading="lazy"><img class="rb-shot" src="assets/rb/s12.webp" width="390" height="852" alt="Readberry screen: Quizzes interrupt listening every 3–5 minutes" loading="lazy"><img class="rb-shot" src="assets/rb/s13.webp" width="390" height="852" alt="Readberry screen: A question about what you just heard" loading="lazy"><img class="rb-shot" src="assets/rb/s14.webp" width="390" height="852" alt="Readberry screen: Instant feedback, then back to listening" loading="lazy"><img class="rb-shot" src="assets/rb/s15.webp" width="390" height="852" alt="Readberry screen: Chapter complete: a reward for finishing" loading="lazy"></div></div></div>
+        <div class="rb-floor"></div>
+        <p class="rb-stage__count"><b>01</b> / 15</p>
+      </div>
+    </div>
+    <ol class="rb-steps">
+      <li class="rb-step" data-shot="0" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s00.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>01</span>Return</p><h3 class="rb-step__t">A calm splash, then straight to the streak</h3><p class="rb-step__d">Draft: why the app opens on the streak and not on the library. Replace with your notes.</p></div></li>
+      <li class="rb-step" data-shot="1" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s02.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>02</span>Return</p><h3 class="rb-step__t">The streak shows how close the next reward is</h3><p class="rb-step__d">Draft: “2 more days to unlock a super flame” gives a near goal instead of a bare counter.</p><ul class="rb-step__notes"><li>State: streak saved today</li><li>State: streak at risk</li></ul></div></li>
+      <li class="rb-step" data-shot="2" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s03.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>03</span>Library</p><h3 class="rb-step__t">Library: everything you need to get through</h3><p class="rb-step__d">Draft: progress, chapters and a star score on each material; the last listened item is pinned to the bottom bar.</p><ul class="rb-step__notes"><li>Empty library</li><li>Search, no matches</li></ul></div></li>
+      <li class="rb-step" data-shot="3" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s04.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>04</span>Upload</p><h3 class="rb-step__t">Upload from wherever the text lives</h3><p class="rb-step__d">Draft: camera scan, gallery, pasted text and PDF in one sheet; web URLs are marked “soon”.</p></div></li>
+      <li class="rb-step" data-shot="4" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s05.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>05</span>Upload</p><h3 class="rb-step__t">Pick only the pages you need</h3><p class="rb-step__d">Draft: course packs are hundreds of pages; ranges, pages or all.</p></div></li>
+      <li class="rb-step" data-shot="5" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s06.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>06</span>Upload</p><h3 class="rb-step__t">Smart Cleanup or Keep Original</h3><p class="rb-step__d">Draft: cleanup removes headers, footnotes and page numbers so they aren’t read aloud; the original stays available.</p></div></li>
+      <li class="rb-step" data-shot="6" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s07.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>07</span>Upload</p><h3 class="rb-step__t">Processing takes minutes, so people can leave</h3><p class="rb-step__d">Draft: an honest 2–4 minute estimate and “Notify me” instead of a spinner.</p></div></li>
+      <li class="rb-step" data-shot="7" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s08.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>08</span>Upload</p><h3 class="rb-step__t">The file appears in the library while it’s processed</h3><p class="rb-step__d">Draft: a placeholder row with a loader keeps context.</p></div></li>
+      <li class="rb-step" data-shot="8" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s09.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>09</span>Structure</p><h3 class="rb-step__t">Text split into chapters and quizzes</h3><p class="rb-step__d">Draft: long material becomes short parts with time and progress, so a session has a clear end.</p></div></li>
+      <li class="rb-step" data-shot="9" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s10.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>10</span>Listen</p><h3 class="rb-step__t">Focus line: one sentence at a time</h3><p class="rb-step__d">Draft: word-by-word highlight for readers with ADHD and dyslexia; the rest of the page fades out.</p><ul class="rb-step__notes"><li>Full text mode</li><li>Highlight styles</li></ul></div></li>
+      <li class="rb-step" data-shot="10" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s11.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>11</span>Listen</p><h3 class="rb-step__t">Settings without leaving the player</h3><p class="rb-step__d">Draft: voice, quiz frequency, text mode, font size, highlight style and theme.</p></div></li>
+      <li class="rb-step" data-shot="11" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s12.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>12</span>Listen</p><h3 class="rb-step__t">Quizzes interrupt listening every 3–5 minutes</h3><p class="rb-step__d">Draft: why short checks beat a test at the end (testing effect, active recall).</p></div></li>
+      <li class="rb-step" data-shot="12" data-tone="mint"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s13.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>13</span>Remember</p><h3 class="rb-step__t">A question about what you just heard</h3><p class="rb-step__d">Draft: four options, large tap targets, skip is always available.</p><ul class="rb-step__notes"><li>Long question and answers</li></ul></div></li>
+      <li class="rb-step" data-shot="13" data-tone="mint"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s14.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>14</span>Remember</p><h3 class="rb-step__t">Instant feedback, then back to listening</h3><p class="rb-step__d">Draft: “Keep reading” is the main action, so the quiz doesn’t break the flow.</p><ul class="rb-step__notes"><li>Wrong answer: show the right one and the source</li></ul></div></li>
+      <li class="rb-step" data-shot="14" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s15.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>15</span>Remember</p><h3 class="rb-step__t">Chapter complete: a reward for finishing</h3><p class="rb-step__d">Draft: score, time listened and quizzes answered; the star animation plays once.</p></div></li>
+    </ol>
+  </div>
+</div>
 </section><section class="view" id="view-writers" hidden>
 <div class="case tab wr" id="wr-top">
   <a class="back" href="#projects"><svg viewBox="0 0 81 12" fill="none" aria-hidden="true"><path d="M1 6h80M1 6l5.984-5M1 6l5.984 5" stroke="currentColor"/></svg>projects</a><a class="back back--next" href="#rocken">next case<svg viewBox="0 0 81 12" fill="none" aria-hidden="true"><path d="M0 6h80M80 6l-5.984-5M80 6l-5.984 5" stroke="currentColor"/></svg></a>
@@ -1415,7 +1518,7 @@ layout();})();</script></section>
 <a class="totop" href="#wr-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 10l6-6.2M18 10l-6-6.2M12 3.8V19" stroke="currentColor" stroke-width="1.5"/></svg></a>
 </section><div class="lightbox" id="lightbox" role="dialog" aria-label="Zoomed picture"><button class="lightbox__close" type="button" aria-label="Close">&times;</button><img src="" alt=""></div><button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 13 13" aria-hidden="true"><circle cx="3.5" cy="1.5" r=".4"/><circle cx="4.5" cy="1.5" r=".4"/><circle cx="2.5" cy="2.5" r=".4"/><circle cx="3.5" cy="2.5" r=".4"/><circle cx="1.5" cy="3.5" r=".4"/><circle cx="2.5" cy="3.5" r=".4"/><circle cx="3.5" cy="3.5" r=".4"/><circle cx="1.5" cy="4.5" r=".4"/><circle cx="2.5" cy="4.5" r=".4"/><circle cx="3.5" cy="4.5" r=".4"/><circle cx="0.5" cy="5.5" r=".4"/><circle cx="1.5" cy="5.5" r=".4"/><circle cx="2.5" cy="5.5" r=".4"/><circle cx="3.5" cy="5.5" r=".4"/><circle cx="0.5" cy="6.5" r=".4"/><circle cx="1.5" cy="6.5" r=".4"/><circle cx="2.5" cy="6.5" r=".4"/><circle cx="3.5" cy="6.5" r=".4"/><circle cx="4.5" cy="6.5" r=".4"/><circle cx="0.5" cy="7.5" r=".4"/><circle cx="1.5" cy="7.5" r=".4"/><circle cx="2.5" cy="7.5" r=".4"/><circle cx="3.5" cy="7.5" r=".4"/><circle cx="4.5" cy="7.5" r=".4"/><circle cx="1.5" cy="8.5" r=".4"/><circle cx="2.5" cy="8.5" r=".4"/><circle cx="3.5" cy="8.5" r=".4"/><circle cx="4.5" cy="8.5" r=".4"/><circle cx="5.5" cy="8.5" r=".4"/><circle cx="6.5" cy="8.5" r=".4"/><circle cx="11.5" cy="8.5" r=".4"/><circle cx="1.5" cy="9.5" r=".4"/><circle cx="2.5" cy="9.5" r=".4"/><circle cx="3.5" cy="9.5" r=".4"/><circle cx="4.5" cy="9.5" r=".4"/><circle cx="5.5" cy="9.5" r=".4"/><circle cx="6.5" cy="9.5" r=".4"/><circle cx="7.5" cy="9.5" r=".4"/><circle cx="8.5" cy="9.5" r=".4"/><circle cx="9.5" cy="9.5" r=".4"/><circle cx="10.5" cy="9.5" r=".4"/><circle cx="11.5" cy="9.5" r=".4"/><circle cx="2.5" cy="10.5" r=".4"/><circle cx="3.5" cy="10.5" r=".4"/><circle cx="4.5" cy="10.5" r=".4"/><circle cx="5.5" cy="10.5" r=".4"/><circle cx="6.5" cy="10.5" r=".4"/><circle cx="7.5" cy="10.5" r=".4"/><circle cx="8.5" cy="10.5" r=".4"/><circle cx="9.5" cy="10.5" r=".4"/><circle cx="10.5" cy="10.5" r=".4"/><circle cx="3.5" cy="11.5" r=".4"/><circle cx="4.5" cy="11.5" r=".4"/><circle cx="5.5" cy="11.5" r=".4"/><circle cx="6.5" cy="11.5" r=".4"/><circle cx="7.5" cy="11.5" r=".4"/><circle cx="8.5" cy="11.5" r=".4"/><circle cx="9.5" cy="11.5" r=".4"/><circle cx="5.5" cy="12.5" r=".4"/><circle cx="6.5" cy="12.5" r=".4"/><circle cx="7.5" cy="12.5" r=".4"/></svg><svg class="i-sun" viewBox="0 0 9 9" aria-hidden="true"><circle cx="4.5" cy="0.5" r=".4"/><circle cx="1.5" cy="1.5" r=".4"/><circle cx="7.5" cy="1.5" r=".4"/><circle cx="3.5" cy="2.5" r=".4"/><circle cx="4.5" cy="2.5" r=".4"/><circle cx="5.5" cy="2.5" r=".4"/><circle cx="2.5" cy="3.5" r=".4"/><circle cx="3.5" cy="3.5" r=".4"/><circle cx="4.5" cy="3.5" r=".4"/><circle cx="5.5" cy="3.5" r=".4"/><circle cx="6.5" cy="3.5" r=".4"/><circle cx="0.5" cy="4.5" r=".4"/><circle cx="2.5" cy="4.5" r=".4"/><circle cx="3.5" cy="4.5" r=".4"/><circle cx="4.5" cy="4.5" r=".4"/><circle cx="5.5" cy="4.5" r=".4"/><circle cx="6.5" cy="4.5" r=".4"/><circle cx="8.5" cy="4.5" r=".4"/><circle cx="2.5" cy="5.5" r=".4"/><circle cx="3.5" cy="5.5" r=".4"/><circle cx="4.5" cy="5.5" r=".4"/><circle cx="5.5" cy="5.5" r=".4"/><circle cx="6.5" cy="5.5" r=".4"/><circle cx="3.5" cy="6.5" r=".4"/><circle cx="4.5" cy="6.5" r=".4"/><circle cx="5.5" cy="6.5" r=".4"/><circle cx="1.5" cy="7.5" r=".4"/><circle cx="7.5" cy="7.5" r=".4"/><circle cx="4.5" cy="8.5" r=".4"/></svg></button><script>
 (function(){
-  var views={home:'view-home',projects:'view-projects',about:'view-about',contact:'view-contact',rocken:'view-rocken',tabletki:'view-tabletki',writers:'view-writers',develux:'view-develux'};
+  var views={home:'view-home',projects:'view-projects',about:'view-about',contact:'view-contact',rocken:'view-rocken',tabletki:'view-tabletki',writers:'view-writers',develux:'view-develux',readberry:'view-readberry'};
   var all=document.querySelectorAll('.view');
   var current=null, busy=false, pending=null;
   var EASE='cubic-bezier(.65,0,.35,1)';
@@ -1428,6 +1531,7 @@ layout();})();</script></section>
     if(/^(rocken-|jobs-|talent-)/.test(h)) return {view:'rocken',anchor:h};
     if(/^(tabletki-|tab-)/.test(h)) return {view:'tabletki',anchor:h};
     if(/^wr-/.test(h)) return {view:'writers',anchor:h};
+    if(/^rb-/.test(h)) return {view:'readberry',anchor:h};
     if(/^dx-/.test(h)) return {view:'develux',anchor:h};
     return {view:'home',anchor:null};
   }
@@ -2086,6 +2190,51 @@ layout();})();</script></section>
     lis.forEach(function(li,i){ setTimeout(function(){ li.classList.add('qd-on'); },350+i*150); });
   },{rootMargin:'0px 0px -8% 0px'});
   io.observe(box);
+})();
+</script>
+<script>
+// Readberry case: sticky floating phone, steps switch screens, soft gradient blobs that speed up while scrolling
+(function(){
+  var view=document.getElementById('view-readberry'); if(!view) return;
+  var card=view.querySelector('.rb-stage__card'), dev=view.querySelector('.rb-device'), floor=view.querySelector('.rb-floor');
+  var shots=[].slice.call(view.querySelectorAll('.rb-shot')), steps=[].slice.call(view.querySelectorAll('.rb-step'));
+  var blobs=[].slice.call(view.querySelectorAll('.rb-blobs i')), cnt=view.querySelector('.rb-stage__count b');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur=-1;
+  function setStep(i){
+    if(i===cur) return; cur=i;
+    steps.forEach(function(s,k){ s.classList.toggle('is-on',k===i); });
+    shots.forEach(function(im,k){ im.classList.toggle('is-on',k===i); if(Math.abs(k-i)<=2) im.loading='eager'; });
+    card.setAttribute('data-tone',steps[i].getAttribute('data-tone'));
+    if(cnt) cnt.textContent=(i<9?'0':'')+(i+1);
+  }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) setStep(steps.indexOf(e.target)); }); },{rootMargin:'-48% 0px -48% 0px'});
+  steps.forEach(function(s){ io.observe(s); });
+  setStep(0);
+  if(reduce) return;
+  // motion loop: runs only while the stage is on screen
+  var P=[[.18,.22,.13,.31,0],[.24,.17,.09,.23,1.7],[.15,.26,.11,.19,3.1],[.21,.2,.15,.27,4.4],[.26,.14,.07,.21,5.6]];
+  var t=0,last=0,boost=0,vy=0,lastY=scrollY,lastT=performance.now(),run=false,raf=0,px=0,py=0,tx=0,ty=0;
+  window.addEventListener('scroll',function(){ var n=performance.now(),dy=scrollY-lastY,dt=Math.max(16,n-lastT); vy=dy/dt; boost=Math.min(7,boost+Math.abs(vy)*2.2); lastY=scrollY; lastT=n; },{passive:true});
+  card.addEventListener('pointermove',function(e){ var r=card.getBoundingClientRect(); tx=((e.clientX-r.left)/r.width-.5); ty=((e.clientY-r.top)/r.height-.5); });
+  card.addEventListener('pointerleave',function(){ tx=0; ty=0; });
+  function frame(n){
+    var dt=last?Math.min(50,n-last):16; last=n;
+    boost*=Math.pow(.94,dt/16); vy*=Math.pow(.9,dt/16);
+    t+=dt/1000*(1+boost);
+    for(var i=0;i<blobs.length;i++){ var p=P[i];
+      var x=Math.sin(t*p[2]*2+p[4])*p[0]*100, y=Math.cos(t*p[3]*2+p[4]*1.3)*p[1]*100, sc=1+Math.sin(t*.35+p[4])*.12;
+      blobs[i].style.transform='translate('+x.toFixed(2)+'%,'+y.toFixed(2)+'%) scale('+sc.toFixed(3)+')'; }
+    px+=(tx-px)*.06; py+=(ty-py)*.06;
+    var f=Math.sin(n/1000*1.1)*10, tilt=Math.max(-6,Math.min(6,vy*3));
+    dev.style.transform='translateY('+(f-8).toFixed(2)+'px) rotateX('+(5-py*8+tilt).toFixed(2)+'deg) rotateY('+(-5+px*12).toFixed(2)+'deg) rotateZ('+(Math.sin(n/1000*.7)*.6).toFixed(2)+'deg)';
+    floor.style.transform='scale('+(1-(f+10)/90).toFixed(3)+')'; floor.style.opacity=(.9-(f+10)/60).toFixed(3);
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){ if(!run){ run=true; last=0; raf=requestAnimationFrame(frame); } }
+  function stop(){ run=false; cancelAnimationFrame(raf); }
+  new IntersectionObserver(function(es){ (es[0].isIntersecting?start:stop)(); }).observe(card);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else { var r=card.getBoundingClientRect(); if(r.bottom>0&&r.top<innerHeight) start(); } });
 })();
 </script>
 </body>
