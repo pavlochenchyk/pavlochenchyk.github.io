@@ -46,7 +46,11 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .dx-ov__b::before{background:#C79BDF}}
 
 /* ---------- Readberry case ---------- */
-.case__logo--rb{width:260px}
+.case__logo--rb{width:300px}
+.rb-dk{display:none!important}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-lt,:root[data-site-theme="dark"] .rb-lt{display:none!important}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-dk,:root[data-site-theme="dark"] .rb-dk{display:block!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-lt{display:none!important}:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-dk{display:block!important}}
 .rb-reel{border-radius:24px;box-shadow:var(--img-shadow)}
 :root[data-theme="dark"]:not([data-site-theme="light"]) img[src$="readberry-wordmark.svg"],:root[data-site-theme="dark"] img[src$="readberry-wordmark.svg"]{filter:brightness(2.1) saturate(.75)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) img[src$="readberry-wordmark.svg"]{filter:brightness(2.1) saturate(.75)}}
@@ -195,7 +199,7 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .project__logo[src$="tabletki-logo.svg"]{height:109px}
 .project__logo[src$="epul-logo.svg"]{height:81px}
 .project__logo[src$="asalart-logo.png"]{height:40px}
-.project__logo[src$="readberry-wordmark.svg"]{height:30px}
+.project__logo[src*="readberry-lockup"]{height:35px}
 .project__brand{display:flex;align-items:flex-start;margin-bottom:28px}
 .project__brand .project__logo,.project__brand .project__nda{margin:0}
 /* top: logo + domain; bottom: role + year, quieter */
@@ -792,11 +796,11 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 </article>
 <article class="project">
   <div class="project__card">
-    <div class="project__brand"><img class="project__logo" src="assets/readberry-wordmark.svg" width="226" height="30" alt="Readberry"></div>
+    <div class="project__brand"><img class="project__logo rb-lt" src="assets/readberry-lockup.svg" width="214" height="35" alt="Readberry"><img class="project__logo rb-dk" src="assets/readberry-lockup-dark.svg" width="214" height="35" alt="Readberry"></div>
     <p class="project__domain">Audio reader with quizzes for people who have a lot to read</p>
     <div class="project__foot"><p class="project__role">Founder, product designer</p><p class="project__sub">2026 &#183; iOS</p></div>
   </div>
-  <div class="project__img"><img src="assets/cover-readberry.jpg?v=2" width="580" height="355" alt="Readberry — iOS audio reader with quizzes, product design case" loading="lazy"><span class="project__glass" aria-hidden="true"><span class="project__cta">View case<svg viewBox="0 0 16 16" width="14" height="14" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+  <div class="project__img"><img src="assets/cover-readberry.jpg?v=3" width="580" height="355" alt="Readberry — iOS audio reader with quizzes, product design case" loading="lazy"><span class="project__glass" aria-hidden="true"><span class="project__cta">View case<svg viewBox="0 0 16 16" width="14" height="14" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
   <a class="project__link" href="#readberry" aria-label="Readberry — iOS audio reader with quizzes, product design case"></a>
 </article>
 <article class="project">
@@ -1350,14 +1354,14 @@ layout();})();</script></section>
 </section><section class="view" id="view-readberry" hidden>
 <div class="case rb" id="rb-top">
   <a class="back" href="#projects"><svg viewBox="0 0 81 12" fill="none" aria-hidden="true"><path d="M1 6h80M1 6l5.984-5M1 6l5.984 5" stroke="currentColor"/></svg>projects</a><a class="back back--next" href="#develux">next case<svg viewBox="0 0 81 12" fill="none" aria-hidden="true"><path d="M0 6h80M80 6l-5.984-5M80 6l-5.984 5" stroke="currentColor"/></svg></a>
-  <div class="case__head"><img class="case__mark" src="assets/readberry-wordmark.svg" width="1100" height="146" alt="" aria-hidden="true"><img class="case__logo case__logo--rb" src="assets/readberry-wordmark.svg" width="260" height="35" alt="Readberry"></div>
+  <div class="case__head"><img class="case__mark" src="assets/readberry-wordmark.svg" width="1100" height="146" alt="" aria-hidden="true"><img class="case__logo case__logo--rb rb-lt" src="assets/readberry-lockup.svg" width="300" height="49" alt="Readberry"><img class="case__logo case__logo--rb rb-dk" src="assets/readberry-lockup-dark.svg" width="300" height="49" alt="Readberry"></div>
   <dl class="meta">
     <div><dt>Role</dt><dd>Founder, product designer</dd></div>
     <div><dt>Category</dt><dd>Productivity, learning</dd></div>
     <div><dt>Platform</dt><dd>iOS</dd></div>
     <div><dt>Period of time</dt><dd>Mar &#8211; Nov 2026</dd></div>
   </dl>
-  <div class="vid rb-reel"><video poster="assets/readberry-reel.jpg" width="1600" height="900" muted loop playsinline preload="none" aria-label="Readberry app walkthrough: streak, upload, read-along player and quizzes"><source src="assets/readberry-reel.mp4" type="video/mp4"></video><button type="button" class="vid__full" aria-label="Open video full screen"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+  <div class="vid rb-reel"><video poster="assets/readberry-reel.jpg?v=2" width="1600" height="900" muted loop playsinline preload="none" aria-label="Readberry app walkthrough: streak, upload, read-along player and quizzes"><source src="assets/readberry-reel.mp4?v=2" type="video/mp4"></video><button type="button" class="vid__full" aria-label="Open video full screen"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
 </div>
 </section><section class="view" id="view-writers" hidden>
 <div class="case tab wr" id="wr-top">
