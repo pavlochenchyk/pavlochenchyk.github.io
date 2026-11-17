@@ -47,9 +47,10 @@
 
 /* ---------- Readberry case: split story (sticky floating phone + steps) ---------- */
 .rb-tagline{margin:0;font-size:18px;color:var(--muted)}
-.rb-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 72px;margin-top:40px}
+.rb-story{position:relative;height:calc(var(--n,15) * 55vh + 100vh);margin-top:40px}
+.rb-pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 64px;align-items:center}
 .rb-stage{position:relative}
-.rb-stage__in{--c1:#f6b2d8;--c2:#b9a8ff;--c3:#ffe3a3;--c4:#8f7bff;--c5:#ffd0e6;position:sticky;top:0;height:100vh;min-height:620px;display:grid;place-items:center;isolation:isolate}
+.rb-stage__in{--c1:#f6b2d8;--c2:#b9a8ff;--c3:#ffe3a3;--c4:#8f7bff;--c5:#ffd0e6;position:relative;height:100vh;min-height:620px;display:grid;place-items:center;isolation:isolate}
 .rb-stage__in[data-tone="lilac"]{--c1:#cfc5ff;--c2:#f4d6ff;--c3:#ffe9c7;--c4:#9d8cff;--c5:#e3dcff}
 .rb-stage__in[data-tone="indigo"]{--c1:#6a54ff;--c2:#9fd2ff;--c3:#c9b8ff;--c4:#4a28e6;--c5:#ffc6e4}
 .rb-stage__in[data-tone="sun"]{--c1:#ffe08a;--c2:#ffb3a1;--c3:#c4b5ff;--c4:#ffcf5c;--c5:#fff1c4}
@@ -66,41 +67,54 @@
 .rb-stage__count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);margin:0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .rb-stage__count b{font-weight:600;color:var(--ink)}
 #view-readberry{overflow-x:clip}
-.rb-steps{list-style:none;margin:0;padding:0 0 0 36px;position:relative}
-.rb-steps::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--tint-12)}
-.rb-step{min-height:72vh;display:flex;align-items:center;position:relative;opacity:.32;transition:opacity .5s ease}
-.rb-step.is-on{opacity:1}
-.rb-step::before{content:"";position:absolute;left:-40px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--muted);transition:background-color .4s,box-shadow .4s,transform .4s}
+.rb-steps{list-style:none;margin:0;padding:0 0 0 36px;position:relative;align-self:center;max-height:calc(100vh - 80px);overflow:hidden}
+.rb-steps::before{content:"";position:absolute;left:4px;top:20px;bottom:20px;width:1px;background:var(--tint-12)}
+.rb-step{position:relative}
+.rb-step::before{content:"";position:absolute;left:-36px;top:15px;width:9px;height:9px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--muted);transition:background-color .35s,box-shadow .35s,transform .35s}
 .rb-step.is-on::before{background:#4a28e6;box-shadow:0 0 0 4px rgba(74,40,230,.18);transform:scale(1.15)}
-.rb-step:first-child{min-height:60vh}
-.rb-step:last-child{min-height:80vh}
 .rb-step__shot{display:none}
-.rb-step__k{display:flex;gap:12px;align-items:baseline;margin:0 0 14px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.rb-step__k span{font-variant-numeric:tabular-nums;color:#4a28e6;letter-spacing:0}
-.rb-step__t{margin:0 0 16px;font-size:30px;line-height:1.25;font-weight:500;letter-spacing:-.01em;color:var(--ink);max-width:520px}
-.rb-step__d{margin:0;font-size:18px;line-height:1.6;color:var(--ink-2);max-width:520px}
-.rb-step__notes{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.rb-step__h{margin:0;font:inherit}
+.rb-step__head{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:baseline;width:100%;padding:8px 0;border:0;background:none;text-align:left;font:inherit;cursor:pointer;color:var(--muted);transition:color .3s}
+.rb-step__head:hover{color:var(--ink)}
+.rb-step__head:focus-visible{outline:2px solid #4a28e6;outline-offset:2px;border-radius:6px}
+.rb-step__n{font-size:13px;font-variant-numeric:tabular-nums}
+.rb-step__t{font-size:17px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:font-size .35s ease}
+.rb-step__g{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.rb-step.is-on .rb-step__head{color:var(--ink)}
+.rb-step.is-on .rb-step__n{color:#4a28e6}
+.rb-step.is-on .rb-step__t{font-size:24px;white-space:normal;font-weight:500;letter-spacing:-.01em}
+.rb-step__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
+.rb-step.is-on .rb-step__panel{grid-template-rows:1fr}
+.rb-step__in{overflow:hidden;padding-left:40px}
+.rb-step__d{margin:4px 0 0;font-size:17px;line-height:1.6;color:var(--ink-2);max-width:520px;opacity:0;transition:opacity .3s}
+.rb-step.is-on .rb-step__d{opacity:1;transition-delay:.12s}
+.rb-step__notes{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .rb-step__notes li{font-size:14px;line-height:1;padding:9px 12px;border-radius:999px;background:var(--tint-12);color:var(--ink-2)}
-:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-glow,:root[data-site-theme="dark"] .rb-glow{opacity:.5}
-:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-device,:root[data-site-theme="dark"] .rb-device{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 30px 70px -20px rgba(0,0,0,.6)}
+.rb-step.is-on .rb-step__in{padding-bottom:18px}
 :root[data-theme="dark"]:not([data-site-theme="light"]) .rb-step.is-on::before,:root[data-site-theme="dark"] .rb-step.is-on::before{background:#a99bf2;box-shadow:0 0 0 4px rgba(169,155,242,.2)}
-:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-step__k span,:root[data-site-theme="dark"] .rb-step__k span{color:#a99bf2}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-step.is-on .rb-step__n,:root[data-site-theme="dark"] .rb-step.is-on .rb-step__n{color:#a99bf2}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-glow{opacity:.5}
   :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-device{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 30px 70px -20px rgba(0,0,0,.6)}
   :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-step.is-on::before{background:#a99bf2;box-shadow:0 0 0 4px rgba(169,155,242,.2)}
-  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-step__k span{color:#a99bf2}
+  :root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-step.is-on .rb-step__n{color:#a99bf2}
 }
 @media (max-width:900px){
-  .rb-story{grid-template-columns:1fr;margin-top:60px}
+  .rb-story{height:auto;margin-top:60px}
+  .rb-pin{position:static;height:auto;display:block}
   .rb-stage{display:none}
-  .rb-steps{padding:0}
+  .rb-steps{padding:0;max-height:none;overflow:visible}
   .rb-steps::before,.rb-step::before{display:none}
-  .rb-step,.rb-step:first-child,.rb-step:last-child{min-height:0;opacity:1;display:block;padding:0 0 64px}
-  .rb-step__shot{display:grid;place-items:center;padding:36px 0;margin:0 0 28px;border-radius:28px;background:radial-gradient(60% 50% at 30% 30%,#f6b2d8,transparent),radial-gradient(60% 60% at 75% 70%,#b9a8ff,transparent),#f3ebe1}
+  .rb-step{padding:0 0 56px}
+  .rb-step__shot{display:grid;place-items:center;padding:36px 0;margin:0 0 24px;border-radius:28px;background:radial-gradient(60% 50% at 30% 30%,#f6b2d8,transparent),radial-gradient(60% 60% at 75% 70%,#b9a8ff,transparent),#f3ebe1}
   .rb-step__shot img{width:min(62%,260px);height:auto;border-radius:30px;box-shadow:0 0 0 6px #111,0 24px 50px -16px rgba(40,22,110,.45)}
-  .rb-step__t{font-size:24px}
-  .rb-step__d{font-size:16px}
+  .rb-step__head{pointer-events:none;color:var(--ink);grid-template-columns:30px minmax(0,1fr)}
+  .rb-step__g{display:none}
+  .rb-step__t,.rb-step.is-on .rb-step__t{font-size:22px;white-space:normal;font-weight:500}
+  .rb-step__panel{grid-template-rows:1fr}
+  .rb-step__in{padding-left:40px}
+  .rb-step__d{opacity:1;font-size:16px}
+}
 }
 </style>
 <title>Pavlo Chenchyk — Head of Design · Design Lead</title><link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png"><link rel="icon" href="assets/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><meta name="description" content="Pavlo Chenchyk — Head of Design and Design Lead with 10+ years in product design. Former Chief Design Officer who grew a design and research team from 2 to 17 people."><meta property="og:type" content="website"><meta property="og:url" content="https://pavlochenchyk.github.io/"><meta property="og:title" content="Pavlo Chenchyk — Head of Design · Design Lead"><meta property="og:description" content="Pavlo Chenchyk — Head of Design and Design Lead with 10+ years in product design. Former Chief Design Officer who grew a design and research team from 2 to 17 people."><meta property="og:image" content="https://pavlochenchyk.github.io/assets/og-image.jpg?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,700;1,400&display=swap"><style>
@@ -1407,7 +1421,7 @@ layout();})();</script></section>
     <div><dt>Platform</dt><dd>iOS</dd></div>
     <div><dt>Period of time</dt><dd>Mar &#8211; Nov 2026</dd></div>
   </dl>
-  <div class="rb-story">
+  <div class="rb-story"><div class="rb-pin">
     <div class="rb-stage">
       <div class="rb-stage__in" data-tone="pink">
         <div class="rb-glow" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
@@ -1415,23 +1429,24 @@ layout();})();</script></section>
         <p class="rb-stage__count" aria-hidden="true"><b>01</b> / 15</p>
       </div>
     </div>
-    <ol class="rb-steps">
-      <li class="rb-step" data-shot="0" data-scene="splash" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s00.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>01</span>Return</p><h3 class="rb-step__t">A calm splash, then straight to the streak</h3><p class="rb-step__d">Draft: why the app opens on the streak and not on the library. Replace with your notes.</p></div></li>
-      <li class="rb-step" data-shot="1" data-scene="streak" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s02.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>02</span>Return</p><h3 class="rb-step__t">The streak shows how close the next reward is</h3><p class="rb-step__d">Draft: “2 more days to unlock a super flame” gives a near goal instead of a bare counter.</p><ul class="rb-step__notes"><li>State: streak saved today</li><li>State: streak at risk</li></ul></div></li>
-      <li class="rb-step" data-shot="2" data-scene="library" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s03.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>03</span>Library</p><h3 class="rb-step__t">Library: everything you need to get through</h3><p class="rb-step__d">Draft: progress, chapters and a star score on each material; the last listened item is pinned to the bottom bar.</p><ul class="rb-step__notes"><li>Empty library</li><li>Search, no matches</li></ul></div></li>
-      <li class="rb-step" data-shot="3" data-scene="upload" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s04.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>04</span>Upload</p><h3 class="rb-step__t">Upload from wherever the text lives</h3><p class="rb-step__d">Draft: camera scan, gallery, pasted text and PDF in one sheet; web URLs are marked “soon”.</p></div></li>
-      <li class="rb-step" data-shot="4" data-scene="picker" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s05.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>05</span>Upload</p><h3 class="rb-step__t">Pick only the pages you need</h3><p class="rb-step__d">Draft: course packs are hundreds of pages; ranges, pages or all.</p></div></li>
-      <li class="rb-step" data-shot="5" data-scene="mode" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s06.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>06</span>Upload</p><h3 class="rb-step__t">Smart Cleanup or Keep Original</h3><p class="rb-step__d">Draft: cleanup removes headers, footnotes and page numbers so they aren’t read aloud; the original stays available.</p></div></li>
-      <li class="rb-step" data-shot="6" data-scene="uploading" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s07.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>07</span>Upload</p><h3 class="rb-step__t">Processing takes minutes, so people can leave</h3><p class="rb-step__d">Draft: an honest 2–4 minute estimate and “Notify me” instead of a spinner.</p></div></li>
-      <li class="rb-step" data-shot="7" data-scene="processing" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s08.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>08</span>Upload</p><h3 class="rb-step__t">The file appears in the library while it’s processed</h3><p class="rb-step__d">Draft: a placeholder row with a loader keeps context.</p></div></li>
-      <li class="rb-step" data-shot="8" data-scene="chapters" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s09.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>09</span>Structure</p><h3 class="rb-step__t">Text split into chapters and quizzes</h3><p class="rb-step__d">Draft: long material becomes short parts with time and progress, so a session has a clear end.</p></div></li>
-      <li class="rb-step" data-shot="9" data-scene="player" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s10.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>10</span>Listen</p><h3 class="rb-step__t">Focus line: one sentence at a time</h3><p class="rb-step__d">Draft: word-by-word highlight for readers with ADHD and dyslexia; the rest of the page fades out.</p><ul class="rb-step__notes"><li>Full text mode</li><li>Highlight styles</li></ul></div></li>
-      <li class="rb-step" data-shot="10" data-scene="settings" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s11.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>11</span>Listen</p><h3 class="rb-step__t">Settings without leaving the player</h3><p class="rb-step__d">Draft: voice, quiz frequency, text mode, font size, highlight style and theme.</p></div></li>
-      <li class="rb-step" data-shot="11" data-scene="listen" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s12.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>12</span>Listen</p><h3 class="rb-step__t">Quizzes interrupt listening every 3–5 minutes</h3><p class="rb-step__d">Draft: why short checks beat a test at the end (testing effect, active recall).</p></div></li>
-      <li class="rb-step" data-shot="12" data-scene="quiz" data-tone="mint"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s13.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>13</span>Remember</p><h3 class="rb-step__t">A question about what you just heard</h3><p class="rb-step__d">Draft: four options, large tap targets, skip is always available.</p><ul class="rb-step__notes"><li>Long question and answers</li></ul></div></li>
-      <li class="rb-step" data-shot="13" data-scene="answered" data-tone="mint"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s14.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>14</span>Remember</p><h3 class="rb-step__t">Instant feedback, then back to listening</h3><p class="rb-step__d">Draft: “Keep reading” is the main action, so the quiz doesn’t break the flow.</p><ul class="rb-step__notes"><li>Wrong answer: show the right one and the source</li></ul></div></li>
-      <li class="rb-step" data-shot="14" data-scene="finish" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s15.webp" width="390" height="852" alt="" loading="lazy"></div><div class="rb-step__body"><p class="rb-step__k"><span>15</span>Remember</p><h3 class="rb-step__t">Chapter complete: a reward for finishing</h3><p class="rb-step__d">Draft: score, time listened and quizzes answered; the star animation plays once.</p></div></li>
+    <ol class="rb-steps" aria-label="Walkthrough of the app">
+      <li class="rb-step" data-shot="0" data-scene="splash" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s00.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h01" aria-controls="rb-p01" aria-expanded="false"><span class="rb-step__n">01</span><span class="rb-step__t">A calm splash, then straight to the streak</span><span class="rb-step__g">Return</span></button></h3><div class="rb-step__panel" id="rb-p01" role="region" aria-labelledby="rb-h01"><div class="rb-step__in"><p class="rb-step__d">Draft: why the app opens on the streak and not on the library. Replace with your notes.</p></div></div></li>
+      <li class="rb-step" data-shot="1" data-scene="streak" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s02.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h02" aria-controls="rb-p02" aria-expanded="false"><span class="rb-step__n">02</span><span class="rb-step__t">The streak shows how close the next reward is</span><span class="rb-step__g">Return</span></button></h3><div class="rb-step__panel" id="rb-p02" role="region" aria-labelledby="rb-h02"><div class="rb-step__in"><p class="rb-step__d">Draft: “2 more days to unlock a super flame” gives a near goal instead of a bare counter.</p><ul class="rb-step__notes"><li>State: streak saved today</li><li>State: streak at risk</li></ul></div></div></li>
+      <li class="rb-step" data-shot="2" data-scene="library" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s03.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h03" aria-controls="rb-p03" aria-expanded="false"><span class="rb-step__n">03</span><span class="rb-step__t">Library: everything you need to get through</span><span class="rb-step__g">Library</span></button></h3><div class="rb-step__panel" id="rb-p03" role="region" aria-labelledby="rb-h03"><div class="rb-step__in"><p class="rb-step__d">Draft: progress, chapters and a star score on each material; the last listened item is pinned to the bottom bar.</p><ul class="rb-step__notes"><li>Empty library</li><li>Search, no matches</li></ul></div></div></li>
+      <li class="rb-step" data-shot="3" data-scene="upload" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s04.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h04" aria-controls="rb-p04" aria-expanded="false"><span class="rb-step__n">04</span><span class="rb-step__t">Upload from wherever the text lives</span><span class="rb-step__g">Upload</span></button></h3><div class="rb-step__panel" id="rb-p04" role="region" aria-labelledby="rb-h04"><div class="rb-step__in"><p class="rb-step__d">Draft: camera scan, gallery, pasted text and PDF in one sheet; web URLs are marked “soon”.</p></div></div></li>
+      <li class="rb-step" data-shot="4" data-scene="picker" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s05.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h05" aria-controls="rb-p05" aria-expanded="false"><span class="rb-step__n">05</span><span class="rb-step__t">Pick only the pages you need</span><span class="rb-step__g">Upload</span></button></h3><div class="rb-step__panel" id="rb-p05" role="region" aria-labelledby="rb-h05"><div class="rb-step__in"><p class="rb-step__d">Draft: course packs are hundreds of pages; ranges, pages or all.</p></div></div></li>
+      <li class="rb-step" data-shot="5" data-scene="mode" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s06.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h06" aria-controls="rb-p06" aria-expanded="false"><span class="rb-step__n">06</span><span class="rb-step__t">Smart Cleanup or Keep Original</span><span class="rb-step__g">Upload</span></button></h3><div class="rb-step__panel" id="rb-p06" role="region" aria-labelledby="rb-h06"><div class="rb-step__in"><p class="rb-step__d">Draft: cleanup removes headers, footnotes and page numbers so they aren’t read aloud; the original stays available.</p></div></div></li>
+      <li class="rb-step" data-shot="6" data-scene="uploading" data-tone="indigo"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s07.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h07" aria-controls="rb-p07" aria-expanded="false"><span class="rb-step__n">07</span><span class="rb-step__t">Processing takes minutes, so people can leave</span><span class="rb-step__g">Upload</span></button></h3><div class="rb-step__panel" id="rb-p07" role="region" aria-labelledby="rb-h07"><div class="rb-step__in"><p class="rb-step__d">Draft: an honest 2–4 minute estimate and “Notify me” instead of a spinner.</p></div></div></li>
+      <li class="rb-step" data-shot="7" data-scene="processing" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s08.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h08" aria-controls="rb-p08" aria-expanded="false"><span class="rb-step__n">08</span><span class="rb-step__t">The file appears in the library while it’s processed</span><span class="rb-step__g">Upload</span></button></h3><div class="rb-step__panel" id="rb-p08" role="region" aria-labelledby="rb-h08"><div class="rb-step__in"><p class="rb-step__d">Draft: a placeholder row with a loader keeps context.</p></div></div></li>
+      <li class="rb-step" data-shot="8" data-scene="chapters" data-tone="lilac"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s09.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h09" aria-controls="rb-p09" aria-expanded="false"><span class="rb-step__n">09</span><span class="rb-step__t">Text split into chapters and quizzes</span><span class="rb-step__g">Structure</span></button></h3><div class="rb-step__panel" id="rb-p09" role="region" aria-labelledby="rb-h09"><div class="rb-step__in"><p class="rb-step__d">Draft: long material becomes short parts with time and progress, so a session has a clear end.</p></div></div></li>
+      <li class="rb-step" data-shot="9" data-scene="player" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s10.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h10" aria-controls="rb-p10" aria-expanded="false"><span class="rb-step__n">10</span><span class="rb-step__t">Focus line: one sentence at a time</span><span class="rb-step__g">Listen</span></button></h3><div class="rb-step__panel" id="rb-p10" role="region" aria-labelledby="rb-h10"><div class="rb-step__in"><p class="rb-step__d">Draft: word-by-word highlight for readers with ADHD and dyslexia; the rest of the page fades out.</p><ul class="rb-step__notes"><li>Full text mode</li><li>Highlight styles</li></ul></div></div></li>
+      <li class="rb-step" data-shot="10" data-scene="settings" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s11.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h11" aria-controls="rb-p11" aria-expanded="false"><span class="rb-step__n">11</span><span class="rb-step__t">Settings without leaving the player</span><span class="rb-step__g">Listen</span></button></h3><div class="rb-step__panel" id="rb-p11" role="region" aria-labelledby="rb-h11"><div class="rb-step__in"><p class="rb-step__d">Draft: voice, quiz frequency, text mode, font size, highlight style and theme.</p></div></div></li>
+      <li class="rb-step" data-shot="11" data-scene="listen" data-tone="sun"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s12.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h12" aria-controls="rb-p12" aria-expanded="false"><span class="rb-step__n">12</span><span class="rb-step__t">Quizzes interrupt listening every 3–5 minutes</span><span class="rb-step__g">Listen</span></button></h3><div class="rb-step__panel" id="rb-p12" role="region" aria-labelledby="rb-h12"><div class="rb-step__in"><p class="rb-step__d">Draft: why short checks beat a test at the end (testing effect, active recall).</p></div></div></li>
+      <li class="rb-step" data-shot="12" data-scene="quiz" data-tone="mint"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s13.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h13" aria-controls="rb-p13" aria-expanded="false"><span class="rb-step__n">13</span><span class="rb-step__t">A question about what you just heard</span><span class="rb-step__g">Remember</span></button></h3><div class="rb-step__panel" id="rb-p13" role="region" aria-labelledby="rb-h13"><div class="rb-step__in"><p class="rb-step__d">Draft: four options, large tap targets, skip is always available.</p><ul class="rb-step__notes"><li>Long question and answers</li></ul></div></div></li>
+      <li class="rb-step" data-shot="13" data-scene="answered" data-tone="mint"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s14.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h14" aria-controls="rb-p14" aria-expanded="false"><span class="rb-step__n">14</span><span class="rb-step__t">Instant feedback, then back to listening</span><span class="rb-step__g">Remember</span></button></h3><div class="rb-step__panel" id="rb-p14" role="region" aria-labelledby="rb-h14"><div class="rb-step__in"><p class="rb-step__d">Draft: “Keep reading” is the main action, so the quiz doesn’t break the flow.</p><ul class="rb-step__notes"><li>Wrong answer: show the right one and the source</li></ul></div></div></li>
+      <li class="rb-step" data-shot="14" data-scene="finish" data-tone="pink"><div class="rb-step__shot" aria-hidden="true"><img src="assets/rb/s15.webp" width="390" height="852" alt="" loading="lazy"></div><h3 class="rb-step__h"><button type="button" class="rb-step__head" id="rb-h15" aria-controls="rb-p15" aria-expanded="false"><span class="rb-step__n">15</span><span class="rb-step__t">Chapter complete: a reward for finishing</span><span class="rb-step__g">Remember</span></button></h3><div class="rb-step__panel" id="rb-p15" role="region" aria-labelledby="rb-h15"><div class="rb-step__in"><p class="rb-step__d">Draft: score, time listened and quizzes answered; the star animation plays once.</p></div></div></li>
     </ol>
+    </div>
   </div>
 </div>
 </section><section class="view" id="view-writers" hidden>
@@ -2204,14 +2219,20 @@ layout();})();</script></section>
   window.addEventListener('message',function(e){ if(e.source===frame.contentWindow&&e.data&&e.data.rbReady){ ready=true; send(); } });
   function setStep(i){
     if(i===cur) return; cur=i;
-    steps.forEach(function(s,k){ s.classList.toggle('is-on',k===i); });
+    steps.forEach(function(s,k){ s.classList.toggle('is-on',k===i); var h=s.querySelector('.rb-step__head'); if(h) h.setAttribute('aria-expanded',k===i?'true':'false'); });
+    if(list){ setTimeout(function(){ var a=steps[i], over=a.offsetTop+a.offsetHeight-list.clientHeight+24; list.scrollTo({top:Math.max(0,Math.min(over,a.offsetTop-24)),behavior:'smooth'}); },460); }
     stage.setAttribute('data-tone',steps[i].getAttribute('data-tone'));
     if(cnt) cnt.textContent=(i<9?'0':'')+(i+1);
     send();
   }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) setStep(steps.indexOf(e.target)); }); },{rootMargin:'-48% 0px -48% 0px'});
-  steps.forEach(function(s){ io.observe(s); });
-  setStep(0);
+  var story=view.querySelector('.rb-story'), list=view.querySelector('.rb-steps'), N=steps.length;
+  story.style.setProperty('--n',N);
+  var desk=window.matchMedia('(min-width:901px)');
+  function range(){ var top=story.getBoundingClientRect().top+scrollY; return {top:top,len:Math.max(1,story.offsetHeight-innerHeight)}; }
+  function fromScroll(){ if(!desk.matches||view.hidden) return; var r=range(), p=(scrollY-r.top)/r.len; setStep(Math.max(0,Math.min(N-1,Math.floor(p*N)))); }
+  window.addEventListener('scroll',fromScroll,{passive:true}); window.addEventListener('resize',fromScroll);
+  steps.forEach(function(st,k){ st.querySelector('.rb-step__head').addEventListener('click',function(){ if(!desk.matches) return; var r=range(); window.scrollTo({top:r.top+(k+.5)/N*r.len,behavior:reduce?'auto':'smooth'}); }); });
+  setStep(0); fromScroll();
   if(reduce) return;
   var P=[[.2,.16,.13,.31,0],[.16,.22,.09,.23,1.7],[.22,.18,.11,.19,3.1],[.14,.2,.15,.27,4.4],[.18,.15,.07,.21,5.6]];
   var t=0,last=0,boost=0,lastY=scrollY,lastT=performance.now(),run=false,raf=0;
