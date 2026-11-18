@@ -164,8 +164,21 @@ def build():
     # Marketplace card: lead with the result.
     h = swap(h, '<p class="project__domain">Freelance marketplace for student writing</p>',
              '<p class="project__domain">Fixing the biggest funnel drop-off: +6% first orders</p>', "writers card")
-    # Case chain without Tabletki: rocken -> develux -> writers -> rocken.
-    h = swap(h, 'class="back back--next" href="#tabletki"', 'class="back back--next" href="#develux"', "next after rocken")
+    # Order: marketplace first, then Develux, then Rocken.
+    card = re.search(r'<article class="project">(?:(?!</article>).)*?href="#writers"(?:(?!</article>).)*?</article>\n?', h, flags=re.S)
+    if not card:
+        sys.exit("build_pm: writers card not found")
+    h = h.replace(card.group(0), "", 1)
+    h = swap(h, '<div class="projects">\n<article class="project">',
+             '<div class="projects">\n' + card.group(0) + '<article class="project">', "projects start")
+    if h.find('href="#writers" aria-label') > h.find('href="#develux" aria-label'):
+        sys.exit("build_pm: writers card was not moved first")
+    # Next-case chain in the same order: writers -> develux -> rocken -> writers.
+    nxt = 'class="back back--next" href="#'
+    h = swap(h, nxt + 'tabletki"', nxt + '@writers"', "next after rocken")
+    h = swap(h, nxt + 'rocken"', nxt + '@develux"', "next after writers")
+    h = swap(h, nxt + 'writers"', nxt + '@rocken"', "next after develux")
+    h = h.replace(nxt + '@', nxt)
 
     # About.
     h = swap(h, '<p class="about__role">Head of Design &middot; Design Lead &middot; Wroclaw, Poland</p>',
