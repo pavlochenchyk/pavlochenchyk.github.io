@@ -152,6 +152,11 @@ def build():
     h = swap(h, '<meta property="og:url" content="https://pavlochenchyk.github.io/">',
              '<meta property="og:url" content="https://pavlochenchyk.github.io/pm/">', "og url")
 
+    # Home: roles ring, product first (same length, so the ring keeps its spacing).
+    h = swap(h, 'aria-label="Designer, manager, founder"', 'aria-label="Product, founder, designer"', "ring label")
+    h = swap(h, ">DESIGNER&#160;&#8226;&#160;MANAGER&#160;&#8226;&#160;FOUNDER&#160;&#8226;&#160;<",
+             ">PRODUCT&#160;&#8226;&#160;FOUNDER&#160;&#8226;&#160;DESIGNER&#160;&#8226;&#160;<", "ring text")
+
     # Projects: PM-relevant cases only.
     h = drop_card(h, "#tabletki", "tabletki")
     h = drop_card(h, "https://www.behance.net/gallery/134924403/UIUX-Epul-Payment-system", "epul")
