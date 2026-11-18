@@ -161,6 +161,9 @@ def build():
     h = drop_card(h, "#tabletki", "tabletki")
     h = drop_card(h, "https://www.behance.net/gallery/134924403/UIUX-Epul-Payment-system", "epul")
     h = drop_card(h, "https://asalart.ua/", "asalart")
+    # Marketplace card: lead with the result.
+    h = swap(h, '<p class="project__domain">Freelance marketplace for student writing</p>',
+             '<p class="project__domain">Fixing the biggest funnel drop-off: +6% first orders</p>', "writers card")
     # Case chain without Tabletki: rocken -> develux -> writers -> rocken.
     h = swap(h, 'class="back back--next" href="#tabletki"', 'class="back back--next" href="#develux"', "next after rocken")
 
