@@ -7,6 +7,7 @@
 <style>/* ---------- Readberry case ---------- */
 /* Readberry case: beige canvas in light theme only (dark rules below win by specificity/order) */
 :root[data-view="readberry"]{--bg:#F5E8E3}
+.rb{--green:#2FBF8A}
 .rb-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;margin:56px 0 0;align-items:start}
 .rb-top__title{margin:0;font-size:clamp(38px,5.2vw,64px);line-height:1.08;font-weight:500;letter-spacing:-.02em;color:var(--ink);max-width:600px}
 .rb-top__side .case__logo--rb{height:30px;width:auto;margin:8px 0 34px;padding:0}
@@ -27,10 +28,11 @@
 .rb-sum__k{font-weight:700;margin:0 0 6px}
 .rb-sum__text{margin:0;font-size:18px;line-height:1.55;max-width:600px}
 .rb-sum__res{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:30px 28px}
-.rb-sum__res b{display:block;font-size:clamp(34px,3.6vw,44px);line-height:1.1;font-weight:500;letter-spacing:-.01em}
+.rb-sum__res b{display:block;font-size:40px;font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--ink)}
 .rb-sum__res li{display:flex;flex-direction:column}
-.rb-sum__res span{color:var(--ink);margin-top:2px}
+.rb-sum__res span{display:inline-flex;align-items:center;gap:8px;font-size:16px;color:var(--ink-2);margin-top:10px}
 .rb-sum__sub{font-size:14px;line-height:1.4;color:var(--muted);margin-top:2px}
+@media (max-width:860px){.rb-sum__res b{font-size:32px}}
 .rb-modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px;background:rgba(12,10,9,.82);opacity:0;transition:opacity .25s}
 .rb-modal.is-open{opacity:1}
 .rb-modal video{width:min(1200px,100%);max-height:86vh;border-radius:18px;background:#000}
@@ -1394,12 +1396,12 @@ layout();})();</script></section>
       <p class="rb-sum__text">Draft. A subscription iOS app that turns study materials into audio with quizzes, for adults who have to read a lot: nursing students, exam prep, people with ADHD and dyslexia. In four months from launch we found the audience, cut acquisition cost and doubled the average first payment.</p>
     </div>
     <ul class="rb-sum__res">
-      <li><b>&#8722;74%</b><span>CAC</span><small class="rb-sum__sub">$263 &#8594; $68</small></li>
+      <li><b>&#8722;74%</b><span>CAC<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 4v5.5H4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">$263 &#8594; $68</small></li>
       <li><b>&#8776;2%</b><span>Landing-to-paid CR</span><small class="rb-sum__sub">web funnel, landing view to payment</small></li>
-      <li><b>&#215;2</b><span>AOV</span><small class="rb-sum__sub">$18.70 &#8594; $38.47</small></li>
+      <li><b>&#215;2</b><span>AOV<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">$18.70 &#8594; $38.47</small></li>
       <li><b>58%</b><span>Monthly rebill rate (web)</span><small class="rb-sum__sub">1st &#8594; 2nd payment</small></li>
-      <li><b>55%</b><span>Activation</span><small class="rb-sum__sub">up from 36%, 30+ min listened</small></li>
-      <li><b>&#215;2</b><span>W3 retention</span><small class="rb-sum__sub">13% &#8594; 29%</small></li>
+      <li><b>55%</b><span>Activation<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">up from 36%, 30+ min listened</small></li>
+      <li><b>&#215;2</b><span>W3 retention<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">13% &#8594; 29%</small></li>
     </ul>
   </div>
   <div class="rb-modal" role="dialog" aria-modal="true" aria-label="Readberry product demo" hidden><button type="button" class="rb-modal__close" aria-label="Close video">&#215;</button><video width="1600" height="900" controls playsinline preload="none" poster="../assets/readberry-reel.jpg?v=2"><source src="../assets/readberry-reel.mp4?v=3" type="video/mp4"></video></div>
