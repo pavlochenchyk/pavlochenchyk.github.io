@@ -48,3 +48,9 @@
 :root[data-theme="dark"]:not([data-site-theme="light"]) .rb-dk,:root[data-site-theme="dark"] .rb-dk{display:block!important}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-lt{display:none!important}:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-dk{display:block!important}}
 .project__logo[src*="readberry-lockup"]{height:35px}
+.rb-ctx{margin-top:56px}
+.rb-plans{margin:0;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--tint-12)}
+.rb-plans div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--tint-12)}
+.rb-plans dt{margin:0;font-weight:400;color:var(--ink-2)}
+.rb-plans dd{margin:0;color:var(--ink);font-variant-numeric:tabular-nums}
+.rb-plans__note{margin:12px 0 0;font-size:14px;line-height:1.4;color:var(--muted)}
