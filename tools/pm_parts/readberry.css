@@ -101,6 +101,4 @@
 .rb-group__more:hover,.rb-group__more:focus-visible{color:var(--ink)}
 .rb-detail{margin-top:96px;scroll-margin-top:56px}
 .rb-detail__draft{margin:0;color:var(--rb-cap)}
-.rb-group__more{width:28px;height:28px;justify-content:center;border-radius:50%;margin:-6px -6px -6px 0}
-.rb-group__more svg{width:13px;height:13px}
-.rb-group__more:hover{background:var(--tint-05)}
+.rb-group__more svg{width:11px;height:11px}
