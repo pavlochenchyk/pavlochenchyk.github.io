@@ -101,6 +101,12 @@
 .rb-dot--y{background:#DCC3B1;color:#4A3A31}
 .rb-mix{display:flex;gap:3px;margin-top:12px;height:30px;border-radius:999px;overflow:hidden}
 .rb-mix__seg{display:flex;align-items:center;justify-content:center;font-size:13px;font-variant-numeric:tabular-nums;min-width:0}
+.rb-h2{margin:0 0 24px;font-size:28px;line-height:1.2;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+.rb-group__k{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.rb-group__more{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:400;color:var(--rb-cap);text-decoration:none;transition:color .2s}
+.rb-group__more:hover,.rb-group__more:focus-visible{color:var(--ink)}
+.rb-detail{margin-top:96px;scroll-margin-top:56px}
+.rb-detail__draft{margin:0;color:var(--rb-cap)}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1460,9 +1466,10 @@ layout();})();</script></section>
     </div>
   </div>
   <div class="rb-results">
+    <h2 class="rb-h2">Key metrics</h2>
     <div class="rb-groups">
       <section class="rb-group" aria-label="Acquisition">
-        <p class="rb-group__k">Acquisition</p>
+        <p class="rb-group__k"><span>Acquisition</span><a class="rb-group__more" href="#rb-acquisition">What we did<svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="M6 2v8M2.5 6.5L6 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
         <ul class="rb-sum__res">
           <li tabindex="0" aria-describedby="rb-hint-1"><b>&#8722;74%</b><span>Blended <i class="rb-nw">CAC<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 4v5.5H4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">monthly: $263 in June &#8594; $68 in September</small><span class="rb-hint" role="tooltip" id="rb-hint-1">All ad spend in a month divided by all new subscriptions that month, organic included. June vs September.</span></li>
           <li tabindex="0" aria-describedby="rb-hint-2"><b>2.3%</b><span>Landing-to-paid CR</span><small class="rb-sum__sub">landing view to payment, Aug 24 &#8211; Oct 4</small><span class="rb-hint" role="tooltip" id="rb-hint-2">Share of web funnel landing views that ended in a payment, Aug 24 &#8211; Oct 4, once the core audience was found.</span></li>
@@ -1470,7 +1477,7 @@ layout();})();</script></section>
         </ul>
       </section>
       <section class="rb-group" aria-label="Monetization">
-        <p class="rb-group__k">Monetization</p>
+        <p class="rb-group__k"><span>Monetization</span><a class="rb-group__more" href="#rb-monetization">What we did<svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="M6 2v8M2.5 6.5L6 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
         <ul class="rb-sum__res">
           <li tabindex="0" aria-describedby="rb-hint-4"><b>&#215;2</b><span><i class="rb-nw">AOV<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">$18.70 &#8594; $38.47</small><span class="rb-hint" role="tooltip" id="rb-hint-4">Average first payment of a new subscriber, without boosters and refunds. July vs October, after intro offers moved orders to 3-month and annual plans.</span></li>
           <li tabindex="0" aria-describedby="rb-hint-5"><b>+37%</b><span><i class="rb-nw">ARPPU<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">$20.4 &#8594; $27.8 a month, Jul &#8594; Sep</small><span class="rb-hint" role="tooltip" id="rb-hint-5">Revenue in a month divided by users who paid that month, renewals included. July vs September.</span></li>
@@ -1478,7 +1485,7 @@ layout();})();</script></section>
         </ul>
       </section>
       <section class="rb-group" aria-label="Engagement">
-        <p class="rb-group__k">Engagement</p>
+        <p class="rb-group__k"><span>Engagement</span><a class="rb-group__more" href="#rb-engagement">What we did<svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="M6 2v8M2.5 6.5L6 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
         <ul class="rb-sum__res">
           <li tabindex="0" aria-describedby="rb-hint-7"><b>55%</b><span><i class="rb-nw">Activation<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">up from 36%, 30+ min listened</small><span class="rb-hint" role="tooltip" id="rb-hint-7">Share of new subscribers who listened for 30+ minutes in total. July vs September purchase cohorts.</span></li>
           <li tabindex="0" aria-describedby="rb-hint-8"><b>&#215;1.5</b><span>W2 learning <i class="rb-nw">retention<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">21% &#8594; 31%</small><span class="rb-hint" role="tooltip" id="rb-hint-8">Share of buyers who studied in week 2 after purchase: 5+ minutes of listening or 5+ quiz answers in a day. August vs September cohorts.</span></li>
@@ -1487,6 +1494,18 @@ layout();})();</script></section>
       </section>
     </div>
   </div>
+  <section class="rb-detail" id="rb-acquisition">
+    <h2 class="rb-h2">Acquisition</h2>
+    <p class="rb-detail__draft">Draft: details coming next.</p>
+  </section>
+  <section class="rb-detail" id="rb-monetization">
+    <h2 class="rb-h2">Monetization</h2>
+    <p class="rb-detail__draft">Draft: details coming next.</p>
+  </section>
+  <section class="rb-detail" id="rb-engagement">
+    <h2 class="rb-h2">Engagement</h2>
+    <p class="rb-detail__draft">Draft: details coming next.</p>
+  </section>
   <div class="rb-modal" role="dialog" aria-modal="true" aria-label="Readberry product demo" hidden><button type="button" class="rb-modal__close" aria-label="Close video">&#215;</button><video width="1600" height="900" controls playsinline preload="none" poster="../assets/readberry-reel.jpg?v=2"><source src="../assets/readberry-reel.mp4?v=3" type="video/mp4"></video></div>
 
 </div>

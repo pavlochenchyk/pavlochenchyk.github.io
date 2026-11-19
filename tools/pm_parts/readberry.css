@@ -95,3 +95,9 @@
 .rb-dot--y{background:#DCC3B1;color:#4A3A31}
 .rb-mix{display:flex;gap:3px;margin-top:12px;height:30px;border-radius:999px;overflow:hidden}
 .rb-mix__seg{display:flex;align-items:center;justify-content:center;font-size:13px;font-variant-numeric:tabular-nums;min-width:0}
+.rb-h2{margin:0 0 24px;font-size:28px;line-height:1.2;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+.rb-group__k{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.rb-group__more{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:400;color:var(--rb-cap);text-decoration:none;transition:color .2s}
+.rb-group__more:hover,.rb-group__more:focus-visible{color:var(--ink)}
+.rb-detail{margin-top:96px;scroll-margin-top:56px}
+.rb-detail__draft{margin:0;color:var(--rb-cap)}
