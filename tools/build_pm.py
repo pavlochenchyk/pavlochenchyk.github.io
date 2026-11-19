@@ -165,6 +165,9 @@ def build():
     # Marketplace card: lead with the result.
     h = swap(h, '<p class="project__domain">Freelance marketplace for student writing</p>',
              '<p class="project__domain">Fixing the biggest funnel drop-off: +6% first orders</p>', "writers card")
+    # Marketplace case header: lead with the problem solved.
+    h = swap(h, '<p class="wr-head__name">Freelance marketplace for student writing</p>',
+             '<p class="wr-head__name">Fixing the biggest funnel drop-off before payment</p>', "writers header")
     # Order: Readberry, marketplace, Develux, Rocken.
     card = re.search(r'<article class="project">(?:(?!</article>).)*?href="#writers"(?:(?!</article>).)*?</article>\n?', h, flags=re.S)
     if not card:
