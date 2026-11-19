@@ -69,3 +69,15 @@
 .rb-group .rb-sum__res{grid-template-columns:1fr;gap:26px}
 @media (max-width:860px){.rb-groups{grid-template-columns:1fr;gap:36px;margin-top:8px}.rb-group .rb-sum__res{grid-template-columns:1fr 1fr;gap:24px 20px}}
 .rb-nw{font-style:normal;white-space:nowrap}
+.rb-group .rb-sum__res li{position:relative;cursor:help;outline:none;border-radius:8px}
+.rb-group .rb-sum__res li:focus-visible{box-shadow:0 0 0 2px var(--rb-cap)}
+.rb-hint{position:absolute;left:0;bottom:calc(100% + 10px);z-index:5;width:max-content;max-width:280px;padding:10px 12px;border-radius:10px;background:#2B2420;color:#F5EDE8;font-size:13px;line-height:1.45;box-shadow:0 10px 30px rgba(40,25,15,.22);opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .18s,transform .18s,visibility .18s;pointer-events:none}
+.rb-hint::after{content:"";position:absolute;left:18px;top:100%;border:6px solid transparent;border-top-color:#2B2420}
+.rb-group .rb-sum__res li:hover .rb-hint,.rb-group .rb-sum__res li:focus .rb-hint,.rb-group .rb-sum__res li:focus-within .rb-hint{opacity:1;visibility:visible;transform:none}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-hint,:root[data-site-theme="dark"] .rb-hint{background:#E9E4E0;color:#1C1F25}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-hint::after,:root[data-site-theme="dark"] .rb-hint::after{border-top-color:#E9E4E0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-hint{background:#E9E4E0;color:#1C1F25}:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-hint::after{border-top-color:#E9E4E0}}
+@media (prefers-reduced-motion:reduce){.rb-hint{transition:none}}
+.rb-sum__res .rb-hint{margin:0;font-size:13px;line-height:1.45;color:#F5EDE8}
+:root[data-theme="dark"]:not([data-site-theme="light"]) .rb-sum__res .rb-hint,:root[data-site-theme="dark"] .rb-sum__res .rb-hint{color:#1C1F25}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-sum__res .rb-hint{color:#1C1F25}}
