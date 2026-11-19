@@ -46,12 +46,12 @@ ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
     "Product leader with 10+ years building B2C and SaaS products for web and mobile. "
-    "I founded and ran Readberry, a subscription iOS app, owning product strategy, roadmap and P&amp;L, "
-    "the web-to-app funnel, pricing and monetization experiments. Before that, as Chief Design Officer "
-    "at Develux, a multi-product EdTech company, I was part of the C-level team and worked with product "
-    "teams on discovery and delivery: together we cut hypothesis-to-release time by more than 40% and "
-    "lifted initiative success rate by 56%. Earlier I founded and ran PUSH-OK, a pet supplies e-commerce "
-    "business. I work AI-first and prototype and build front end with Claude Code."
+    "I founded and ran Readberry, a subscription iOS app: launched the MVP in 2 months, then cut blended CAC "
+    "by 74% and doubled AOV through the web-to-app funnel, pricing and creative testing. Before that, as Chief "
+    "Design Officer at Develux, a multi-product EdTech company, I was part of the C-level team and worked with "
+    "product teams on discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
+    "Earlier I founded and ran PUSH-OK, a pet supplies e-commerce business. I work AI-first and prototype and "
+    "build front end with Claude Code."
 )
 
 SKILLS = {
@@ -67,7 +67,7 @@ SKILLS = {
         "Cross-functional teams and external partners", "OKRs and goal setting",
         "Hiring and team growth", "Work with C-level stakeholders"]),
     "ai": ("AI &amp; tools", "AI and tools", [
-        "Claude Code", "Mixpanel", "Google Analytics 4", "Adapty", "AppsFlyer",
+        "Claude Code", "AI-assisted data analysis", "Mixpanel", "Google Analytics 4", "Adapty", "AppsFlyer",
         "FunnelFox", "Meta Ads Manager", "Google Ads", "Figma"]),
 }
 
@@ -97,13 +97,13 @@ def company_block(name, kind, jobs, tail=""):
 READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
     'Founder &amp; Product Manager &mdash; <a href="https://apps.apple.com/ua/app/readberry-pdf-voice-reader/id6761894830" target="_blank" rel="noopener">Readberry</a>',
     "Mar 2026 &ndash; Nov 2026", [
-        "Took a subscription iOS app from market research and customer discovery to App Store launch, with the MVP built in two months, then ran it as a business.",
-        "Owned product strategy, roadmap and P&amp;L; updated forecasts against actual performance to steer spending and growth priorities.",
-        "Built and optimised a web-to-app funnel: Meta traffic to a web quiz, then into the app via deep link. Iterated on quiz and onboarding steps, paywalls and pricing.",
-        "Tested monetization beyond subscriptions, including a hybrid model with in-app purchases of extra usage limits.",
-        "Improved retention through its leading indicators, frequency and depth of use, with habit mechanics: streaks, quizzes and flashcards.",
-        "Set up video creative production for Meta and tracked key metrics for each creative concept; organised acquisition through Meta, ASO and Apple Search Ads.",
-        "Led a cross-functional team and external partners across development and marketing; built parts of the front end myself with Claude Code.",
+        "Took a subscription iOS app from discovery to App Store launch in 2 months and ran it as a unit economics test.",
+        "Owned strategy, roadmap and P&amp;L; steered ad spend by forecasts vs actuals.",
+        "Cut blended CAC by 74% ($263 &#8594; $68): found a high-intent audience and scaled creative production 10&#215; across Meta, ASA and ASO.",
+        "Built and iterated a web-to-app funnel (web quiz &#8594; paywall &#8594; app) to 2.3% landing-to-paid on a hard paywall.",
+        "Doubled AOV and grew ARPPU by 37% with intro offers and longer plans; reached a 58% monthly rebill rate on web.",
+        "Raised activation from 36% to 55% and doubled week-3 retention with quizzes, rewards and streaks.",
+        "Designed the metric set and a CRM dashboard with automated feeds from Mixpanel and Adapty; ran funnel, cohort and creative reviews to decide what to scale or cut.",
     ])])
 
 DEVELUX = company_block("&#8220;DEVELUX&#8221;", "Multiproduct EdTech company", [job(
