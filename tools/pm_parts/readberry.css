@@ -24,7 +24,8 @@
 .rb-sum__res{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:30px 28px}
 .rb-sum__res b{display:block;font-size:40px;font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--ink)}
 .rb-sum__res li{display:flex;flex-direction:column}
-.rb-sum__res span{display:inline-flex;align-items:center;gap:8px;font-size:16px;color:var(--ink-2);margin-top:10px}
+.rb-sum__res span{display:block;font-size:16px;line-height:1.35;color:var(--ink-2);margin-top:10px}
+.rb-sum__res span .wr-res__up{display:inline-block;vertical-align:-1px;margin-left:7px}
 .rb-sum__sub{font-size:14px;line-height:1.4;color:var(--muted);margin-top:2px}
 @media (max-width:860px){.rb-sum__res b{font-size:32px}}
 .rb-modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px;background:rgba(12,10,9,.82);opacity:0;transition:opacity .25s}
@@ -63,3 +64,8 @@
 .rb-ctx__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:18px;line-height:1.45}
 .rb-ctx__list li{position:relative;padding-left:20px}
 .rb-ctx__list li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--rb-cap)}
+.rb-groups{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:20px}
+.rb-group__k{margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--tint-12);font-weight:700}
+.rb-group .rb-sum__res{grid-template-columns:1fr;gap:26px}
+@media (max-width:860px){.rb-groups{grid-template-columns:1fr;gap:36px;margin-top:8px}.rb-group .rb-sum__res{grid-template-columns:1fr 1fr;gap:24px 20px}}
+.rb-nw{font-style:normal;white-space:nowrap}

@@ -30,7 +30,8 @@
 .rb-sum__res{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:30px 28px}
 .rb-sum__res b{display:block;font-size:40px;font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--ink)}
 .rb-sum__res li{display:flex;flex-direction:column}
-.rb-sum__res span{display:inline-flex;align-items:center;gap:8px;font-size:16px;color:var(--ink-2);margin-top:10px}
+.rb-sum__res span{display:block;font-size:16px;line-height:1.35;color:var(--ink-2);margin-top:10px}
+.rb-sum__res span .wr-res__up{display:inline-block;vertical-align:-1px;margin-left:7px}
 .rb-sum__sub{font-size:14px;line-height:1.4;color:var(--muted);margin-top:2px}
 @media (max-width:860px){.rb-sum__res b{font-size:32px}}
 .rb-modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px;background:rgba(12,10,9,.82);opacity:0;transition:opacity .25s}
@@ -69,6 +70,11 @@
 .rb-ctx__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:18px;line-height:1.45}
 .rb-ctx__list li{position:relative;padding-left:20px}
 .rb-ctx__list li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--rb-cap)}
+.rb-groups{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:20px}
+.rb-group__k{margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--tint-12);font-weight:700}
+.rb-group .rb-sum__res{grid-template-columns:1fr;gap:26px}
+@media (max-width:860px){.rb-groups{grid-template-columns:1fr;gap:36px;margin-top:8px}.rb-group .rb-sum__res{grid-template-columns:1fr 1fr;gap:24px 20px}}
+.rb-nw{font-style:normal;white-space:nowrap}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1410,15 +1416,32 @@ layout();})();</script></section>
       <p class="rb-sum__k">In short</p>
       <p class="rb-sum__text">Draft. A subscription iOS app that turns study materials into audio with quizzes, for adults who have to read a lot: nursing students, exam prep, people with ADHD and dyslexia. In four months from launch we found the audience, cut acquisition cost and doubled the average first payment.</p>
     </div>
-    <ul class="rb-sum__res">
-      <li><b>&#8722;74%</b><span>Blended CAC<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 4v5.5H4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">$263 &#8594; $68</small></li>
-      <li><b>2.3%</b><span>Landing-to-paid CR</span><small class="rb-sum__sub">landing view to payment, Aug 24 &#8211; Oct 4</small></li>
-      <li><b>&#215;2</b><span>AOV<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">$18.70 &#8594; $38.47</small></li>
-      <li><b>58%</b><span>Monthly rebill rate (web)</span><small class="rb-sum__sub">1st &#8594; 2nd payment</small></li>
-      <li><b>55%</b><span>Activation<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">up from 36%, 30+ min listened</small></li>
-      <li><b>&#215;1.5</b><span>W2 learning retention<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">21% &#8594; 31%</small></li>
-      <li><b>&#215;2</b><span>W3 learning retention<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small class="rb-sum__sub">13% &#8594; 29%</small></li>
-    </ul>
+    <div class="rb-groups">
+      <section class="rb-group" aria-label="Acquisition">
+        <p class="rb-group__k">Acquisition</p>
+        <ul class="rb-sum__res">
+          <li><b>&#8722;74%</b><span>Blended <i class="rb-nw">CAC<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 4v5.5H4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">$263 &#8594; $68</small></li>
+          <li><b>2.3%</b><span>Landing-to-paid CR</span><small class="rb-sum__sub">landing view to payment, Aug 24 &#8211; Oct 4</small></li>
+          <li><b>&#215;10</b><span>Creatives per <i class="rb-nw">month<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">55 &#8594; 564</small></li>
+        </ul>
+      </section>
+      <section class="rb-group" aria-label="Monetization">
+        <p class="rb-group__k">Monetization</p>
+        <ul class="rb-sum__res">
+          <li><b>&#215;2</b><span><i class="rb-nw">AOV<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">$18.70 &#8594; $38.47</small></li>
+          <li><b>+37%</b><span><i class="rb-nw">ARPPU<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">$20.4 &#8594; $27.8 a month</small></li>
+          <li><b>58%</b><span>Monthly rebill rate (web)</span><small class="rb-sum__sub">1st &#8594; 2nd payment</small></li>
+        </ul>
+      </section>
+      <section class="rb-group" aria-label="Engagement">
+        <p class="rb-group__k">Engagement</p>
+        <ul class="rb-sum__res">
+          <li><b>55%</b><span><i class="rb-nw">Activation<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">up from 36%, 30+ min listened</small></li>
+          <li><b>&#215;1.5</b><span>W2 learning <i class="rb-nw">retention<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">21% &#8594; 31%</small></li>
+          <li><b>&#215;2</b><span>W3 learning <i class="rb-nw">retention<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">13% &#8594; 29%</small></li>
+        </ul>
+      </section>
+    </div>
   </div>
   <div class="rb-sum rb-ctx">
     <div>
