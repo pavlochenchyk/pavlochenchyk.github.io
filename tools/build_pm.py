@@ -96,7 +96,7 @@ def company_block(name, kind, jobs, tail=""):
 
 
 READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
-    'Founder &amp; Product Lead &mdash; <a href="https://apps.apple.com/ua/app/readberry-pdf-voice-reader/id6761894830" target="_blank" rel="noopener">Readberry</a>',
+    'Founder &amp; Product Manager &mdash; <a href="https://apps.apple.com/ua/app/readberry-pdf-voice-reader/id6761894830" target="_blank" rel="noopener">Readberry</a>',
     "Mar 2026 &ndash; Nov 2026", [
         "Took a subscription iOS app from market research and customer discovery to App Store launch, with the MVP built in two months, then ran it as a business.",
         "Owned product strategy, roadmap and P&amp;L; updated forecasts against actual performance to steer spending and growth priorities.",
