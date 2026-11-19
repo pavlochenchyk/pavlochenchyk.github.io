@@ -58,7 +58,9 @@
 .rb-hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;border-radius:inherit}
 .rb-hero__phone{position:absolute;left:27.8%;width:35.8%;top:-35.2%;height:auto;z-index:2;filter:drop-shadow(0 30px 40px rgba(60,40,25,.25));pointer-events:none}
 .rb-hero__ui{position:absolute;left:2.2%;bottom:15%;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.rb-pill{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 20px;border-radius:20px;font-size:17px;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);white-space:nowrap}
+.rb-pill{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 22px;border-radius:22px;font-size:17px;color:#fff;white-space:nowrap;text-shadow:0 1px 2px rgba(60,40,25,.25);background:linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.07) 55%,rgba(255,255,255,.14));-webkit-backdrop-filter:blur(10px) saturate(1.5) brightness(1.05);backdrop-filter:blur(10px) saturate(1.5) brightness(1.05);box-shadow:inset 0 1px 1px rgba(255,255,255,.6),inset 0 -1px 1px rgba(255,255,255,.18),inset 0 0 14px rgba(255,255,255,.14),0 8px 24px rgba(60,40,25,.16),0 1px 2px rgba(60,40,25,.12)}
+.rb-pill::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(150deg,rgba(255,255,255,.85),rgba(255,255,255,.12) 38%,rgba(255,255,255,.04) 62%,rgba(255,255,255,.55));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none;z-index:-1}
+.rb-pill::after{content:"";position:absolute;inset:1px 1px 50% 1px;border-radius:21px 21px 0 0;background:linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,0));pointer-events:none;z-index:-1}
 .rb-pill svg{flex:none}
 .rb-reelbtn{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 22px;border:0;border-radius:18px;background:#3B2F27;color:#fff;font:inherit;font-size:17px;cursor:pointer;transition:background .2s,transform .2s}
 .rb-reelbtn:hover{background:#2A211B}
@@ -82,7 +84,8 @@
 .rb-hero__bg{object-position:78% center}
 .rb-hero__phone{left:auto;right:4%;width:46%;max-width:240px;top:-70px}
 .rb-hero__ui{position:static;margin-top:16px;gap:8px}
-.rb-pill{height:48px;font-size:15px;border-radius:16px;color:var(--ink);background:var(--panel);border-color:var(--tint-12)}
+.rb-pill{height:48px;font-size:15px;border-radius:16px;color:var(--ink);text-shadow:none;background:var(--panel);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 0 0 1px var(--tint-12)}
+.rb-pill::before,.rb-pill::after{display:none}
 .rb-reelbtn{height:48px;font-size:15px}
 }
 @media (prefers-reduced-motion:reduce){.rb-modal{transition:none}}
