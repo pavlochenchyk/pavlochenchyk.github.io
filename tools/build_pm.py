@@ -18,6 +18,7 @@ SRC = ROOT / "index.html"
 OUT = ROOT / "pm" / "index.html"
 CV_PM = "assets/Pavlo_Chenchyk_CV_Product_Manager.pdf"
 CV_DESIGN = "assets/Pavlo_Chenchyk_CV_Head_of_Design.pdf"
+PARTS = ROOT / "tools" / "pm_parts"  # PM-only blocks (Readberry case); the design version never sees them
 
 
 def swap(html, pattern, repl, name, count=1, regex=False):
@@ -164,21 +165,38 @@ def build():
     # Marketplace card: lead with the result.
     h = swap(h, '<p class="project__domain">Freelance marketplace for student writing</p>',
              '<p class="project__domain">Fixing the biggest funnel drop-off: +6% first orders</p>', "writers card")
-    # Order: marketplace first, then Develux, then Rocken.
+    # Order: Readberry, marketplace, Develux, Rocken.
     card = re.search(r'<article class="project">(?:(?!</article>).)*?href="#writers"(?:(?!</article>).)*?</article>\n?', h, flags=re.S)
     if not card:
         sys.exit("build_pm: writers card not found")
     h = h.replace(card.group(0), "", 1)
+    rb_card = (PARTS / "readberry_card.html").read_text(encoding="utf-8")
     h = swap(h, '<div class="projects">\n<article class="project">',
-             '<div class="projects">\n' + card.group(0) + '<article class="project">', "projects start")
-    if h.find('href="#writers" aria-label') > h.find('href="#develux" aria-label'):
-        sys.exit("build_pm: writers card was not moved first")
-    # Next-case chain in the same order: writers -> develux -> rocken -> writers.
+             '<div class="projects">\n' + rb_card + card.group(0) + '<article class="project">', "projects start")
+    if not (h.find('href="#readberry" aria-label') < h.find('href="#writers" aria-label') < h.find('href="#develux" aria-label')):
+        sys.exit("build_pm: cards are not in the order readberry, writers, develux")
+    # Next-case chain in the same order: readberry -> writers -> develux -> rocken -> readberry.
     nxt = 'class="back back--next" href="#'
-    h = swap(h, nxt + 'tabletki"', nxt + '@writers"', "next after rocken")
+    h = swap(h, nxt + 'tabletki"', nxt + '@readberry"', "next after rocken")
     h = swap(h, nxt + 'rocken"', nxt + '@develux"', "next after writers")
     h = swap(h, nxt + 'writers"', nxt + '@rocken"', "next after develux")
     h = h.replace(nxt + '@', nxt)
+
+    # Readberry case (PM only): view, styles, router, show-reel modal.
+    view = (PARTS / "readberry_view.html").read_text(encoding="utf-8")
+    h = swap(h, '</section><section class="view" id="view-writers" hidden>',
+             '</section>' + view + '<section class="view" id="view-writers" hidden>', "readberry view")
+    css = (PARTS / "readberry.css").read_text(encoding="utf-8")
+    # Before the main stylesheet, so the dark-theme --bg rules that follow win over the beige canvas.
+    h = swap(h, "<style>:root{color-scheme:light;box-sizing:border-box}",
+             "<style>" + css + "</style><style>:root{color-scheme:light;box-sizing:border-box}", "readberry css")
+    h = swap(h, "develux:'view-develux'};", "develux:'view-develux',readberry:'view-readberry'};", "router views")
+    h = swap(h, "if(/^dx-/.test(h)) return {view:'develux',anchor:h};",
+             "if(/^dx-/.test(h)) return {view:'develux',anchor:h};\n    if(/^rb-/.test(h)) return {view:'readberry',anchor:h};", "router rb anchors")
+    h = swap(h, "all.forEach(function(v){v.hidden=v.id!==views[r.view];});",
+             "all.forEach(function(v){v.hidden=v.id!==views[r.view];});document.documentElement.setAttribute('data-view',r.view);", "router data-view")
+    js = (PARTS / "readberry.js.html").read_text(encoding="utf-8")
+    h = swap(h, "</body>", js + "</body>", "readberry js")
 
     # About.
     h = swap(h, '<p class="about__role">Head of Design &middot; Design Lead &middot; Wroclaw, Poland</p>',

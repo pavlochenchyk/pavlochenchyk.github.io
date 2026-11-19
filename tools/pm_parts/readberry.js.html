@@ -1,0 +1,11 @@
+<script>
+(function(){
+  var btn=document.querySelector('[data-rb-reel]'), m=document.querySelector('.rb-modal'); if(!btn||!m) return;
+  var v=m.querySelector('video'), last=null;
+  function open(){ last=document.activeElement; m.hidden=false; requestAnimationFrame(function(){ m.classList.add('is-open'); }); v.preload='auto'; var p=v.play(); if(p&&p.catch)p.catch(function(){}); m.querySelector('.rb-modal__close').focus(); document.addEventListener('keydown',key); }
+  function close(){ v.pause(); m.classList.remove('is-open'); setTimeout(function(){ m.hidden=true; },250); document.removeEventListener('keydown',key); if(last&&last.focus) last.focus(); }
+  function key(e){ if(e.key==='Escape') close(); }
+  btn.addEventListener('click',open);
+  m.addEventListener('click',function(e){ if(e.target===m||e.target.closest('.rb-modal__close')) close(); });
+})();
+</script>
