@@ -66,6 +66,9 @@
 :root[data-theme="dark"]:not([data-site-theme="light"]) .rb,:root[data-site-theme="dark"] .rb{--rb-cap:var(--muted)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb{--rb-cap:var(--muted)}}
 .rb-sum__sub,.rb-plans__note{color:var(--rb-cap)}
+.rb-ctx__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:18px;line-height:1.45}
+.rb-ctx__list li{position:relative;padding-left:20px}
+.rb-ctx__list li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--rb-cap)}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1419,7 +1422,14 @@ layout();})();</script></section>
   <div class="rb-sum rb-ctx">
     <div>
       <p class="rb-sum__k">Context</p>
-      <p class="rb-sum__text">Hard paywall from day one: no free trials at any point in the product&#8217;s life, every subscriber paid upfront. Subscriptions auto-renew and were sold both on the web, through a web-to-app funnel from Meta ads, and in the App Store; one-time boosters with extra usage were sold on top. Intro offers discount only the first period, renewals are at full price. English-speaking market, mostly the US. CAC is blended: all ad spend divided by all new subscriptions, organic included.</p>
+      <ul class="rb-ctx__list">
+        <li>Hard paywall, no free trials ever</li>
+        <li>Intro price for the first period, then full price</li>
+        <li>Sold on the web (web-to-app from Meta ads) and in the App Store</li>
+        <li>One-time boosters with extra usage on top</li>
+        <li>English-speaking market, mostly the US</li>
+        <li>Blended CAC: all ad spend &#247; all new subscriptions</li>
+      </ul>
     </div>
     <dl class="rb-plans">
       <div><dt>Monthly</dt><dd class="rb-plans__share">44%</dd><dd class="rb-plans__price">$19.49 &#8594; $32.49</dd></div>

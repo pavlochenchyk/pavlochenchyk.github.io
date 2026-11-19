@@ -60,3 +60,6 @@
 :root[data-theme="dark"]:not([data-site-theme="light"]) .rb,:root[data-site-theme="dark"] .rb{--rb-cap:var(--muted)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb{--rb-cap:var(--muted)}}
 .rb-sum__sub,.rb-plans__note{color:var(--rb-cap)}
+.rb-ctx__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:18px;line-height:1.45}
+.rb-ctx__list li{position:relative;padding-left:20px}
+.rb-ctx__list li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--rb-cap)}
