@@ -102,3 +102,5 @@
 .rb-detail{margin-top:96px;scroll-margin-top:56px}
 .rb-detail__draft{margin:0;color:var(--rb-cap)}
 .rb-group__more svg{width:11px;height:11px}
+.rb-top__store{display:inline-flex;align-items:center;gap:6px;margin-top:22px;font-size:16px;color:var(--rb-cap);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;transition:color .2s}
+.rb-top__store:hover,.rb-top__store:focus-visible{color:var(--ink)}
