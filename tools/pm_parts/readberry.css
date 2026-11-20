@@ -166,3 +166,5 @@
 
 .rb-cols--cr{grid-template-columns:minmax(0,600px) minmax(0,1fr);gap:40px 56px}
 @media (max-width:1024px){.rb-cols--cr{grid-template-columns:1fr}}
+
+.rb-fbul{font-size:17px;gap:8px;margin-bottom:16px}
