@@ -202,22 +202,31 @@
 .rb-exp__hr b{text-align:right}
 .rb-exp__hr b{font-weight:600;font-variant-numeric:tabular-nums}
 
+
+
+
 /* engagement */
 .rb-eng{margin-top:48px;max-width:1000px}
 .rb-ch{display:block;width:100%;height:auto;overflow:visible}
-.rb-ch__g{stroke:var(--tint-12);stroke-width:1}
+.rb-ch__g{stroke:var(--tint-12);stroke-width:1;stroke-dasharray:2 4}
 .rb-ch__t,.rb-ch__v,.rb-ch__mt{fill:var(--rb-cap);font-size:12px;font-family:inherit}
 .rb-ch__v{fill:var(--ink-2);font-size:13px}
 .rb-ch__m{stroke:var(--rb-cap);stroke-width:1;stroke-dasharray:3 3}
 .rb-ch__l{fill:none;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
 .rb-ch__l.is-dash{stroke-dasharray:6 5}
 .rb-ch__l.is-g{stroke:var(--green)}.rb-ch__l.is-b{stroke:#B08A72}
-.rb-ch__d{stroke:var(--bg,#F5E8E3);stroke-width:2}.rb-ch__d.is-g{fill:var(--green)}.rb-ch__d.is-b{fill:#B08A72}
+.rb-ch__d{stroke:var(--card,#fff);stroke-width:2}.rb-ch__d.is-g{fill:var(--green)}.rb-ch__d.is-b{fill:#B08A72}
 .rb-chl{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0 0 10px!important;font-size:14px;color:var(--rb-cap)}
 .rb-chl span{display:flex;align-items:center;gap:8px}
 .rb-chl i{display:inline-block;width:18px;height:0;border-top:2.5px solid}
 .rb-chl i.is-g{border-color:var(--green)}.rb-chl i.is-b{border-color:#B08A72}.rb-chl i.is-dash{border-top-style:dashed}
-.rb-eng__two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.rb-eng__two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.rb-chcard{--card:#fff;background:#fff;border-radius:24px;padding:24px 24px 18px;box-shadow:0 1px 2px rgba(60,30,20,.04),0 12px 32px -12px rgba(60,30,20,.12)}
+.rb-chcard .rb-step__note{margin:10px 0 0!important}
+.rb-ch__s1.is-g{stop-color:var(--green);stop-opacity:.22}.rb-ch__s0.is-g{stop-color:var(--green);stop-opacity:0}
+.rb-ch__s1.is-b{stop-color:#B08A72;stop-opacity:.2}.rb-ch__s0.is-b{stop-color:#B08A72;stop-opacity:0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-chcard{--card:var(--panel);background:var(--panel);box-shadow:none}}
+:root[data-theme="dark"] .rb-chcard,:root[data-site-theme="dark"] .rb-chcard{background:var(--panel);box-shadow:none}
 .rb-rel,.rb-road{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
 .rb-road{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:12px}
 .rb-rel li,.rb-road li{display:flex;flex-direction:column;gap:6px}
