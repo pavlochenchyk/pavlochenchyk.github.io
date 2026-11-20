@@ -38,32 +38,13 @@
 
 <script>
 (function(){
-  var q=document.querySelector('[data-rb-quiz]'); if(!q) return;
-  var img=q.querySelector('[data-rb-qimg]'), cnt=q.querySelector('[data-rb-qcount]'),
-      prev=q.querySelector('[data-rb-qprev]'), next=q.querySelector('[data-rb-qnext]'),
-      st=[].slice.call(q.querySelectorAll('[data-rb-qs]')),
-      alts=JSON.parse(q.querySelector('[data-rb-qalts]').textContent), N=alts.length, cur=1,
-      base=img.getAttribute('src').replace(/q-01\.webp$/,'');
-  function src(i){return base+'q-'+(i<10?'0':'')+i+'.webp';}
-  function pre(i){if(i>=1&&i<=N){var p=new Image();p.src=src(i);}}
-  function stageOf(i){var k=0;st.forEach(function(b,j){if(+b.getAttribute('data-rb-qs')<=i)k=j;});return k;}
-  function show(i){
-    cur=Math.max(1,Math.min(N,i));
-    img.src=src(cur); img.alt='Quiz screen '+cur+' of '+N+': '+alts[cur-1];
-    cnt.textContent=cur+' / '+N; img.parentNode.classList.toggle('is-white',cur===N); prev.disabled=cur===1; next.disabled=cur===N;
-    var k=stageOf(cur); st.forEach(function(b,j){b.setAttribute('aria-current',j===k?'true':'false');});
-    pre(cur+1); pre(cur-1);
-  }
-  prev.addEventListener('click',function(){show(cur-1);});
-  next.addEventListener('click',function(){show(cur+1);});
-  st.forEach(function(b){b.addEventListener('click',function(){show(+b.getAttribute('data-rb-qs'));});});
-  q.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight'){show(cur+1);e.preventDefault();}
-    else if(e.key==='ArrowLeft'){show(cur-1);e.preventDefault();}
+  var a=document.querySelector('[data-rb-acc]'); if(!a) return;
+  a.querySelectorAll('.rb-acc__btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var open=b.getAttribute('aria-expanded')==='true';
+      b.setAttribute('aria-expanded',open?'false':'true');
+      document.getElementById(b.getAttribute('aria-controls')).hidden=open;
+    });
   });
-  img.closest('.rb-quiz__screen').addEventListener('click',function(e){
-    var r=this.getBoundingClientRect(); show(e.clientX-r.left<r.width/3?cur-1:cur+1);
-  });
-  show(1);
 })();
 </script>
