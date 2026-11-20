@@ -250,9 +250,9 @@
 
 
 /* outcome */
-.rb-out{--card:#fff;background:#fff;border-radius:28px;padding:40px 40px 28px;max-width:1080px;box-shadow:0 1px 2px rgba(60,30,20,.04),0 12px 32px -12px rgba(60,30,20,.12)}
+.rb-out{--card:#fff;background:#fff;border-radius:28px;padding:40px;max-width:1080px;box-shadow:0 1px 2px rgba(60,30,20,.04),0 12px 32px -12px rgba(60,30,20,.12)}
 .rb-out__k{margin:0 0 14px!important;font-size:15px;font-weight:600;color:var(--rb-cap)}
-.rb-out__lead{margin:0 0 32px;font-size:22px;line-height:1.45;color:var(--ink);max-width:860px}
+.rb-out__lead{margin:0;font-size:22px;line-height:1.45;color:var(--ink);max-width:860px}
 .rb-out__kv{margin:0 0 36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .rb-out__kv dt{font-size:14px;color:var(--rb-cap);margin-bottom:6px}
 .rb-out__kv dd{margin:0;font-size:36px;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
