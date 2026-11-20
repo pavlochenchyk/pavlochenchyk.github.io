@@ -9,3 +9,20 @@
   m.addEventListener('click',function(e){ if(e.target===m||e.target.closest('.rb-modal__close')) close(); });
 })();
 </script>
+<script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('.rb-cr__v')); if(!vids.length) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){v.preload='auto'; var p=v.play(); if(p&&p.catch)p.catch(function(){});} else {v.pause();}});},{threshold:.5});
+    vids.forEach(function(v){io.observe(v);});
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.rb-cr__snd'); if(!b) return;
+    var v=b.parentNode.querySelector('video'), on=v.muted;
+    vids.forEach(function(o){ if(o!==v){o.muted=true; var ob=o.parentNode.querySelector('.rb-cr__snd'); ob.setAttribute('aria-pressed','false'); ob.textContent='Sound off'; ob.setAttribute('aria-label','Turn sound on');} });
+    v.muted=!on; if(on){var p=v.play(); if(p&&p.catch)p.catch(function(){});}
+    b.setAttribute('aria-pressed',on?'true':'false'); b.textContent=on?'Sound on':'Sound off'; b.setAttribute('aria-label',on?'Turn sound off':'Turn sound on');
+  });
+})();
+</script>

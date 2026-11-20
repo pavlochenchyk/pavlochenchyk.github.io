@@ -110,6 +110,22 @@
 .rb-group__more svg{width:11px;height:11px}
 .rb-top__store{display:inline-flex;align-items:center;gap:6px;margin-top:22px;font-size:16px;color:var(--rb-cap);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px;transition:color .2s}
 .rb-top__store:hover,.rb-top__store:focus-visible{color:var(--ink)}
+.rb-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px 56px}
+.rb-step p{margin:0 0 12px;font-size:17px;line-height:1.6;color:var(--ink)}
+.rb-step__k{font-weight:700;margin:0 0 10px!important}
+.rb-step__note{font-size:15px!important;color:var(--rb-cap)!important}
+.rb-cr__k{margin:48px 0 16px!important}
+.rb-crs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:760px;margin-bottom:56px}
+.rb-cr{position:relative;margin:0;border-radius:22px;overflow:hidden;background:#d9c8bd;aspect-ratio:9/16}
+.rb-cr__v{display:block;width:100%;height:100%;object-fit:cover}
+.rb-cr__snd{position:absolute;right:10px;bottom:10px;height:30px;padding:0 12px;border:0;border-radius:999px;background:rgba(20,15,12,.55);color:#fff;font:inherit;font-size:12px;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.rb-cr__snd[aria-pressed="true"]{background:rgba(20,15,12,.8)}
+.rb-ans{margin:0;border-top:1px solid var(--tint-12)}
+.rb-ans div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--tint-12)}
+.rb-ans dt{color:var(--ink-2)}
+.rb-ans dd{margin:0;font-variant-numeric:tabular-nums;color:var(--ink)}
+.rb-ans + .rb-step__note{margin-top:12px!important}
+@media (max-width:860px){.rb-cols{grid-template-columns:1fr;gap:28px}.rb-crs{gap:10px}.rb-cr{border-radius:14px}.rb-cr__snd{right:6px;bottom:6px;height:26px;padding:0 9px;font-size:11px}}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1474,7 +1490,7 @@ layout();})();</script></section>
   <div class="rb-results">
     <div class="rb-groups">
       <section class="rb-group" aria-label="Acquisition">
-        <p class="rb-group__k"><span>Acquisition</span></p>
+        <p class="rb-group__k"><span>Acquisition</span><a class="rb-group__more" href="#rb-acquisition" aria-label="How we got there: Acquisition">Details<svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="M6 2v8M2.5 6.5L6 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
         <ul class="rb-sum__res">
           <li tabindex="0" aria-describedby="rb-hint-1"><b>&#8722;74%</b><span>Blended <i class="rb-nw">CAC<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 4v5.5H4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">monthly: $263 in June &#8594; $68 in September</small><span class="rb-hint" role="tooltip" id="rb-hint-1">All ad spend in a month divided by all new subscriptions that month, organic included. June vs September.</span></li>
           <li tabindex="0" aria-describedby="rb-hint-2"><b>2.3%</b><span>Landing-to-paid CR</span><small class="rb-sum__sub">landing view to payment, Aug 24 &#8211; Oct 4</small><span class="rb-hint" role="tooltip" id="rb-hint-2">Share of web funnel landing views that ended in a payment, Aug 24 &#8211; Oct 4, once the core audience was found.</span></li>
@@ -1499,6 +1515,44 @@ layout();})();</script></section>
       </section>
     </div>
   </div>
+  <section class="rb-detail" id="rb-acquisition">
+    <h2 class="rb-h2">Acquisition</h2>
+    <div class="rb-cols">
+      <div class="rb-step">
+        <p class="rb-step__k">The challenge</p>
+        <p>Find at least one topic that works, an audience and an angle that convert profitably, by running and burning through topics and creatives on a limited budget. We launched in summer, the low season when much of the audience is passive, and chose not to wait for September. The whole ad budget for the unit economics test was about $52k, so the goal was to find a working combination, not to scale.</p>
+      </div>
+      <div class="rb-step">
+        <p class="rb-step__k">Finding the audience</p>
+        <p>From day one we tagged every buyer by archetype, based on their quiz answers. By August the data showed who we attracted most: nursing students and nurses. We moved the main focus to them and tested campaigns and creative topics for this audience. Blended CAC went from $263 in June to $68 in September.</p>
+      </div>
+    </div>
+    <p class="rb-step__k rb-cr__k">Creatives that worked</p>
+    <div class="rb-crs">
+        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-1.mp4" poster="../assets/rb/cr/creative-1.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Nursing creative: more reading than time"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
+        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-2.mp4" poster="../assets/rb/cr/creative-2.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Nursing creative: listening between shifts"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
+        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-3.mp4" poster="../assets/rb/cr/creative-3.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Nursing creative: the less you read"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
+    </div>
+    <div class="rb-cols">
+      <div class="rb-step">
+        <p class="rb-step__k">A funnel built around the audience</p>
+        <p>In parallel we built a dedicated nursing funnel and a custom product page in the App Store, and optimised individual steps. The quiz moved in stages: easy warm-up questions first, then their professional experience, then the pain of falling behind and having no time for family, and only then the app&#8217;s features and personal setup.</p>
+        <p class="rb-step__note">About 1 in 4 visitors reached the profile questions; 6.8% of them bought within 7 days, up to 11% in the best segments.</p>
+      </div>
+      <div class="rb-step">
+        <p class="rb-step__k">Top-converting quiz answers</p>
+        <dl class="rb-ans">
+          <div><dt>Learning difference: dyslexia</dt><dd>11.0%</dd></div>
+          <div><dt>Help me with: ADHD or dyslexia</dt><dd>10.0%</dd></div>
+          <div><dt>Learning difference: ADHD</dt><dd>8.9%</dd></div>
+          <div><dt>Help me with: learning new things</dt><dd>8.9%</dd></div>
+          <div><dt>Reading 12+ hours a week</dt><dd>8.6%</dd></div>
+          <div><dt>Study and work at the same time</dt><dd>8.1%</dd></div>
+        </dl>
+        <p class="rb-step__note">Purchase within 7 days of answering. Quiz average 6.8%.</p>
+      </div>
+    </div>
+  </section>
   <div class="rb-modal" role="dialog" aria-modal="true" aria-label="Readberry product demo" hidden><button type="button" class="rb-modal__close" aria-label="Close video">&#215;</button><video width="1600" height="900" controls playsinline preload="none" poster="../assets/readberry-reel.jpg?v=2"><source src="../assets/readberry-reel.mp4?v=3" type="video/mp4"></video></div>
 
 </div>
@@ -2273,6 +2327,23 @@ layout();})();</script></section>
   function key(e){ if(e.key==='Escape') close(); }
   btn.addEventListener('click',open);
   m.addEventListener('click',function(e){ if(e.target===m||e.target.closest('.rb-modal__close')) close(); });
+})();
+</script>
+<script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('.rb-cr__v')); if(!vids.length) return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){v.preload='auto'; var p=v.play(); if(p&&p.catch)p.catch(function(){});} else {v.pause();}});},{threshold:.5});
+    vids.forEach(function(v){io.observe(v);});
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.rb-cr__snd'); if(!b) return;
+    var v=b.parentNode.querySelector('video'), on=v.muted;
+    vids.forEach(function(o){ if(o!==v){o.muted=true; var ob=o.parentNode.querySelector('.rb-cr__snd'); ob.setAttribute('aria-pressed','false'); ob.textContent='Sound off'; ob.setAttribute('aria-label','Turn sound on');} });
+    v.muted=!on; if(on){var p=v.play(); if(p&&p.catch)p.catch(function(){});}
+    b.setAttribute('aria-pressed',on?'true':'false'); b.textContent=on?'Sound on':'Sound off'; b.setAttribute('aria-label',on?'Turn sound off':'Turn sound on');
+  });
 })();
 </script>
 </body>
