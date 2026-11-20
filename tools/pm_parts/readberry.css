@@ -163,15 +163,3 @@
 .rb-crside__fact b{display:block;font-size:40px;font-weight:400;line-height:1.1;color:var(--ink)}
 @media (max-width:1024px){.rb-crwrap{grid-template-columns:1fr;gap:32px}.rb-crwrap .rb-crs{max-width:600px}}
 
-/* quiz funnel */
-.rb-fn{margin-top:28px}
-.rb-fn__k{font-weight:600;color:var(--ink);margin:0 0 14px!important}
-.rb-fn__s{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:12px;max-width:460px}
-.rb-fn__s li{display:grid;grid-template-columns:minmax(0,1fr) 44px;column-gap:12px;row-gap:6px;align-items:center}
-.rb-fn__t{font-size:15px;color:var(--ink-2);display:flex;justify-content:space-between;gap:12px}
-.rb-fn__t small{font-size:13px;color:var(--rb-cap)}
-.rb-fn__bar{grid-column:1;height:6px;border-radius:3px;background:var(--tint-12);overflow:hidden}
-.rb-fn__bar i{display:block;height:100%;border-radius:3px;background:#B08A72}
-.rb-fn__s li:nth-child(n+3):nth-child(-n+5) .rb-fn__t small{color:var(--green)}
-.rb-fn__s li:last-child .rb-fn__bar i{background:var(--green)}
-.rb-fn__s b{grid-column:2;grid-row:1/3;text-align:right;font-weight:400;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
