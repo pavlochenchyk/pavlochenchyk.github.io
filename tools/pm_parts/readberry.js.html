@@ -50,7 +50,7 @@
   function show(i){
     cur=Math.max(1,Math.min(N,i));
     img.src=src(cur); img.alt='Quiz screen '+cur+' of '+N+': '+alts[cur-1];
-    cnt.textContent=cur+' / '+N; prev.disabled=cur===1; next.disabled=cur===N;
+    cnt.textContent=cur+' / '+N; img.parentNode.classList.toggle('is-white',cur===N); prev.disabled=cur===1; next.disabled=cur===N;
     var k=stageOf(cur); st.forEach(function(b,j){b.setAttribute('aria-current',j===k?'true':'false');});
     pre(cur+1); pre(cur-1);
   }
