@@ -120,10 +120,11 @@
 .rb-cr__v{display:block;width:100%;height:100%;object-fit:cover}
 .rb-cr__snd{position:absolute;right:10px;bottom:10px;height:30px;padding:0 12px;border:0;border-radius:999px;background:rgba(20,15,12,.55);color:#fff;font:inherit;font-size:12px;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .rb-cr__snd[aria-pressed="true"]{background:rgba(20,15,12,.8)}
-.rb-ans{margin:0;border-top:1px solid var(--tint-12)}
+.rb-ans{margin:0}
 .rb-ans div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--tint-12)}
 .rb-ans dt{color:var(--ink-2)}
 .rb-ans dd{margin:0;font-variant-numeric:tabular-nums;color:var(--ink)}
+.rb-ans .rb-ans__h{padding:0 0 8px}.rb-ans .rb-ans__h dt,.rb-ans .rb-ans__h dd{font-size:13px;color:var(--rb-cap)}
 .rb-ans + .rb-step__note{margin-top:12px!important}
 @media (max-width:860px){.rb-cols{grid-template-columns:1fr;gap:28px}.rb-crs{gap:10px}.rb-cr{border-radius:14px}.rb-cr__snd{right:6px;bottom:6px;height:26px;padding:0 9px;font-size:11px}}
 .rb-cr{cursor:pointer;transition:opacity .3s,transform .3s}
@@ -131,42 +132,6 @@
 .rb-crs .rb-cr.is-on{opacity:1}
 @media (prefers-reduced-motion:reduce){.rb-crs .rb-cr:not(.is-on){opacity:1}}
 
-/* quiz walkthrough */
-.rb-quiz{margin-top:64px;max-width:900px}
-.rb-acc{margin-top:16px;border-top:1px solid var(--tint-12)}
-.rb-acc__item{border-bottom:1px solid var(--tint-12)}
-.rb-acc__h{margin:0;font:inherit}
-.rb-acc__btn{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:200px minmax(0,1fr) 18px;column-gap:20px;align-items:center;padding:14px 4px;cursor:pointer}
-.rb-acc__btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:6px}
-.rb-acc__btn b{font-size:17px;font-weight:600;color:var(--ink)}
-.rb-acc__btn span{font-size:15px;color:var(--rb-cap)}
-.rb-acc__btn svg{color:var(--rb-cap);transition:transform .25s}
-.rb-acc__btn:hover svg{color:var(--ink)}
-.rb-acc__btn[aria-expanded="true"] svg{transform:rotate(180deg)}
-.rb-acc__panel{display:flex;flex-wrap:wrap;gap:28px 40px;padding:8px 4px 32px}
-.rb-acc__shots{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 16px;margin:-4px -4px -16px;max-width:100%;scrollbar-width:thin}
-.rb-acc__shots img{flex:0 0 auto;width:168px;height:auto;aspect-ratio:360/772;border-radius:18px;box-shadow:0 1px 2px rgba(60,30,20,.08),0 12px 28px -8px rgba(60,30,20,.22);background:#FFF6F5}
-.rb-acc__data{flex:1 1 100%;min-width:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px 48px;align-items:start}
-.rb-acc__data p{grid-column:1/-1}
-.rb-acc__data p{margin:0 0 12px;font-size:16px;line-height:1.55;color:var(--ink)}
-.rb-acc__t{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:15px;table-layout:fixed}
-.rb-acc__t thead th:nth-child(2){width:108px}.rb-acc__t thead th:nth-child(3){width:64px}
-.rb-acc__t caption{text-align:left;font-weight:600;color:var(--ink);padding-bottom:8px}
-.rb-acc__t thead th{font-weight:400;font-size:13px;color:var(--rb-cap);text-align:left;padding:0 0 6px}
-.rb-acc__t th[scope=row]{font-weight:400;text-align:left;color:var(--ink-2);padding:5px 12px 5px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rb-acc__t td{padding:5px 0;color:var(--rb-cap);white-space:nowrap;font-variant-numeric:tabular-nums}
-.rb-acc__t td:last-child{text-align:right;color:var(--ink-2)}
-.rb-acc__t thead th:last-child{text-align:right}
-.rb-acc__t tr.is-top th,.rb-acc__t tr.is-top td:last-child{color:var(--ink);font-weight:600}
-.rb-acc__bar{display:inline-block;width:52px;height:6px;border-radius:3px;background:var(--tint-12);margin-right:8px;vertical-align:middle;overflow:hidden}
-.rb-acc__bar i{display:block;height:100%;background:#B08A72;border-radius:3px}
-.rb-acc__src{margin-top:14px!important}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-acc__shots img{box-shadow:0 12px 28px -8px rgba(0,0,0,.6)}}
-@media (max-width:860px){.rb-acc__btn{grid-template-columns:minmax(0,1fr) 18px;row-gap:2px}.rb-acc__btn span{grid-column:1}.rb-acc__btn svg{grid-column:2;grid-row:1/3}.rb-acc__shots img{width:140px;border-radius:14px}}
-.rb-acc__panel:has(.rb-acc__shots img:only-child){flex-wrap:nowrap;align-items:flex-start}
-.rb-acc__panel:has(.rb-acc__shots img:only-child) .rb-acc__shots{flex:0 0 auto}
-.rb-acc__panel:has(.rb-acc__shots img:only-child) .rb-acc__data{flex:1 1 auto;grid-template-columns:minmax(0,440px);padding-top:4px}
-@media (max-width:560px){.rb-acc__panel:has(.rb-acc__shots img:only-child){flex-wrap:wrap}}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1582,7 +1547,7 @@ layout();})();</script></section>
       </div>
       <div class="rb-step">
         <p class="rb-step__k">Top-converting quiz answers</p>
-        <dl class="rb-ans">
+        <dl class="rb-ans"><div class="rb-ans__h"><dt>Answer</dt><dd>Bought within 7 days</dd></div>
           <div><dt>Learning difference: dyslexia</dt><dd>11.0%</dd></div>
           <div><dt>Help me with: ADHD or dyslexia</dt><dd>10.0%</dd></div>
           <div><dt>Learning difference: ADHD</dt><dd>8.9%</dd></div>
@@ -1590,15 +1555,10 @@ layout();})();</script></section>
           <div><dt>Reading 12+ hours a week</dt><dd>8.6%</dd></div>
           <div><dt>Study and work at the same time</dt><dd>8.1%</dd></div>
         </dl>
-        <p class="rb-step__note">Purchase within 7 days of answering. Quiz average 6.8%.</p>
+        <p class="rb-step__note">Share of respondents who bought within 7 days of giving the answer. Quiz average 6.8%.</p>
       </div>
     </div>
 
-    <div class="rb-quiz" data-rb-acc>
-      <p class="rb-step__k">The web quiz, step by step</p>
-      <div class="rb-acc"><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-0" id="rb-acc-b0"><b>Warm-up</b><span>Age, value promise</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-0" role="region" aria-labelledby="rb-acc-b0" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-01.webp" width="360" height="772" loading="lazy" alt="Quiz screen 1 of 19: Age selection"><img src="../assets/rb/quiz/q-02.webp" width="360" height="772" loading="lazy" alt="Quiz screen 2 of 19: Value proposition"></div><div class="rb-acc__data"><p>Easy first tap: pick an age, then see what Readberry does.</p><table class="rb-acc__t"><caption>Age</caption><thead><tr><th scope="col">Answer</th><th scope="col">Share</th><th scope="col">Bought</th></tr></thead><tbody><tr><th scope="row">18–24</th><td><span class="rb-acc__bar"><i style="width:7%"></i></span>7%</td><td>4.5%</td></tr><tr><th scope="row">25–34</th><td><span class="rb-acc__bar"><i style="width:17%"></i></span>17%</td><td>6.0%</td></tr><tr class="is-top"><th scope="row">35–44</th><td><span class="rb-acc__bar"><i style="width:40%"></i></span>40%</td><td>7.4%</td></tr><tr><th scope="row">45+</th><td><span class="rb-acc__bar"><i style="width:37%"></i></span>37%</td><td>6.8%</td></tr></tbody></table></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-1" id="rb-acc-b1"><b>Profile</b><span>Setup, reading time, goals</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-1" role="region" aria-labelledby="rb-acc-b1" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-03.webp" width="360" height="772" loading="lazy" alt="Quiz screen 3 of 19: Current setup"><img src="../assets/rb/quiz/q-04.webp" width="360" height="772" loading="lazy" alt="Quiz screen 4 of 19: Weekly reading time"><img src="../assets/rb/quiz/q-05.webp" width="360" height="772" loading="lazy" alt="Quiz screen 5 of 19: What do you need Readberry for"><img src="../assets/rb/quiz/q-06.webp" width="360" height="772" loading="lazy" alt="Quiz screen 6 of 19: Profile is taking shape"></div><div class="rb-acc__data"><p>About 1 in 4 visitors reached these questions. 6.8% of them bought within 7 days.</p><table class="rb-acc__t"><caption>Current setup</caption><thead><tr><th scope="col">Answer</th><th scope="col">Share</th><th scope="col">Bought</th></tr></thead><tbody><tr class="is-top"><th scope="row">Work and study</th><td><span class="rb-acc__bar"><i style="width:36%"></i></span>36%</td><td>8.1%</td></tr><tr><th scope="row">Full-time student</th><td><span class="rb-acc__bar"><i style="width:24%"></i></span>24%</td><td>7.9%</td></tr><tr><th scope="row">Work full-time</th><td><span class="rb-acc__bar"><i style="width:33%"></i></span>33%</td><td>6.6%</td></tr><tr><th scope="row">Other</th><td><span class="rb-acc__bar"><i style="width:7%"></i></span>7%</td><td>4.9%</td></tr></tbody></table><table class="rb-acc__t"><caption>Reading per week</caption><thead><tr><th scope="col">Answer</th><th scope="col">Share</th><th scope="col">Bought</th></tr></thead><tbody><tr><th scope="row">Less than 1 hour</th><td><span class="rb-acc__bar"><i style="width:22%"></i></span>22%</td><td>4.9%</td></tr><tr><th scope="row">1–3 hours</th><td><span class="rb-acc__bar"><i style="width:34%"></i></span>34%</td><td>8.4%</td></tr><tr><th scope="row">4–7 hours</th><td><span class="rb-acc__bar"><i style="width:23%"></i></span>23%</td><td>7.4%</td></tr><tr><th scope="row">8–12 hours</th><td><span class="rb-acc__bar"><i style="width:12%"></i></span>12%</td><td>7.1%</td></tr><tr class="is-top"><th scope="row">12+ hours</th><td><span class="rb-acc__bar"><i style="width:8%"></i></span>8%</td><td>8.6%</td></tr></tbody></table><table class="rb-acc__t"><caption>What do you need Readberry for</caption><thead><tr><th scope="col">Answer</th><th scope="col">Share</th><th scope="col">Bought</th></tr></thead><tbody><tr class="is-top"><th scope="row">ADHD / eye strain / dyslexia</th><td><span class="rb-acc__bar"><i style="width:16%"></i></span>16%</td><td>10.0%</td></tr><tr><th scope="row">Learn something new</th><td><span class="rb-acc__bar"><i style="width:17%"></i></span>17%</td><td>8.9%</td></tr><tr><th scope="row">Listen on the go</th><td><span class="rb-acc__bar"><i style="width:17%"></i></span>17%</td><td>8.0%</td></tr><tr><th scope="row">Make reading easier</th><td><span class="rb-acc__bar"><i style="width:19%"></i></span>19%</td><td>7.6%</td></tr><tr><th scope="row">Be more productive</th><td><span class="rb-acc__bar"><i style="width:27%"></i></span>27%</td><td>6.1%</td></tr><tr><th scope="row">Everything is perfect</th><td><span class="rb-acc__bar"><i style="width:4%"></i></span>4%</td><td>5.2%</td></tr></tbody></table></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-2" id="rb-acc-b2"><b>Pain points</b><span>Focus, rereading, distractions</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-2" role="region" aria-labelledby="rb-acc-b2" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-07.webp" width="360" height="772" loading="lazy" alt="Quiz screen 7 of 19: I lose focus quickly when reading"><img src="../assets/rb/quiz/q-08.webp" width="360" height="772" loading="lazy" alt="Quiz screen 8 of 19: I often reread"><img src="../assets/rb/quiz/q-09.webp" width="360" height="772" loading="lazy" alt="Quiz screen 9 of 19: I get distracted by my phone"></div><div class="rb-acc__data"><p>Agreement scales that make the problem explicit before the product is shown.</p></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-3" id="rb-acc-b3"><b>Learning differences</b><span>ADHD, dyslexia</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-3" role="region" aria-labelledby="rb-acc-b3" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-10.webp" width="360" height="772" loading="lazy" alt="Quiz screen 10 of 19: History with ADHD or dyslexia"></div><div class="rb-acc__data"><table class="rb-acc__t"><caption>History with learning differences</caption><thead><tr><th scope="col">Answer</th><th scope="col">Share</th><th scope="col">Bought</th></tr></thead><tbody><tr><th scope="row">ADHD</th><td><span class="rb-acc__bar"><i style="width:39%"></i></span>39%</td><td>8.8%</td></tr><tr class="is-top"><th scope="row">Dyslexia</th><td><span class="rb-acc__bar"><i style="width:7%"></i></span>7%</td><td>11.0%</td></tr><tr><th scope="row">Another difference</th><td><span class="rb-acc__bar"><i style="width:6%"></i></span>6%</td><td>5.6%</td></tr><tr><th scope="row">Not sure</th><td><span class="rb-acc__bar"><i style="width:26%"></i></span>26%</td><td>9.6%</td></tr><tr><th scope="row">None of the above</th><td><span class="rb-acc__bar"><i style="width:22%"></i></span>22%</td><td>7.0%</td></tr></tbody></table></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-4" id="rb-acc-b4"><b>How it helps</b><span>Listen, read, answer</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-4" role="region" aria-labelledby="rb-acc-b4" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-11.webp" width="360" height="772" loading="lazy" alt="Quiz screen 11 of 19: A smarter way to read"></div><div class="rb-acc__data"><p>The product promise, backed by research on active recall.</p></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-5" id="rb-acc-b5"><b>Personal setup</b><span>Speed, voice, mode, highlights, quizzes</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-5" role="region" aria-labelledby="rb-acc-b5" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-12.webp" width="360" height="772" loading="lazy" alt="Quiz screen 12 of 19: Listening speed"><img src="../assets/rb/quiz/q-13.webp" width="360" height="772" loading="lazy" alt="Quiz screen 13 of 19: Narrator voice"><img src="../assets/rb/quiz/q-14.webp" width="360" height="772" loading="lazy" alt="Quiz screen 14 of 19: Reading mode"><img src="../assets/rb/quiz/q-15.webp" width="360" height="772" loading="lazy" alt="Quiz screen 15 of 19: Highlight style"><img src="../assets/rb/quiz/q-16.webp" width="360" height="772" loading="lazy" alt="Quiz screen 16 of 19: Quiz frequency"></div><div class="rb-acc__data"><p>The user sets up the app before paying, so the plan feels like their own.</p></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-6" id="rb-acc-b6"><b>Account</b><span>Email</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-6" role="region" aria-labelledby="rb-acc-b6" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-17.webp" width="360" height="772" loading="lazy" alt="Quiz screen 17 of 19: Email capture"></div><div class="rb-acc__data"><p>Email to save the setup and continue in the app.</p></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-7" id="rb-acc-b7"><b>Result</b><span>Personal plan</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-7" role="region" aria-labelledby="rb-acc-b7" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-18.webp" width="360" height="772" loading="lazy" alt="Quiz screen 18 of 19: Learning setup is ready"></div><div class="rb-acc__data"><p>The personal plan comes right before the price.</p></div></div></div><div class="rb-acc__item"><h3 class="rb-acc__h"><button type="button" class="rb-acc__btn" aria-expanded="false" aria-controls="rb-acc-8" id="rb-acc-b8"><b>Paywall</b><span>Three plans with intro offers</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h3><div class="rb-acc__panel" id="rb-acc-8" role="region" aria-labelledby="rb-acc-b8" hidden><div class="rb-acc__shots"><img src="../assets/rb/quiz/q-19.webp" width="360" height="772" loading="lazy" alt="Quiz screen 19 of 19: Paywall with three plans"></div><div class="rb-acc__data"><p>Landing to payment: 2.3% for Aug 24 – Oct 4, on a hard paywall with no trial.</p><p>Plan mix among intro-offer purchases: monthly 44%, 3 months 35%, annual 21%.</p></div></div></div></div>
-      <p class="rb-step__note rb-acc__src">Share of respondents for each answer and purchases within 7 days of answering. Mixpanel, data as of Oct 6.</p>
-    </div>
   </section>
   <div class="rb-modal" role="dialog" aria-modal="true" aria-label="Readberry product demo" hidden><button type="button" class="rb-modal__close" aria-label="Close video">&#215;</button><video width="1600" height="900" controls playsinline preload="none" poster="../assets/readberry-reel.jpg?v=2"><source src="../assets/readberry-reel.mp4?v=3" type="video/mp4"></video></div>
 
@@ -2399,19 +2359,6 @@ layout();})();</script></section>
     vids.forEach(function(o){ if(o!==v){ o.muted=true; setBtn(o,false); } });
     if(i!==cur){ go(i); }
     v.muted=!on; setBtn(v,on); if(on && v.paused) playCur();
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var a=document.querySelector('[data-rb-acc]'); if(!a) return;
-  a.querySelectorAll('.rb-acc__btn').forEach(function(b){
-    b.addEventListener('click',function(){
-      var open=b.getAttribute('aria-expanded')==='true';
-      b.setAttribute('aria-expanded',open?'false':'true');
-      document.getElementById(b.getAttribute('aria-controls')).hidden=open;
-    });
   });
 })();
 </script>

@@ -35,16 +35,3 @@
   });
 })();
 </script>
-
-<script>
-(function(){
-  var a=document.querySelector('[data-rb-acc]'); if(!a) return;
-  a.querySelectorAll('.rb-acc__btn').forEach(function(b){
-    b.addEventListener('click',function(){
-      var open=b.getAttribute('aria-expanded')==='true';
-      b.setAttribute('aria-expanded',open?'false':'true');
-      document.getElementById(b.getAttribute('aria-controls')).hidden=open;
-    });
-  });
-})();
-</script>
