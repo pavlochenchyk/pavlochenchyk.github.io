@@ -168,6 +168,22 @@
 .rb-crside__fact{margin:0 0 6px;font-size:16px;line-height:1.45;color:var(--ink-2)}
 .rb-crside__fact b{display:block;font-size:40px;font-weight:400;line-height:1.1;color:var(--ink)}
 @media (max-width:1024px){.rb-crwrap{grid-template-columns:1fr;gap:32px}.rb-crwrap .rb-crs{max-width:600px}}
+
+/* web funnel */
+.rb-fn{margin-top:28px}
+.rb-fn__k{font-weight:600;color:var(--ink);margin:0 0 12px!important}
+.rb-fn__s{list-style:none;margin:0 0 14px;padding:0;max-width:420px}
+.rb-fn__s li:not(.rb-fn__cv){display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,.55)}
+.rb-fn__s li span{font-size:15px;color:var(--ink-2)}
+.rb-fn__s li b{font-size:20px;font-weight:400;color:var(--ink);font-variant-numeric:tabular-nums}
+.rb-fn__s li.is-end{background:#fff}
+.rb-fn__s li.is-end b{color:var(--green)}
+.rb-fn__cv{position:relative;padding:7px 0 7px 34px;font-size:14px;color:var(--rb-cap)}
+.rb-fn__cv::before{content:"";position:absolute;left:20px;top:4px;bottom:4px;width:1px;background:var(--tint-12)}
+.rb-fn__cv::after{content:"";position:absolute;left:17px;bottom:4px;border:3.5px solid transparent;border-top:5px solid #B08A72;border-bottom:0}
+.rb-fn__cv.is-key{color:var(--ink);font-weight:600}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-fn__s li:not(.rb-fn__cv){background:var(--panel)}:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-fn__s li.is-end{background:var(--panel)}}
+:root[data-theme="dark"] .rb-fn__s li:not(.rb-fn__cv),:root[data-site-theme="dark"] .rb-fn__s li:not(.rb-fn__cv){background:var(--panel)}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1583,7 +1599,16 @@ layout();})();</script></section>
       <div class="rb-step">
         <p class="rb-step__k">A funnel built around the audience</p>
         <p>In parallel we built a dedicated nursing funnel and a custom product page in the App Store, and optimised individual steps. The quiz moved in stages: easy warm-up questions first, then their professional experience, then the pain of falling behind and having no time for family, and only then the app&#8217;s features and personal setup.</p>
-        <p class="rb-step__note">About 1 in 4 visitors reached the profile questions; 6.8% of them bought, up to 11% in the best segments.</p>
+        <div class="rb-fn"><p class="rb-fn__k">Web funnel, September</p><ol class="rb-fn__s">
+<li><span>Ad impressions</span><b>193,295</b></li>
+<li class="rb-fn__cv">1.54% click-through</li>
+<li><span>Link clicks</span><b>2,977</b></li>
+<li class="rb-fn__cv">80% reach the landing</li>
+<li><span>Landing views</span><b>2,383</b></li>
+<li class="rb-fn__cv is-key">2.2% buy</li>
+<li class="is-end"><span>Web purchases</span><b>52</b></li>
+</ol>
+<p class="rb-step__note">Meta Ads and CRM. Inside the quiz, about 1 in 4 visitors reached the profile questions and 6.8% of them bought. Landing to payment held at 2–3% a week from the fourth week after launch, on a hard paywall with no trial.</p></div>
       </div>
       <div class="rb-step">
         <p class="rb-step__k">Top-converting quiz answers</p>
