@@ -174,6 +174,29 @@
 @media (max-width:1024px){.rb-cols--cr{grid-template-columns:1fr}}
 
 .rb-fbul{font-size:17px;gap:8px;margin-bottom:16px}
+
+/* monetization experiments */
+.rb-exps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1080px}
+.rb-exp{background:#fff;border-radius:20px;padding:24px 22px 22px;display:flex;flex-direction:column}
+.rb-exp__k{margin:0 0 20px;font-size:14px;color:var(--rb-cap)}
+.rb-exp.is-best .rb-exp__k{color:var(--green);font-weight:600}
+.rb-exp__price,.rb-exp__ren{margin:0;display:flex;align-items:baseline;gap:8px}
+.rb-exp__price b{font-size:40px;font-weight:400;line-height:1.05;color:var(--ink);font-variant-numeric:tabular-nums}
+.rb-exp__ren{margin:6px 0 24px}
+.rb-exp__ren b{font-size:20px;font-weight:400;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.rb-exp__ren b::before{content:"→ ";color:var(--rb-cap)}
+.rb-exp__price span,.rb-exp__ren span{font-size:14px;color:var(--rb-cap)}
+.rb-exp.is-best .rb-exp__ren b{color:var(--green)}
+.rb-exp__kv{margin:0;padding:14px 0;border-top:1px solid var(--tint-12);display:grid;gap:10px}
+.rb-exp__kv div{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.rb-exp__kv dt{font-size:14px;line-height:1.35;color:var(--rb-cap)}
+.rb-exp__kv dd{margin:0;font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rb-exp__kv--all{margin-top:auto;padding-bottom:0}
+.rb-exp.is-best .rb-exp__kv--all dd{color:var(--green)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-exp{background:var(--panel)}}
+:root[data-theme="dark"] .rb-exp,:root[data-site-theme="dark"] .rb-exp{background:var(--panel)}
+@media (max-width:1024px){.rb-exps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.rb-exps{grid-template-columns:1fr}}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1546,7 +1569,7 @@ layout();})();</script></section>
         </ul>
       </section>
       <section class="rb-group" aria-label="Monetization">
-        <p class="rb-group__k"><span>Monetization</span></p>
+        <p class="rb-group__k"><span>Monetization</span><a class="rb-group__more" href="#rb-monetization" aria-label="How we got there: Monetization">Details<svg viewBox="0 0 12 12" width="11" height="11" fill="none" aria-hidden="true"><path d="M6 2v8M2.5 6.5L6 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
         <ul class="rb-sum__res">
           <li tabindex="0" aria-describedby="rb-hint-4"><b>&#215;2</b><span><i class="rb-nw">AOV<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">$18.70 &#8594; $38.47</small><span class="rb-hint" role="tooltip" id="rb-hint-4">Average first payment of a new subscriber, without boosters and refunds. July vs October, after intro offers moved orders to 3-month and annual plans.</span></li>
           <li tabindex="0" aria-describedby="rb-hint-5"><b>+37%</b><span><i class="rb-nw">ARPPU<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><small class="rb-sum__sub">$20.4 &#8594; $27.8 a month, Jul &#8594; Sep</small><span class="rb-hint" role="tooltip" id="rb-hint-5">Revenue in a month divided by users who paid that month, renewals included. July vs September.</span></li>
@@ -1606,6 +1629,31 @@ layout();})();</script></section>
       </div>
     </div>
 
+  </section>
+  <section class="rb-detail" id="rb-monetization">
+    <h2 class="rb-h2">Monetization</h2>
+    <div class="rb-step rb-acq__intro">
+      <p class="rb-step__k">Monthly plan experiments on web</p>
+      <p>We were looking for a price that matches the pain and the budget of our users, and for the balance between the first and the second payment. A cheap entry kept people but did not pay back. The intro offer kept the low entry and made the renewal pay.</p>
+    </div>
+    <ol class="rb-exps"><li class="rb-exp "><p class="rb-exp__k">Test 1 · No intro</p>
+<p class="rb-exp__price"><b>$24.90</b><span>first payment</span></p>
+<p class="rb-exp__ren"><b>$24.90</b><span>renewal</span></p>
+<dl class="rb-exp__kv"><div><dt>Rebill rate</dt><dd>50%</dd></div><div><dt>Revenue per person, 2 payments</dt><dd>$37.4</dd></div></dl>
+<dl class="rb-exp__kv rb-exp__kv--all"><div><dt>ARPPU, all plans</dt><dd>$32.5</dd></div><div><dt>On 3-month or annual plans</dt><dd>38%</dd></div></dl></li><li class="rb-exp "><p class="rb-exp__k">Test 2 · No intro</p>
+<p class="rb-exp__price"><b>$17.60</b><span>first payment</span></p>
+<p class="rb-exp__ren"><b>$17.60</b><span>renewal</span></p>
+<dl class="rb-exp__kv"><div><dt>Rebill rate</dt><dd>61%</dd></div><div><dt>Revenue per person, 2 payments</dt><dd>$28.0</dd></div></dl>
+<dl class="rb-exp__kv rb-exp__kv--all"><div><dt>ARPPU, all plans</dt><dd>$28.9</dd></div><div><dt>On 3-month or annual plans</dt><dd>22%</dd></div></dl></li><li class="rb-exp "><p class="rb-exp__k">Test 3 · No intro</p>
+<p class="rb-exp__price"><b>$19.49</b><span>first payment</span></p>
+<p class="rb-exp__ren"><b>$19.49</b><span>renewal</span></p>
+<dl class="rb-exp__kv"><div><dt>Rebill rate</dt><dd>57%</dd></div><div><dt>Revenue per person, 2 payments</dt><dd>$30.0</dd></div></dl>
+<dl class="rb-exp__kv rb-exp__kv--all"><div><dt>ARPPU, all plans</dt><dd>$40.3</dd></div><div><dt>On 3-month or annual plans</dt><dd>32%</dd></div></dl></li><li class="rb-exp is-best"><p class="rb-exp__k">Test 4 · Intro offer</p>
+<p class="rb-exp__price"><b>$19.49</b><span>first payment</span></p>
+<p class="rb-exp__ren"><b>$32.49</b><span>renewal</span></p>
+<dl class="rb-exp__kv"><div><dt>Rebill rate</dt><dd>53%</dd></div><div><dt>Revenue per person, 2 payments</dt><dd>$37.6</dd></div></dl>
+<dl class="rb-exp__kv rb-exp__kv--all"><div><dt>ARPPU, all plans</dt><dd>$44.6</dd></div><div><dt>On 3-month or annual plans</dt><dd>51%</dd></div></dl></li></ol>
+    <p class="rb-step__note rb-tl__note">Monthly plan on web, paid by card. Rebill rate: share of buyers who paid the second month. ARPPU: revenue per paying customer in the first 30 days, across all web plans, while the test was live.</p>
   </section>
   <div class="rb-modal" role="dialog" aria-modal="true" aria-label="Readberry product demo" hidden><button type="button" class="rb-modal__close" aria-label="Close video">&#215;</button><video width="1600" height="900" controls playsinline preload="none" poster="../assets/readberry-reel.jpg?v=2"><source src="../assets/readberry-reel.mp4?v=3" type="video/mp4"></video></div>
 
