@@ -206,6 +206,9 @@
 
 
 
+
+
+
 /* engagement */
 .rb-eng{margin-top:48px;max-width:1000px}
 .rb-ch{display:block;width:100%;height:auto;overflow:visible}
@@ -221,6 +224,10 @@
 .rb-chl span{display:flex;align-items:center;gap:8px}
 .rb-chl i{display:inline-block;width:18px;height:0;border-top:2.5px solid}
 .rb-chl i.is-g{border-color:var(--green)}.rb-chl i.is-b{border-color:#B08A72}.rb-chl i.is-dash{border-top-style:dashed}
+.rb-bento{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:40px;max-width:1080px;align-items:stretch}
+.rb-bento .rb-chcard{display:flex;flex-direction:column}
+.rb-bento .rb-ch{margin-top:auto}
+.rb-chcard__k{margin:0 0 6px!important;font-weight:600;color:var(--ink)}
 .rb-eng__two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .rb-chcard{--card:#fff;background:#fff;border-radius:24px;padding:24px 24px 18px;box-shadow:0 1px 2px rgba(60,30,20,.04),0 12px 32px -12px rgba(60,30,20,.12)}
 .rb-chcard .rb-step__note{margin:10px 0 0!important}
@@ -231,12 +238,10 @@
 .rb-rel__k{margin-top:40px!important}
 .rb-rel i{font-style:normal;font-size:14px;color:var(--rb-cap)}
 .rb-rel,.rb-road{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
-.rb-road{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:12px}
+.rb-road{grid-template-columns:repeat(4,minmax(0,1fr))}
 .rb-rel li,.rb-road li{display:flex;flex-direction:column;gap:6px}
 .rb-rel b,.rb-road b{font-size:16px;font-weight:600;color:var(--ink)}
 .rb-rel span,.rb-road span{font-size:15px;line-height:1.5;color:var(--ink-2)}
-.rb-road li{background:#fff;border-radius:16px;padding:18px}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-road li{background:var(--panel)}}
-:root[data-theme="dark"] .rb-road li,:root[data-site-theme="dark"] .rb-road li{background:var(--panel)}
-@media (max-width:860px){.rb-eng__two,.rb-rel{grid-template-columns:1fr;gap:28px}.rb-road{grid-template-columns:1fr 1fr}}
+@media (max-width:1024px){.rb-bento{grid-template-columns:1fr 1fr}.rb-bento__big{grid-column:1/-1}}
+@media (max-width:860px){.rb-bento{grid-template-columns:1fr}.rb-eng__two,.rb-rel{grid-template-columns:1fr;gap:28px}.rb-road{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.rb-road{grid-template-columns:1fr}}
