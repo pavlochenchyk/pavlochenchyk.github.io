@@ -126,6 +126,10 @@
 .rb-ans dd{margin:0;font-variant-numeric:tabular-nums;color:var(--ink)}
 .rb-ans + .rb-step__note{margin-top:12px!important}
 @media (max-width:860px){.rb-cols{grid-template-columns:1fr;gap:28px}.rb-crs{gap:10px}.rb-cr{border-radius:14px}.rb-cr__snd{right:6px;bottom:6px;height:26px;padding:0 9px;font-size:11px}}
+.rb-cr{cursor:pointer;transition:opacity .3s,transform .3s}
+.rb-crs .rb-cr:not(.is-on){opacity:.55}
+.rb-crs .rb-cr.is-on{opacity:1}
+@media (prefers-reduced-motion:reduce){.rb-crs .rb-cr:not(.is-on){opacity:1}}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1529,9 +1533,9 @@ layout();})();</script></section>
     </div>
     <p class="rb-step__k rb-cr__k">Creatives that worked</p>
     <div class="rb-crs">
-        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-1.mp4" poster="../assets/rb/cr/creative-1.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Nursing creative: more reading than time"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
-        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-2.mp4" poster="../assets/rb/cr/creative-2.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Nursing creative: listening between shifts"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
-        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-3.mp4" poster="../assets/rb/cr/creative-3.jpg" width="540" height="960" muted loop playsinline preload="none" aria-label="Nursing creative: the less you read"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
+        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-1.mp4" poster="../assets/rb/cr/creative-1.jpg" width="540" height="960" muted playsinline preload="none" aria-label="Nursing creative: more reading than time"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
+        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-2.mp4" poster="../assets/rb/cr/creative-2.jpg" width="540" height="960" muted playsinline preload="none" aria-label="Nursing creative: listening between shifts"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
+        <figure class="rb-cr"><video class="rb-cr__v" src="../assets/rb/cr/creative-3.mp4" poster="../assets/rb/cr/creative-3.jpg" width="540" height="960" muted playsinline preload="none" aria-label="Nursing creative: the less you read"></video><button type="button" class="rb-cr__snd" aria-pressed="false" aria-label="Turn sound on">Sound off</button></figure>
     </div>
     <div class="rb-cols">
       <div class="rb-step">
@@ -2332,17 +2336,26 @@ layout();})();</script></section>
 <script>
 (function(){
   var vids=[].slice.call(document.querySelectorAll('.rb-cr__v')); if(!vids.length) return;
+  var box=document.querySelector('.rb-crs'), cur=0, inView=false;
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mark(){ vids.forEach(function(v,i){ v.parentNode.classList.toggle('is-on', i===cur); }); }
+  function playCur(){ vids.forEach(function(v,i){ if(i!==cur){ v.pause(); } }); var v=vids[cur]; v.preload='auto'; var p=v.play(); if(p&&p.catch)p.catch(function(){}); mark(); }
+  function go(i){ vids[cur].pause(); cur=(i+vids.length)%vids.length; vids[cur].currentTime=0; if(inView) playCur(); else mark(); }
+  vids.forEach(function(v,i){
+    v.addEventListener('ended',function(){ var wasSound=!v.muted; v.muted=true; setBtn(v,false); go(i+1); if(wasSound){ vids[cur].muted=false; setBtn(vids[cur],true); } });
+    v.addEventListener('click',function(){ if(i!==cur){ go(i); } else if(v.paused){ playCur(); } else { v.pause(); } });
+  });
+  function setBtn(v,on){ var b=v.parentNode.querySelector('.rb-cr__snd'); b.setAttribute('aria-pressed',on?'true':'false'); b.textContent=on?'Sound on':'Sound off'; b.setAttribute('aria-label',on?'Turn sound off':'Turn sound on'); }
   if('IntersectionObserver' in window && !reduce){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){v.preload='auto'; var p=v.play(); if(p&&p.catch)p.catch(function(){});} else {v.pause();}});},{threshold:.5});
-    vids.forEach(function(v){io.observe(v);});
+    new IntersectionObserver(function(es){ es.forEach(function(e){ inView=e.isIntersecting; if(inView) playCur(); else vids.forEach(function(v){v.pause();}); }); },{threshold:.4}).observe(box);
   }
+  mark();
   document.addEventListener('click',function(e){
     var b=e.target.closest&&e.target.closest('.rb-cr__snd'); if(!b) return;
-    var v=b.parentNode.querySelector('video'), on=v.muted;
-    vids.forEach(function(o){ if(o!==v){o.muted=true; var ob=o.parentNode.querySelector('.rb-cr__snd'); ob.setAttribute('aria-pressed','false'); ob.textContent='Sound off'; ob.setAttribute('aria-label','Turn sound on');} });
-    v.muted=!on; if(on){var p=v.play(); if(p&&p.catch)p.catch(function(){});}
-    b.setAttribute('aria-pressed',on?'true':'false'); b.textContent=on?'Sound on':'Sound off'; b.setAttribute('aria-label',on?'Turn sound off':'Turn sound on');
+    var v=b.parentNode.querySelector('video'), i=vids.indexOf(v), on=v.muted;
+    vids.forEach(function(o){ if(o!==v){ o.muted=true; setBtn(o,false); } });
+    if(i!==cur){ go(i); }
+    v.muted=!on; setBtn(v,on); if(on && v.paused) playCur();
   });
 })();
 </script>

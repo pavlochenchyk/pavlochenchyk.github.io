@@ -120,3 +120,7 @@
 .rb-ans dd{margin:0;font-variant-numeric:tabular-nums;color:var(--ink)}
 .rb-ans + .rb-step__note{margin-top:12px!important}
 @media (max-width:860px){.rb-cols{grid-template-columns:1fr;gap:28px}.rb-crs{gap:10px}.rb-cr{border-radius:14px}.rb-cr__snd{right:6px;bottom:6px;height:26px;padding:0 9px;font-size:11px}}
+.rb-cr{cursor:pointer;transition:opacity .3s,transform .3s}
+.rb-crs .rb-cr:not(.is-on){opacity:.55}
+.rb-crs .rb-cr.is-on{opacity:1}
+@media (prefers-reduced-motion:reduce){.rb-crs .rb-cr:not(.is-on){opacity:1}}
