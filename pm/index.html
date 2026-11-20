@@ -169,6 +169,9 @@
 .rb-crside__fact b{display:block;font-size:40px;font-weight:400;line-height:1.1;color:var(--ink)}
 @media (max-width:1024px){.rb-crwrap{grid-template-columns:1fr;gap:32px}.rb-crwrap .rb-crs{max-width:600px}}
 
+
+.rb-cols--cr{grid-template-columns:minmax(0,600px) minmax(0,1fr);gap:40px 56px}
+@media (max-width:1024px){.rb-cols--cr{grid-template-columns:1fr}}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1580,7 +1583,7 @@ layout();})();</script></section>
       <p class="rb-step__note">Meta attribution, Jun – Oct 6, 236 purchases.</p>
     </aside>
     </div>
-    <div class="rb-cols">
+    <div class="rb-cols rb-cols--cr">
       <div class="rb-step">
         <p class="rb-step__k">A funnel built around the audience</p>
         <p>In parallel we built a dedicated nursing funnel and a custom product page in the App Store, and optimised individual steps. The quiz moved in stages: easy warm-up questions first, then their professional experience, then the pain of falling behind and having no time for family, and only then the app&#8217;s features and personal setup.</p>
