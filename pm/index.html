@@ -130,6 +130,30 @@
 .rb-crs .rb-cr:not(.is-on){opacity:.55}
 .rb-crs .rb-cr.is-on{opacity:1}
 @media (prefers-reduced-motion:reduce){.rb-crs .rb-cr:not(.is-on){opacity:1}}
+
+/* quiz walkthrough */
+.rb-quiz{margin-top:64px}
+.rb-quiz__grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:56px;align-items:start;margin-top:20px}
+.rb-quiz__phone{position:sticky;top:96px}
+.rb-quiz__screen{border-radius:32px;overflow:hidden;background:#FFF6F5;box-shadow:0 0 0 8px #1C1F25,0 18px 40px rgba(60,30,20,.18);margin:8px}
+.rb-quiz__screen img{display:block;width:100%;height:auto;aspect-ratio:392/772}
+.rb-quiz__nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px}
+.rb-quiz__btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--tint-12);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.rb-quiz__btn:hover{background:var(--tint-12)}
+.rb-quiz__btn:disabled{opacity:.35;cursor:default;background:transparent}
+.rb-quiz__count{font-size:15px;color:var(--rb-cap);min-width:56px;text-align:center;font-variant-numeric:tabular-nums}
+.rb-quiz__stages{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.rb-quiz__stages button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;padding:12px 16px;border-radius:12px;cursor:pointer;transition:background .2s}
+.rb-quiz__stages button:hover{background:var(--tint-12)}
+.rb-quiz__stages button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.rb-quiz__stages b{font-size:17px;font-weight:600;color:var(--ink-2)}
+.rb-quiz__stages span{grid-column:1;font-size:15px;color:var(--rb-cap)}
+.rb-quiz__stages i{grid-column:2;grid-row:1/3;align-self:center;font-style:normal;font-size:14px;color:var(--rb-cap);font-variant-numeric:tabular-nums}
+.rb-quiz__stages button[aria-current="true"]{background:#fff}
+.rb-quiz__stages button[aria-current="true"] b{color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-quiz__stages button[aria-current="true"]{background:var(--panel)}:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-quiz__screen{box-shadow:0 0 0 8px #2A2E36}}
+:root[data-theme="dark"] .rb-quiz__stages button[aria-current="true"],:root[data-site-theme="dark"] .rb-quiz__stages button[aria-current="true"]{background:var(--panel)}
+@media (max-width:860px){.rb-quiz__grid{grid-template-columns:1fr;gap:28px}.rb-quiz__phone{position:static;max-width:260px;margin:0 auto}.rb-quiz__stages b{font-size:16px}}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1556,6 +1580,22 @@ layout();})();</script></section>
         <p class="rb-step__note">Purchase within 7 days of answering. Quiz average 6.8%.</p>
       </div>
     </div>
+
+    <div class="rb-quiz" data-rb-quiz>
+      <p class="rb-step__k">The web quiz, screen by screen</p>
+      <div class="rb-quiz__grid">
+        <div class="rb-quiz__phone">
+          <div class="rb-quiz__screen"><img src="../assets/rb/quiz/q-01.webp" width="392" height="772" alt="Quiz screen 1 of 19: Age selection" data-rb-qimg></div>
+          <div class="rb-quiz__nav">
+            <button type="button" class="rb-quiz__btn" data-rb-qprev aria-label="Previous screen"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <span class="rb-quiz__count" aria-live="polite" data-rb-qcount>1 / 19</span>
+            <button type="button" class="rb-quiz__btn" data-rb-qnext aria-label="Next screen"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+        <ol class="rb-quiz__stages"><li><button type="button" data-rb-qs="1" aria-current="false"><b>Warm-up</b><span>Age and what Readberry does</span><i>1–2</i></button></li><li><button type="button" data-rb-qs="3" aria-current="false"><b>Profile</b><span>Work, study, reading time, goals</span><i>3–6</i></button></li><li><button type="button" data-rb-qs="7" aria-current="false"><b>Pain points</b><span>Focus, rereading, distractions</span><i>7–9</i></button></li><li><button type="button" data-rb-qs="10" aria-current="false"><b>Learning differences</b><span>ADHD, dyslexia and others</span><i>10</i></button></li><li><button type="button" data-rb-qs="11" aria-current="false"><b>How it helps</b><span>Listen, read, answer</span><i>11</i></button></li><li><button type="button" data-rb-qs="12" aria-current="false"><b>Personal setup</b><span>Speed, voice, mode, highlights, quizzes</span><i>12–16</i></button></li><li><button type="button" data-rb-qs="17" aria-current="false"><b>Account</b><span>Email to save the setup</span><i>17</i></button></li><li><button type="button" data-rb-qs="18" aria-current="false"><b>Result</b><span>Personal plan before the price</span><i>18</i></button></li><li><button type="button" data-rb-qs="19" aria-current="false"><b>Paywall</b><span>Intro offers on three plans</span><i>19</i></button></li></ol>
+      </div>
+      <script type="application/json" data-rb-qalts>["Age selection", "Value proposition", "Current setup: work and study", "Weekly reading time", "What do you need Readberry for", "Profile is taking shape", "I lose focus quickly when reading", "I often reread", "I get distracted by my phone", "History with ADHD or dyslexia", "A smarter way to read", "Listening speed", "Narrator voice", "Reading mode", "Highlight style", "Quiz frequency", "Email capture", "Learning setup is ready", "Paywall with three plans"]</script>
+    </div>
   </section>
   <div class="rb-modal" role="dialog" aria-modal="true" aria-label="Readberry product demo" hidden><button type="button" class="rb-modal__close" aria-label="Close video">&#215;</button><video width="1600" height="900" controls playsinline preload="none" poster="../assets/readberry-reel.jpg?v=2"><source src="../assets/readberry-reel.mp4?v=3" type="video/mp4"></video></div>
 
@@ -2357,6 +2397,38 @@ layout();})();</script></section>
     if(i!==cur){ go(i); }
     v.muted=!on; setBtn(v,on); if(on && v.paused) playCur();
   });
+})();
+</script>
+
+<script>
+(function(){
+  var q=document.querySelector('[data-rb-quiz]'); if(!q) return;
+  var img=q.querySelector('[data-rb-qimg]'), cnt=q.querySelector('[data-rb-qcount]'),
+      prev=q.querySelector('[data-rb-qprev]'), next=q.querySelector('[data-rb-qnext]'),
+      st=[].slice.call(q.querySelectorAll('[data-rb-qs]')),
+      alts=JSON.parse(q.querySelector('[data-rb-qalts]').textContent), N=alts.length, cur=1,
+      base=img.getAttribute('src').replace(/q-01\.webp$/,'');
+  function src(i){return base+'q-'+(i<10?'0':'')+i+'.webp';}
+  function pre(i){if(i>=1&&i<=N){var p=new Image();p.src=src(i);}}
+  function stageOf(i){var k=0;st.forEach(function(b,j){if(+b.getAttribute('data-rb-qs')<=i)k=j;});return k;}
+  function show(i){
+    cur=Math.max(1,Math.min(N,i));
+    img.src=src(cur); img.alt='Quiz screen '+cur+' of '+N+': '+alts[cur-1];
+    cnt.textContent=cur+' / '+N; prev.disabled=cur===1; next.disabled=cur===N;
+    var k=stageOf(cur); st.forEach(function(b,j){b.setAttribute('aria-current',j===k?'true':'false');});
+    pre(cur+1); pre(cur-1);
+  }
+  prev.addEventListener('click',function(){show(cur-1);});
+  next.addEventListener('click',function(){show(cur+1);});
+  st.forEach(function(b){b.addEventListener('click',function(){show(+b.getAttribute('data-rb-qs'));});});
+  q.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){show(cur+1);e.preventDefault();}
+    else if(e.key==='ArrowLeft'){show(cur-1);e.preventDefault();}
+  });
+  img.closest('.rb-quiz__screen').addEventListener('click',function(e){
+    var r=this.getBoundingClientRect(); show(e.clientX-r.left<r.width/3?cur-1:cur+1);
+  });
+  show(1);
 })();
 </script>
 </body>
