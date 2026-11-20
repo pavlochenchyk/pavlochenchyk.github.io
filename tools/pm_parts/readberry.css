@@ -191,3 +191,13 @@
 :root[data-theme="dark"] .rb-exp,:root[data-site-theme="dark"] .rb-exp{background:var(--panel)}
 @media (max-width:1024px){.rb-exps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.rb-exps{grid-template-columns:1fr}}
+
+.rb-exp{position:relative;outline:none;transition:box-shadow .2s}
+.rb-exp:focus-visible{box-shadow:0 0 0 2px var(--ink)}
+.rb-exp__hint{left:12px;bottom:calc(100% - 14px);width:max-content;max-width:320px;font-size:13px}
+.rb-exp__hint::after{left:24px}
+.rb-exp:hover .rb-exp__hint,.rb-exp:focus .rb-exp__hint{opacity:1;visibility:visible;transform:none}
+.rb-exp__hk{display:block;opacity:.7;margin-bottom:6px}
+.rb-exp__hr{display:grid;grid-template-columns:64px auto 36px;gap:12px;padding:2px 0;white-space:nowrap}
+.rb-exp__hr b{text-align:right}
+.rb-exp__hr b{font-weight:600;font-variant-numeric:tabular-nums}
