@@ -182,7 +182,6 @@ def build():
     h = swap(h, "which gave us a chance to do a full redesign.<br><br>2. Design and propose a monetisation model",
              "which gave us a chance to rethink what motivates candidates to come back.<br><br>2. Propose a monetisation model", "rocken talent challenge")
     # Projects: PM-relevant cases only.
-    h = drop_card(h, "#tabletki", "tabletki")
     h = drop_card(h, "https://www.behance.net/gallery/134924403/UIUX-Epul-Payment-system", "epul")
     h = drop_card(h, "https://asalart.ua/", "asalart")
     # Marketplace card: lead with the result.
@@ -191,7 +190,7 @@ def build():
     # Marketplace case header: lead with the problem solved.
     h = swap(h, '<p class="wr-head__name">Freelance marketplace for student writing</p>',
              '<p class="wr-head__name">Three winning experiments that grew first and repeat orders</p>', "writers header")
-    # Order: Readberry, marketplace, Develux, Rocken.
+    # Order: Readberry, marketplace, Develux, Rocken, Tabletki.
     card = re.search(r'<article class="project">(?:(?!</article>).)*?href="#writers"(?:(?!</article>).)*?</article>\n?', h, flags=re.S)
     if not card:
         sys.exit("build_pm: writers card not found")
@@ -201,9 +200,9 @@ def build():
              '<div class="projects">\n' + rb_card + card.group(0) + '<article class="project">', "projects start")
     if not (h.find('href="#readberry" aria-label') < h.find('href="#writers" aria-label') < h.find('href="#develux" aria-label')):
         sys.exit("build_pm: cards are not in the order readberry, writers, develux")
-    # Next-case chain in the same order: readberry -> writers -> develux -> rocken -> readberry.
+    # Next-case chain in the same order: readberry -> writers -> develux -> rocken -> tabletki -> readberry.
     nxt = 'class="back back--next" href="#'
-    h = swap(h, nxt + 'tabletki"', nxt + '@readberry"', "next after rocken")
+    h = swap(h, nxt + 'develux"', nxt + '@readberry"', "next after tabletki")
     h = swap(h, nxt + 'rocken"', nxt + '@develux"', "next after writers")
     h = swap(h, nxt + 'writers"', nxt + '@rocken"', "next after develux")
     h = h.replace(nxt + '@', nxt)
