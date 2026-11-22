@@ -305,3 +305,6 @@
 :root[data-theme="dark"] .rb-nav a.is-on,:root[data-site-theme="dark"] .rb-nav a.is-on{background:var(--tint-12)}
 @media (max-width:560px){.rb-nav{bottom:max(16px,env(safe-area-inset-bottom,0px))}.rb-nav a{padding:8px 10px;font-size:13px}}
 @media (max-width:560px){#view-readberry .totop{bottom:calc(max(16px,env(safe-area-inset-bottom,0px)) + 60px)}}
+
+.meta .rb-top__store{margin-top:0;font-size:inherit;color:var(--ink-2)}
+.meta .rb-top__store:hover,.meta .rb-top__store:focus-visible{color:var(--ink)}
