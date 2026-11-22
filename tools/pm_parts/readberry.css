@@ -323,3 +323,8 @@
 .rb-out__why{margin:0;padding-left:20px;max-width:860px;color:var(--ink)}
 .rb-out__why li{margin:6px 0;line-height:1.5}
 @media (max-width:860px){.rb-out__dt{font-size:19px}}
+.rb-out__ch--m{display:none}
+@media (max-width:600px){.rb-out__ch--d{display:none}.rb-out__ch--m{display:block;width:100%;height:auto}}
+@media (max-width:860px){.rb-hint{max-width:min(280px,calc(100vw - 48px))}.rb-sum__res li:nth-child(2) .rb-hint{left:auto;right:0}.rb-sum__res li:nth-child(2) .rb-hint::after{left:auto;right:18px}}
+/* PM-only: keep result values on one line on mobile (Tabletki) */
+.numlist--big li b{white-space:nowrap}
