@@ -167,6 +167,7 @@ def build():
              "The product process we built: product, design and research own it together", "develux after sub")
     h = swap(h, '<p class="dx-qd__t">Goals &amp; vision</p><p class="dx-qd__d">Company OKRs turned into quarterly goals each person could act on. Our vision',
              '<p class="dx-qd__t">Strategy &amp; goals</p><p class="dx-qd__d">Co-set product strategy and priorities for 3+ products, and turned company OKRs into quarterly goals each person could act on. Our vision', "develux goals")
+    h = swap(h, "Design&#8217;s inputs, outputs and checkpoints, agreed with every team it touches.", "Inputs, outputs and checkpoints for every stage of the product process, agreed with every team involved.", "develux delivery card")
     # Rocken case: product work only, no pure UI/design parts (CRM, Dashboard, UI block).
     h = swap(h, r'<article class="product">\s*<img src="assets/r-crm\.jpg".*?</article>\s*', "", "rocken crm card", regex=True)
     h = swap(h, r'<article class="product">\s*<img src="assets/r-dash\.jpg".*?</article>\s*', "", "rocken dash card", regex=True)
