@@ -51,8 +51,8 @@ SUMMARY = (
     "by 74% and grew AOV 1.8&#215; through the web-to-app funnel, pricing and creative testing. Before that, as Chief "
     "Design Officer at Develux, a multi-product EdTech company, I was part of the C-level team and worked with "
     "product teams on discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
-    "Earlier I founded and ran PUSH-OK, a pet supplies e-commerce business. I work AI-first and prototype and "
-    "build front end with Claude Code."
+    "Earlier I founded and ran PUSH-OK, a pet supplies e-commerce business. I work AI-first: "
+    "prototyping, analysis of aggregated data and creative production."
 )
 
 SKILLS = {
