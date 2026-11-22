@@ -159,6 +159,16 @@ def build():
     h = swap(h, ">DESIGNER&#160;&#8226;&#160;MANAGER&#160;&#8226;&#160;FOUNDER&#160;&#8226;&#160;<",
              ">PRODUCT&#160;&#8226;&#160;FOUNDER&#160;&#8226;&#160;DESIGNER&#160;&#8226;&#160;<", "ring text")
 
+    # Rocken case: product work only, no pure UI/design parts (CRM, Dashboard, UI block).
+    h = swap(h, r'<article class="product">\s*<img src="assets/r-crm\.jpg".*?</article>\s*', "", "rocken crm card", regex=True)
+    h = swap(h, r'<article class="product">\s*<img src="assets/r-dash\.jpg".*?</article>\s*', "", "rocken dash card", regex=True)
+    h = swap(h, "<br>Refresh the UI.", "", "rocken refresh ui")
+    h = swap(h, r'<li><a href="#jobs-ui">.*?</a></li>', "", "rocken ui subnav", regex=True)
+    h = swap(h, r'\s*<div class="block" id="jobs-ui">.*?(?=\n    </div>\n  </div>\n\n  <!-- =+ CRM)', "", "rocken ui block", regex=True)
+    h = swap(h, r'  <!-- =+ CRM =+ -->.*?(?=  <!-- =+ TALENT)', "", "rocken crm section", regex=True)
+    h = swap(h, r'\n  <!-- =+ DASHBOARD =+ -->.*?(?=\n</div>\n<a class="totop" href="#rocken-top")', "", "rocken dashboard section", regex=True)
+    h = swap(h, "which gave us a chance to do a full redesign.<br><br>2. Design and propose a monetisation model",
+             "which gave us a chance to rethink what motivates candidates to come back.<br><br>2. Propose a monetisation model", "rocken talent challenge")
     # Projects: PM-relevant cases only.
     h = drop_card(h, "#tabletki", "tabletki")
     h = drop_card(h, "https://www.behance.net/gallery/134924403/UIUX-Epul-Payment-system", "epul")
