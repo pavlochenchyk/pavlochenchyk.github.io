@@ -282,3 +282,8 @@
 .rb-cacrow .rb-cacs{grid-template-columns:1fr;gap:18px;margin:0}
 @media (max-width:960px){.rb-cacrow{grid-template-columns:1fr;gap:28px}.rb-cacrow .rb-cacs{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.rb-cacrow .rb-cacs{grid-template-columns:1fr}}
+.rb-cacrow{align-items:stretch}
+.rb-cacrow .rb-cac{display:flex;flex-direction:column}
+.rb-cacrow .rb-cac .rb-ch{margin-top:auto}
+.rb-cacrow .rb-cacs{display:flex;flex-direction:column;justify-content:space-between;padding:6px 0}
+@media (max-width:960px){.rb-cacrow .rb-cacs{display:grid}}
