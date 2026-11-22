@@ -169,6 +169,8 @@ def build():
              '<p class="dx-qd__t">Strategy &amp; goals</p><p class="dx-qd__d">Co-set product strategy and priorities for 3+ products, and turned company OKRs into quarterly goals each person could act on. Our vision', "develux goals")
     h = swap(h, "Design&#8217;s inputs, outputs and checkpoints, agreed with every team it touches.", "Inputs, outputs and checkpoints for every stage of the product process, agreed with every team involved.", "develux delivery card")
     h = swap(h, '<p class="project__role">Chief Design Officer</p>', '<p class="project__role">Head of Product &amp; Design</p>', "develux card role")
+    h = swap(h, '<img src="assets/cover-develux.jpg?v=3" width="580" height="355" alt="Develux — building a design and research function, leadership case"',
+             '<img src="assets/cover-develux-pm.jpg" width="580" height="355" alt="Develux — product processes across product management, design and research"', "develux cover")
     # Rocken case: product work only, no pure UI/design parts (CRM, Dashboard, UI block).
     h = swap(h, r'<article class="product">\s*<img src="assets/r-crm\.jpg".*?</article>\s*', "", "rocken crm card", regex=True)
     h = swap(h, r'<article class="product">\s*<img src="assets/r-dash\.jpg".*?</article>\s*', "", "rocken dash card", regex=True)
