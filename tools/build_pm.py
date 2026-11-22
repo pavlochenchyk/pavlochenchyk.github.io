@@ -157,6 +157,16 @@ def build():
 
     # Home: roles ring, product first (same length, so the ring keeps its spacing).
 
+    # Develux case: product framing (Head of Product & Design, official title CDO).
+    h = swap(h, "Building a design &amp; research function", "Rebuilding product discovery and delivery", "develux title", count=2)
+    h = swap(h, "<dd>Lead Product Designer &#8594; Chief Design Officer</dd>",
+             '<dd>Lead Product Designer &#8594; Head of Product &amp; Design<br><span class="job__off">official title: Chief Design Officer</span></dd>', "develux role")
+    h = swap(h, "Two designers drew what product managers asked for, and only 9% of initiatives hit their success metric. Over three years I built a 17-person design and research function that works in every stage of the product process. The success rate grew to 14%, and hypotheses now reach release in 2&nbsp;weeks instead of 3.5.",
+             "Only 9% of product initiatives hit their success metric, and a hypothesis took 3.5&nbsp;weeks to reach release. Over three years I co-owned product discovery and delivery across 3+ products and built a 17-person product design and research team that works in every stage of the process. The success rate grew to 14%, and hypotheses now reach release in 2&nbsp;weeks.", "develux in short")
+    h = swap(h, "The product process we built: design became a partner in every stage",
+             "The product process we built: product, design and research own it together", "develux after sub")
+    h = swap(h, '<p class="dx-qd__t">Goals &amp; vision</p><p class="dx-qd__d">Company OKRs turned into quarterly goals each person could act on. Our vision',
+             '<p class="dx-qd__t">Strategy &amp; goals</p><p class="dx-qd__d">Co-set product strategy and priorities for 3+ products, and turned company OKRs into quarterly goals each person could act on. Our vision', "develux goals")
     # Rocken case: product work only, no pure UI/design parts (CRM, Dashboard, UI block).
     h = swap(h, r'<article class="product">\s*<img src="assets/r-crm\.jpg".*?</article>\s*', "", "rocken crm card", regex=True)
     h = swap(h, r'<article class="product">\s*<img src="assets/r-dash\.jpg".*?</article>\s*', "", "rocken dash card", regex=True)
