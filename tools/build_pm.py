@@ -46,13 +46,7 @@ def company(html, marker, new_block, name):
 ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
-    "Product leader with 10+ years building B2C and SaaS products for web and mobile. "
-    "At NODERA Group, a venture builder, I led a subscription iOS app venture: launched the MVP in 2 months, then cut blended CAC "
-    "by 74% and grew AOV 1.8&#215; through the web-to-app funnel, pricing and creative testing. Before that, as Head "
-    "of Product &amp; Design at Develux, a multi-product EdTech company, I was part of the C-level team and co-owned "
-    "product discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
-    "Earlier I founded and ran PUSH-OK, a pet supplies e-commerce business. I work AI-first: "
-    "prototyping, analysis of aggregated data and creative production."
+    "Product manager with 10+ years building web and mobile products, focused on growth and monetization across subscription, marketplace and e-commerce models. Most recently I led a subscription iOS app at NODERA Group, a venture builder: launched the MVP in 2 months, cut blended CAC by 74% with audience and creative testing, and grew AOV 1.8&#215; with intro offers and longer plans. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company, I sat on the C-level team, co-owned product discovery and delivery for 3+ products and cut hypothesis-to-release time by 43%. Earlier I founded and ran an e-commerce business. A UX and research background keeps my discovery grounded in customer evidence, and I work AI-first: prototyping, analysis of aggregated data and creative production."
 )
 
 SKILLS = {
