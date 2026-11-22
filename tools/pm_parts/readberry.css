@@ -346,3 +346,4 @@
 .view .rb .back{color:var(--rb-cap)}
 .view .rb .back:hover,.view .rb .back:focus-visible{color:var(--ink)}
 @media (max-width:600px){.view .case .back{height:40px;font-size:16px}.view .case .back svg{width:48px}}
+.job__off{font-weight:400;color:var(--muted)}

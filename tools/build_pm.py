@@ -48,9 +48,9 @@ ROLE = "Product Manager &middot; Growth &amp; Monetization"
 SUMMARY = (
     "Product leader with 10+ years building B2C and SaaS products for web and mobile. "
     "At NODERA Group, a venture builder, I founded and ran a subscription iOS app: launched the MVP in 2 months, then cut blended CAC "
-    "by 74% and grew AOV 1.8&#215; through the web-to-app funnel, pricing and creative testing. Before that, as Chief "
-    "Design Officer at Develux, a multi-product EdTech company, I was part of the C-level team and worked with "
-    "product teams on discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
+    "by 74% and grew AOV 1.8&#215; through the web-to-app funnel, pricing and creative testing. Before that, as Head "
+    "of Product &amp; Design at Develux, a multi-product EdTech company, I was part of the C-level team and co-owned "
+    "product discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
     "Earlier I founded and ran PUSH-OK, a pet supplies e-commerce business. I work AI-first: "
     "prototyping, analysis of aggregated data and creative production."
 )
@@ -109,9 +109,10 @@ READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
     ])])
 
 DEVELUX = company_block("&#8220;DEVELUX&#8221;", "Multiproduct EdTech company", [job(
-    "Chief Design Officer", "Jan 2024 &ndash; Mar 2026", [
+    'Head of Product &amp; Design <span class="job__off">&middot; official title: Chief Design Officer</span>', "Jan 2024 &ndash; Mar 2026", [
         'Part of the C-level team reporting to the CEO. Led the design and research function of up to 17 people across 3+ products, including <a href="https://studyagent.com/" target="_blank" rel="noopener">StudyAgent</a>.',
-        'Worked with product teams on discovery and delivery: cut median time from hypothesis to release from 3.5 to 2&nbsp;weeks and raised the share of initiatives hitting their success metric from 9% to 14% (<a href="#develux">case study</a>).',
+        "Co-owned product discovery and delivery for 3+ products: feature roadmap, hypothesis backlog and success metrics.",
+        'Cut median time from hypothesis to release from 3.5 to 2&nbsp;weeks and raised the share of initiatives hitting their success metric from 9% to 14% (<a href="#develux">case study</a>).',
         "Set up UX Research and UX Writing and a shared insight hub that feeds product discovery.",
         "Cascaded company OKRs every quarter to department leads and individual team members.",
         "Grew the team from 2 to 17 people within the planned headcount and budget.",
