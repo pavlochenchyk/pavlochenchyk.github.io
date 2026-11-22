@@ -334,6 +334,16 @@
 @media (max-width:860px){.rb-hint{max-width:min(280px,calc(100vw - 48px))}.rb-sum__res li:nth-child(2) .rb-hint{left:auto;right:0}.rb-sum__res li:nth-child(2) .rb-hint::after{left:auto;right:18px}}
 /* PM-only: keep result values on one line on mobile (Tabletki) */
 .numlist--big li b{white-space:nowrap}
+/* failed payments */
+.rb-pay{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;margin-top:56px;max-width:1080px}
+.rb-pay__txt p{max-width:520px}
+.rb-pay__g{margin:0 0 12px!important;font-size:14px;color:var(--rb-cap);display:flex;justify-content:space-between}
+.rb-pay__g b{font-weight:600;color:var(--ink)}
+.rb-pay .rb-ang{margin-bottom:24px}
+.rb-pay__soft .rb-ang__bar i,.rb-pay__soft li:first-child .rb-ang__bar i{background:var(--green)}
+.rb-pay__hard .rb-ang__bar i,.rb-pay__hard li:first-child .rb-ang__bar i{background:#B08A72}
+@media (max-width:860px){.rb-pay{grid-template-columns:1fr;gap:28px;margin-top:40px}}
+.rb-pay__txt .rb-step__note{margin-top:12px}
 </style><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}/* case scroll reveal */
 @keyframes rvUp{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
 .rv:not(.rv-done){opacity:0}
@@ -1772,6 +1782,7 @@ layout();})();</script></section>
 <p class="rb-exp__ren"><b>$32.49</b><span>renewal</span></p>
 <dl class="rb-exp__kv"><div><dt>Rebill rate</dt><dd>53%</dd></div></dl><dl class="rb-exp__kv rb-exp__kv--all"><div><dt>LTV, 13 months<br><span>predicted</span></dt><dd>$91</dd></div><div><dt>LTV/CAC</dt><dd>1.28×</dd></div><div><dt>AOV<br><span>all plans</span></dt><dd>$37.3</dd></div><div><dt>ARPPU D30<br><span>all plans</span></dt><dd>$44.6</dd></div></dl><span class="rb-hint rb-exp__hint" role="tooltip" id="rb-exp-h4"><span class="rb-exp__hk">All plans in this test, share of purchases</span><span class="rb-exp__hr"><span>Monthly</span><span>$19.49 → $32.49</span><b>45%</b></span><span class="rb-exp__hr"><span>3 months</span><span>$39.49 → $79</span><b>32%</b></span><span class="rb-exp__hr"><span>Annual</span><span>$69.90 → $139</span><b>22%</b></span></span></li></ol>
     <p class="rb-step__note rb-tl__note">Web, paid by card. LTV: predicted revenue per customer over 13 months, before fees. CAC: ad spend per new subscriber while the test was live.</p>
+    <div class="rb-pay"><div class="rb-pay__txt"><p class="rb-step__k">Failed payments</p><p>A failed charge was the biggest single reason for churn: 28% of cancellations. On the web I broke every declined renewal down by its Stripe decline code. 58% were soft declines that could be charged again later, and 42% needed a new card. That set the fix: retries on other days for soft declines and a card-update email for hard ones.</p><p class="rb-step__note">Stripe, 24 declined web renewals. About 82% of web renewals ended up paid.</p></div><aside class="rb-crside"><p class="rb-crside__k">Why web renewals were declined</p><p class="rb-pay__g">Soft, can retry <b>58%</b></p><ol class="rb-ang rb-pay__soft"><li><span class="rb-ang__t">Insufficient funds</span><span class="rb-ang__bar"><i style="width:100%"></i></span><b>33%</b></li><li><span class="rb-ang__t">Try again later</span><span class="rb-ang__bar"><i style="width:52%"></i></span><b>17%</b></li><li><span class="rb-ang__t">Declined without a reason</span><span class="rb-ang__bar"><i style="width:25%"></i></span><b>8%</b></li></ol><p class="rb-pay__g">Hard, new card needed <b>42%</b></p><ol class="rb-ang rb-pay__hard"><li><span class="rb-ang__t">Invalid account</span><span class="rb-ang__bar"><i style="width:64%"></i></span><b>21%</b></li><li><span class="rb-ang__t">Transaction not allowed</span><span class="rb-ang__bar"><i style="width:36%"></i></span><b>12%</b></li><li><span class="rb-ang__t">Lost or stolen card</span><span class="rb-ang__bar"><i style="width:25%"></i></span><b>8%</b></li></ol></aside></div>
   </section>
   <section class="rb-detail" id="rb-engagement">
     <h2 class="rb-h2">Engagement</h2>
