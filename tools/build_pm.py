@@ -48,7 +48,7 @@ ROLE = "Product Manager &middot; Growth &amp; Monetization"
 SUMMARY = (
     "Product leader with 10+ years building B2C and SaaS products for web and mobile. "
     "I founded and ran Readberry, a subscription iOS app: launched the MVP in 2 months, then cut blended CAC "
-    "by 74% and doubled AOV through the web-to-app funnel, pricing and creative testing. Before that, as Chief "
+    "by 74% and grew AOV 1.8&#215; through the web-to-app funnel, pricing and creative testing. Before that, as Chief "
     "Design Officer at Develux, a multi-product EdTech company, I was part of the C-level team and worked with "
     "product teams on discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
     "Earlier I founded and ran PUSH-OK, a pet supplies e-commerce business. I work AI-first and prototype and "
@@ -102,9 +102,10 @@ READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
         "Owned strategy, roadmap and P&amp;L; steered ad spend by forecasts vs actuals.",
         "Cut blended CAC by 74% ($263 &#8594; $68): found a high-intent audience and scaled creative production 10&#215; across Meta, ASA and ASO.",
         "Built and iterated a web-to-app funnel (web quiz &#8594; paywall &#8594; app) to 2.3% landing-to-paid on a hard paywall.",
-        "Doubled AOV and grew ARPPU by 37% with intro offers and longer plans; reached a 58% monthly rebill rate on web.",
-        "Raised activation from 36% to 55% and doubled week-3 retention with quizzes, rewards and streaks.",
-        "Designed the metric set and a CRM dashboard with automated feeds from Mixpanel and Adapty; ran funnel, cohort and creative reviews to decide what to scale or cut.",
+        "Grew AOV 1.8&#215; with intro offers and longer plans and lifted LTV/CAC from 0.4&#215; to 1.3&#215;; held a 53% monthly rebill rate on web with renewal priced 67% above the intro.",
+        "Raised activation from 36% to 55% and doubled week-3 retention with a new player, an original-text mode and quizzes.",
+        "Designed the metric set and a CRM dashboard with automated feeds from Mixpanel and Adapty; ran funnel, cohort, creative and failed-payment reviews to decide what to scale or cut.",
+        "Built the scale-up P&amp;L and payback model behind the decision not to fund the next stage.",
     ])])
 
 DEVELUX = company_block("&#8220;DEVELUX&#8221;", "Multiproduct EdTech company", [job(
