@@ -47,7 +47,7 @@ ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
     "Product leader with 10+ years building B2C and SaaS products for web and mobile. "
-    "At NODERA Group, a venture builder, I founded and ran a subscription iOS app: launched the MVP in 2 months, then cut blended CAC "
+    "At NODERA Group, a venture builder, I led a subscription iOS app venture: launched the MVP in 2 months, then cut blended CAC "
     "by 74% and grew AOV 1.8&#215; through the web-to-app funnel, pricing and creative testing. Before that, as Head "
     "of Product &amp; Design at Develux, a multi-product EdTech company, I was part of the C-level team and co-owned "
     "product discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
@@ -96,7 +96,7 @@ def company_block(name, kind, jobs, tail=""):
 
 
 READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
-    'Founder &amp; Product Manager',
+    'Venture Lead &amp; Product Manager',
     "Mar 2026 &ndash; Nov 2026", [
         "Took a subscription iOS app from discovery to App Store launch in 2 months and ran it as a unit economics test.",
         "Owned strategy, roadmap and P&amp;L; steered ad spend by forecasts vs actuals.",
@@ -110,7 +110,7 @@ READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
 
 DEVELUX = company_block("&#8220;DEVELUX&#8221;", "Multiproduct EdTech company", [job(
     'Head of Product &amp; Design <span class="job__off">&middot; official title: Chief Design Officer</span>', "Jan 2024 &ndash; Mar 2026", [
-        'Part of the C-level team reporting to the CEO. Led the design and research function of up to 17 people across 3+ products, including <a href="https://studyagent.com/" target="_blank" rel="noopener">StudyAgent</a>.',
+        'Part of the C-level team reporting to the CEO; co-set product strategy and priorities for 3+ products, including <a href="https://studyagent.com/" target="_blank" rel="noopener">StudyAgent</a>. Led a product design and research team of up to 17 people.',
         "Co-owned product discovery and delivery for 3+ products: feature roadmap, hypothesis backlog and success metrics.",
         'Cut median time from hypothesis to release from 3.5 to 2&nbsp;weeks and raised the share of initiatives hitting their success metric from 9% to 14% (<a href="#develux">case study</a>).',
         "Set up UX Research and UX Writing and a shared insight hub that feeds product discovery.",
@@ -147,8 +147,8 @@ def build():
 
     desc_design = ("Pavlo Chenchyk — Head of Design and Design Lead with 10+ years in product design. "
                    "Former Chief Design Officer who grew a design and research team from 2 to 17 people.")
-    desc_pm = ("Pavlo Chenchyk — Product Manager with 10+ years in B2C and SaaS products. Founded and ran "
-               "a subscription iOS app: web-to-app funnel, monetization, retention and P&amp;L. Former Chief Design Officer.")
+    desc_pm = ("Pavlo Chenchyk — Product Manager with 10+ years in B2C and SaaS products. Led a subscription "
+               "iOS app venture: web-to-app funnel, monetization, retention and P&amp;L. Former Chief Design Officer.")
     h = swap(h, f'content="{desc_design}"', f'content="{desc_pm}"', "meta descriptions", count=2)
     h = swap(h, '<meta property="og:title" content="Pavlo Chenchyk — Head of Design · Design Lead">',
              '<meta property="og:title" content="Pavlo Chenchyk — Product Manager · Growth &amp; Monetization">', "og title")
