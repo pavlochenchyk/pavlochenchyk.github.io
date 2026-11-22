@@ -338,3 +338,4 @@
 .rb-pay__hard .rb-ang__bar i,.rb-pay__hard li:first-child .rb-ang__bar i{background:#B08A72}
 @media (max-width:860px){.rb-pay{grid-template-columns:1fr;gap:28px;margin-top:40px}}
 .rb-pay__txt .rb-step__note{margin-top:12px}
+.rb-pay__big{margin:0 0 18px!important}
