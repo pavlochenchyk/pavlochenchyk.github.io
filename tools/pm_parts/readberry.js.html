@@ -35,3 +35,19 @@
   });
 })();
 </script>
+<script>
+(function(){
+  var nav=document.querySelector('.rb-nav'); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll('a')), start=document.querySelector('#view-readberry .rb-results');
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  function upd(){
+    var view=document.getElementById('view-readberry'); if(!view||view.hidden){nav.classList.remove('show');return;}
+    var y=window.innerHeight*0.45, on=-1;
+    secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top<y) on=i; });
+    var past=start && start.getBoundingClientRect().bottom<window.innerHeight*0.6;
+    nav.classList.toggle('show',!!past);
+    links.forEach(function(a,i){ a.classList.toggle('is-on',i===on); if(i===on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); });
+  }
+  window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); window.addEventListener('hashchange',function(){setTimeout(upd,50);}); upd();
+})();
+</script>
