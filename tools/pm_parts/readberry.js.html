@@ -42,7 +42,7 @@
   var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
   function upd(){
     var view=document.getElementById('view-readberry'); if(!view||view.hidden){nav.classList.remove('show');return;}
-    var y=window.innerHeight*0.45, on=-1;
+    var y=window.innerHeight*0.6, on=-1;
     secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top<y) on=i; });
     var past=start && start.getBoundingClientRect().bottom<window.innerHeight*0.6;
     nav.classList.toggle('show',!!past);

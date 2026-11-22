@@ -294,8 +294,8 @@
 .rb-funnel{margin-top:8px;max-width:760px}
 
 /* section nav */
-.rb-nav{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom,0px));z-index:40;display:flex;gap:2px;padding:5px;border-radius:999px;background:#fff;box-shadow:0 1px 2px rgba(60,30,20,.06),0 12px 32px -8px rgba(60,30,20,.22);transform:translate(-50%,16px);opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s}
-.rb-nav.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.rb-nav{position:fixed;left:0;right:0;margin:0 auto;width:max-content;max-width:calc(100vw - 24px);bottom:8px;z-index:40;display:flex;gap:2px;padding:5px;border-radius:999px;background:#fff;box-shadow:0 1px 2px rgba(60,30,20,.06),0 12px 32px -8px rgba(60,30,20,.22);opacity:0;visibility:hidden;transition:opacity .25s,bottom .25s,visibility .25s}
+.rb-nav.show{opacity:1;visibility:visible;bottom:max(24px,env(safe-area-inset-bottom,0px))}
 .rb-nav a{padding:9px 16px;border-radius:999px;font-size:15px;line-height:1.2;color:var(--ink-2);text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
 .rb-nav a:hover{color:var(--ink)}
 .rb-nav a.is-on{background:#F5E8E3;color:var(--ink)}
@@ -303,7 +303,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-nav{background:var(--panel);box-shadow:0 12px 32px -8px rgba(0,0,0,.5)}:root:not([data-theme="light"]):not([data-site-theme="light"]) .rb-nav a.is-on{background:var(--tint-12)}}
 :root[data-theme="dark"] .rb-nav,:root[data-site-theme="dark"] .rb-nav{background:var(--panel)}
 :root[data-theme="dark"] .rb-nav a.is-on,:root[data-site-theme="dark"] .rb-nav a.is-on{background:var(--tint-12)}
-@media (max-width:560px){.rb-nav{bottom:max(16px,env(safe-area-inset-bottom,0px))}.rb-nav a{padding:8px 10px;font-size:13px}}
+@media (max-width:560px){.rb-nav.show{bottom:max(16px,env(safe-area-inset-bottom,0px))}.rb-nav a{padding:8px 10px;font-size:13px}}
 @media (max-width:560px){#view-readberry .totop{bottom:calc(max(16px,env(safe-area-inset-bottom,0px)) + 60px)}}
 
 .meta .rb-top__store{margin-top:0;font-size:inherit;color:var(--ink-2)}
