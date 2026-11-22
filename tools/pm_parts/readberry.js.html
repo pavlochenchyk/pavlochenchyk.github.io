@@ -37,7 +37,7 @@
 </script>
 <script>
 (function(){
-  var nav=document.querySelector('.rb-nav'); if(!nav) return;
+  var nav=document.querySelector('.rb-nav'); if(!nav) return; document.body.appendChild(nav);
   var links=[].slice.call(nav.querySelectorAll('a')), start=document.querySelector('#view-readberry .rb-results');
   var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
   function upd(){
