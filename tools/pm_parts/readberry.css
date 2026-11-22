@@ -287,3 +287,6 @@
 .rb-cacrow .rb-cac .rb-ch{margin-top:auto}
 .rb-cacrow .rb-cacs{display:flex;flex-direction:column;justify-content:space-between;padding:6px 0}
 @media (max-width:960px){.rb-cacrow .rb-cacs{display:grid}}
+
+.rb-mix__k{margin:20px 0 0;font-size:14px;color:var(--rb-cap)}
+.rb-mix__k + .rb-mix{margin-top:8px}
