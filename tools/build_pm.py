@@ -156,9 +156,9 @@ def build():
              '<meta property="og:url" content="https://pavlochenchyk.github.io/pm/">', "og url")
 
     # Home: roles ring, product first (same length, so the ring keeps its spacing).
-    h = swap(h, 'aria-label="Designer, manager, founder"', 'aria-label="Product, founder, designer"', "ring label")
+    h = swap(h, 'aria-label="Designer, manager, founder"', 'aria-label="Product, manager, designer"', "ring label")
     h = swap(h, ">DESIGNER&#160;&#8226;&#160;MANAGER&#160;&#8226;&#160;FOUNDER&#160;&#8226;&#160;<",
-             ">PRODUCT&#160;&#8226;&#160;FOUNDER&#160;&#8226;&#160;DESIGNER&#160;&#8226;&#160;<", "ring text")
+             ">PRODUCT&#160;&#8226;&#160;MANAGER&#160;&#8226;&#160;DESIGNER&#160;&#8226;&#160;<", "ring text")
 
     # Rocken case: product work only, no pure UI/design parts (CRM, Dashboard, UI block).
     h = swap(h, r'<article class="product">\s*<img src="assets/r-crm\.jpg".*?</article>\s*', "", "rocken crm card", regex=True)
