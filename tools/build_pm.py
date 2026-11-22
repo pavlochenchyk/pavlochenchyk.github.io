@@ -134,7 +134,7 @@ PROMODO = company_block("&#8220;PROMODO&#8221;", "Digital marketing agency", [
     job("Team Lead UX/UI Designer", "Feb 2022 &ndash; May 2022", []),
     job("UX/UI Designer", "Nov 2018 &ndash; Feb 2022", []),
 ], tail="<ul>"
-    "<li>Built the agency&#8217;s Conversion Rate Optimization service from scratch: audit framework, hypothesis backlog and A/B testing process for client e-commerce sites.</li>"
+    "<li>Built the agency&#8217;s Conversion Rate Optimization service: audit framework and hypothesis backlog for client e-commerce sites.</li>"
     "<li>Led a team of 5 designers.</li></ul>")
 
 
