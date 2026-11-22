@@ -288,5 +288,5 @@
 .rb-cacrow .rb-cacs{display:flex;flex-direction:column;justify-content:space-between;padding:6px 0}
 @media (max-width:960px){.rb-cacrow .rb-cacs{display:grid}}
 
-.rb-mix__k{margin:20px 0 0;font-size:14px;color:var(--rb-cap)}
+.rb-mix__k{margin:24px 0 0;font-size:15px;font-weight:600;color:var(--ink)}
 .rb-mix__k + .rb-mix{margin-top:8px}
