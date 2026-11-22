@@ -47,7 +47,7 @@ ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
     "Product leader with 10+ years building B2C and SaaS products for web and mobile. "
-    "I founded and ran Readberry, a subscription iOS app: launched the MVP in 2 months, then cut blended CAC "
+    "At NODERA Group, a venture builder, I founded and ran a subscription iOS app: launched the MVP in 2 months, then cut blended CAC "
     "by 74% and grew AOV 1.8&#215; through the web-to-app funnel, pricing and creative testing. Before that, as Chief "
     "Design Officer at Develux, a multi-product EdTech company, I was part of the C-level team and worked with "
     "product teams on discovery and delivery: together we cut hypothesis-to-release time by more than 40%. "
@@ -96,7 +96,7 @@ def company_block(name, kind, jobs, tail=""):
 
 
 READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
-    'Founder &amp; Product Manager &mdash; <a href="https://apps.apple.com/ua/app/readberry-pdf-voice-reader/id6761894830" target="_blank" rel="noopener">Readberry</a>',
+    'Founder &amp; Product Manager',
     "Mar 2026 &ndash; Nov 2026", [
         "Took a subscription iOS app from discovery to App Store launch in 2 months and ran it as a unit economics test.",
         "Owned strategy, roadmap and P&amp;L; steered ad spend by forecasts vs actuals.",
