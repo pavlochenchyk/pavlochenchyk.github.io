@@ -187,6 +187,9 @@ def build():
     h = swap(h, '<p class="wr-head__name">Freelance marketplace for student writing</p>',
              '<p class="wr-head__name">Three winning experiments that grew first and repeat orders</p>', "writers header")
     # Marketplace case: three experiments (offer card, sorting by repeat rate, step-by-step order form).
+    # Marketplace case roles: one line, level first; the team without a separate PM.
+    h = swap(h, '<div><dt>Role</dt><dd>Feature Owner, Product Designer</dd></div>\n    <div><dt>Team</dt><dd>Product Manager, Analyst, UX Researcher</dd></div>',
+             '<div><dt>Role</dt><dd>Head of Product &amp; Design (hands-on)</dd></div>\n    <div><dt>Team</dt><dd>Analyst, UX Researcher</dd></div>', "writers roles")
     # In short: one card per experiment, each with its own summary, numbers and a link to its section.
     h = swap(h, r'<div class="wr-sum">\s*<p class="wr-sum__k">In short</p>\s*<p class="wr-sum__text">Choosing a writer was the biggest drop-off.*?<p class="wr-sum__note">A/B test, all results statistically significant</p>\s*</div>',
              (PARTS / "wr_cards.html").read_text(encoding="utf-8").strip(), "writers in short", regex=True)
