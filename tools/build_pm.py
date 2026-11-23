@@ -177,7 +177,13 @@ def build():
     h = drop_card(h, "https://asalart.ua/", "asalart")
     # Marketplace card: lead with the result.
     h = swap(h, '<p class="project__domain">Freelance marketplace for student writing</p>',
-             '<p class="project__domain">Three A/B tests: up to +12.5% first orders</p>', "writers card")
+             '<p class="project__domain">Three winning experiments that grew first and repeat orders</p>', "writers card")
+    h = swap(h, '<p class="project__role">Chief Design Officer (hands-on)</p><p class="project__sub">2025</p>',
+             '<p class="project__role">Chief Design Officer (hands-on)</p><p class="project__sub">2024&#8211;2025</p>', "writers card year")
+    h = swap(h, '<img src="assets/cover-writers.jpg?v=2" width="580" height="355" alt="Freelance marketplace for student writing — choosing a writer, product design case"',
+             '<img src="assets/cover-writers-pm.jpg" width="580" height="355" alt="Freelance marketplace: three A/B tests that grew first and repeat orders"', "writers card cover")
+    h = swap(h, 'aria-label="Freelance marketplace for student writing — choosing a writer, product design case"',
+             'aria-label="Freelance marketplace: three A/B tests that grew first and repeat orders"', "writers card label")
     # Marketplace case header: lead with the problem solved.
     h = swap(h, '<p class="wr-head__name">Freelance marketplace for student writing</p>',
              '<p class="wr-head__name">Three winning experiments that grew first and repeat orders</p>', "writers header")
