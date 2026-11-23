@@ -162,6 +162,24 @@ def build():
              '<img src="assets/cover-develux-pm.jpg" width="580" height="355" alt="Develux — product processes across product management, design and research"', "develux cover")
     # Scroll reveal: include the Readberry case.
     h = swap(h, "var CASES=['rocken','tabletki','develux','writers'];", "var CASES=['readberry','rocken','tabletki','develux','writers'];", "reveal cases")
+    # Develux process: the partner role was a product marketing manager (owned the product's financials);
+    # there were no classic product managers. Scoped to the Develux view only.
+    a = h.find('<section class="view" id="view-develux"'); b = h.find('</section>', a)
+    if a < 0 or b < 0:
+        sys.exit("build_pm: develux view not found")
+    dx = h[a:b]
+    for old, new, n in [
+        ("Research stayed shallow. PMs ran it on their own, while their attention went to the solution.",
+         "Research stayed shallow. Product marketing managers ran it on their own, while their attention went to the solution.", 1),
+        ("PMs no longer started from scratch.", "PMMs no longer started from scratch.", 1),
+        ("PMs got partners: the PM owned the problem, the designer the solution, the researcher the insights.",
+         "PMMs got partners: the PMM owned the business targets, the designer the feature and its product metrics, the researcher the insights.", 1),
+        ("<li>Product Manager</li>", "<li>Product Marketing Manager</li>", 3),
+    ]:
+        if dx.count(old) != n:
+            sys.exit(f"build_pm: develux role swap matched {dx.count(old)} times, expected {n}: {old[:40]}")
+        dx = dx.replace(old, new)
+    h = h[:a] + dx + h[b:]
     # Rocken case: product work only, no pure UI/design parts (CRM, Dashboard, UI block).
     h = swap(h, r'<article class="product">\s*<img src="assets/r-crm\.jpg".*?</article>\s*', "", "rocken crm card", regex=True)
     h = swap(h, r'<article class="product">\s*<img src="assets/r-dash\.jpg".*?</article>\s*', "", "rocken dash card", regex=True)
