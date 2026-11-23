@@ -1,0 +1,109 @@
+<script>
+/* Order form prototype: plays the step-by-step form on a loop while it is on screen */
+(function(){
+  var root=document.querySelector('.wq'); if(!root) return;
+  var dev=root.querySelector('.wq-dev'), ph=root.querySelector('.wq-phone'), body=root.querySelector('.wq-body'),
+      bar=root.querySelector('.wq-pg__bar'), tap=root.querySelector('.wq-tap');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PEN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01" stroke-linecap="round"/></svg>';
+  var DOWN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+  var SRCH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>';
+  var CAL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" stroke-linecap="round"/></svg>';
+  var CLK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>';
+  function chips(a){ return '<div class="wq-chips">'+a.map(function(c){return '<span class="wq-chip">'+c+'</span>';}).join('')+'</div>'; }
+  var STEPS=[
+    {k:'Assignment type', v:'Essay (any type)', html:'<p class="wq-t">Assignment type</p><div class="wq-fl">Select assignment'+DOWN+'</div><p class="wq-lb">Popular</p>'+chips(['Essay (any type)','Discussion post','Research paper','Coursework','Case study']), pick:0},
+    {k:'Service', v:'Writing', html:'<p class="wq-t">Service'+PEN+'</p>'+chips(['Writing','Rewriting','Editing','Proofreading','Problem solving','Calculations']), pick:0},
+    {k:'Academic level', v:'College', html:'<p class="wq-t">Academic level</p>'+chips(['High school','College','Bachelor&#8217;s','Master&#8217;s','Doctorate']), pick:1},
+    {k:'Language', v:'English (US)', html:'<p class="wq-t">Language</p>'+chips(['English (US)','English (UK)','Spanish (ES)','French (FR)']), pick:0},
+    {k:'Size', v:'3 pages (double spacing)', type:'size', html:'<p class="wq-t">Size</p><div class="wq-seg"><span class="is-on">Pages</span><span>Words</span></div><p class="wq-lb" style="text-align:center">Pages</p><div class="wq-step"><b>&minus;</b><span class="wq-n">1</span><b class="wq-plus">+</b></div><p class="wq-sub"><span class="wq-w">~275</span> words</p><p class="wq-lb">Line spacing</p><div class="wq-fl is-filled">Double'+DOWN+'</div><div class="wq-btn is-on">Next</div>'},
+    {k:'Deadline', v:'In 3 days, 5:00 PM', html:'<p class="wq-t">Deadline'+PEN+'</p><div class="wq-row2"><div><p class="wq-lb">Date</p><div class="wq-fl is-filled">Wed, Sept 27'+CAL+'</div></div><div><p class="wq-lb">Time</p><div class="wq-fl is-filled">5:00 PM'+CLK+'</div></div></div><p class="wq-lb">Popular</p>'+chips(['3 hours','6 hours','12 hours','1 day','2 days','3 days','5 days']), pick:5, draft:true},
+    {k:'Add-ons', v:'1-Page abstract, Detailed outline', multi:true, type:'addons', html:'<p class="wq-t">Add-ons</p>'+[['1-Page abstract','$12.99'],['Graphics &amp; tables','$8.99'],['Printable sources','$6.99'],['Detailed outline','$9.99'],['Plagiarism &amp; AI report','FREE']].map(function(a){return '<div class="wq-tg"><i></i>'+a[0]+'<b'+(a[1]=='FREE'?' class="is-free"':'')+'>'+a[1]+'</b></div>';}).join('')+'<div class="wq-btn is-on">Next</div>'},
+    {k:'Topic', v:'The ethics of animal testing', multi:true, type:'text', html:'<p class="wq-t">Assignment&#8217;s topic or name</p><p class="wq-lb">Name your assignment</p><div class="wq-in"><span></span></div><div class="wq-btn">Next</div>'},
+    {k:'Subject', v:'Business and management', html:'<p class="wq-t">Subject</p><div class="wq-fl wq-fl--srch">'+SRCH+'Choose your subject</div><p class="wq-lb">Suggested</p>'+chips(['Nursing','Business and management','English','Psychology','Healthcare','Education']), pick:1},
+    {k:'Instructions', v:'Argumentative essay, five paragraphs, one peer-reviewed source', multi:true, type:'text', html:'<p class="wq-t">Instructions</p><div class="wq-in wq-in--area"><span></span></div><div class="wq-btn">Next</div>'},
+    {k:'Sources &amp; style', v:'1 source / APA 7th edition', type:'sources', html:'<p class="wq-t">Sources</p><div class="wq-fl wq-s1">Number of sources'+DOWN+'</div><p class="wq-t" style="margin-top:22px">Style</p><div class="wq-fl wq-s2">Citation style'+DOWN+'</div><div class="wq-btn">Next</div>'},
+    {k:'Visibility', v:'Open order', type:'vis', html:'<p class="wq-t">Visibility</p><div class="wq-seg wq-seg--acc"><span class="is-on">Open order</span><span>Private order</span></div><p class="wq-desc">Every writer can view and make proposals for your order.</p><ul class="wq-ul"><li>Receive proposals automatically</li><li>Fastest way to order</li></ul><div class="wq-btn is-on">Next</div>'}
+  ];
+  var TOTAL=STEPS.length+1, alive=0, running=false, scale=1;
+
+  function fit(){ var w=dev.clientWidth-18; if(w<=0) return; scale=w/360; ph.style.transform='scale('+scale+')'; dev.style.height=(736*scale+18)+'px'; }
+  fit(); if(window.ResizeObserver) new ResizeObserver(fit).observe(dev); else addEventListener('resize',fit);
+
+  function sleep(ms,run){ return new Promise(function(res,rej){ var left=ms; (function t(){ if(run!==alive) return rej(0); if(running) left-=50; if(left<=0) res(); else setTimeout(t,50); })(); }); }
+  function progress(i){ bar.style.width=Math.max(8,200*i/TOTAL)+'px'; }
+  function el(cls,html){ var d=document.createElement('div'); d.className=cls; d.innerHTML=html; return d; }
+  function rowHtml(s){ return '<span class="wq-r__k">'+s.k+'</span><span class="wq-r__v">'+s.v+'</span>'; }
+  function makeStep(s,done){
+    var st=el('wq-st'+(done?' is-done':''),'');
+    var q=el('wq-q',s.html), r=el('wq-r'+(s.multi?' wq-r--multi':''),rowHtml(s));
+    st.appendChild(q); st.appendChild(r); return st;
+  }
+  function grow(st){ body.appendChild(st); var h=st.scrollHeight; st.style.height='0px'; st.offsetHeight; st.style.height=h+'px'; }
+  function collapse(st){ var r=st.querySelector('.wq-r'); st.style.height=st.offsetHeight+'px'; st.offsetHeight; st.classList.add('is-done'); st.style.height=r.offsetHeight+'px'; }
+  function press(node){
+    var a=node.getBoundingClientRect(), b=ph.getBoundingClientRect();
+    tap.style.left=((a.left+a.width/2-b.left)/scale)+'px'; tap.style.top=((a.top+a.height/2-b.top)/scale)+'px';
+    tap.classList.remove('is-go'); tap.offsetWidth; tap.classList.add('is-go');
+    node.classList.add('wq-press'); setTimeout(function(){ node.classList.remove('wq-press'); },160);
+  }
+  function finale(){
+    return el('wq-fin','<div class="wq-price">Estimated price:<s>$332.60</s><em>3% OFF</em><b>$322.60</b></div><div class="wq-go">Select writer</div>');
+  }
+  async function type(box,text,run,speed){ var sp=box.querySelector('span'); for(var i=1;i<=text.length;i++){ sp.textContent=text.slice(0,i); await sleep(speed,run); } }
+
+  async function play(run){
+    for(;;){
+      body.innerHTML=''; body.classList.remove('is-out'); root.classList.remove('is-draft','is-saved'); progress(0.4);
+      await sleep(500,run);
+      for(var i=0;i<STEPS.length;i++){
+        var s=STEPS[i], st=makeStep(s); grow(st);
+        if(s.draft){ root.classList.add('is-draft'); setTimeout(function(){ root.classList.add('is-saved'); },500); setTimeout(function(){ root.classList.remove('is-saved'); },2200); }
+        await sleep(900,run);
+        var q=st.querySelector('.wq-q');
+        if(s.type==='size'){
+          var plus=q.querySelector('.wq-plus');
+          for(var n=2;n<=3;n++){ press(plus); q.querySelector('.wq-n').textContent=n; q.querySelector('.wq-w').textContent='~'+(275*n); await sleep(450,run); }
+          press(q.querySelector('.wq-btn'));
+        } else if(s.type==='addons'){
+          var tg=q.querySelectorAll('.wq-tg');
+          press(tg[0].querySelector('i')); tg[0].classList.add('is-on'); await sleep(450,run);
+          press(tg[3].querySelector('i')); tg[3].classList.add('is-on'); await sleep(500,run);
+          press(q.querySelector('.wq-btn'));
+        } else if(s.type==='text'){
+          var bx=q.querySelector('.wq-in'); await type(bx,s.v,run,s.v.length>40?28:45);
+          var bt=q.querySelector('.wq-btn'); bt.classList.add('is-on'); await sleep(350,run); press(bt);
+        } else if(s.type==='sources'){
+          var s1=q.querySelector('.wq-s1'), s2=q.querySelector('.wq-s2');
+          press(s1); await sleep(250,run); s1.firstChild.textContent='1 source required'; s1.classList.add('is-filled'); await sleep(450,run);
+          press(s2); await sleep(250,run); s2.firstChild.textContent='APA 7th edition'; s2.classList.add('is-filled'); q.querySelector('.wq-btn').classList.add('is-on'); await sleep(450,run);
+          press(q.querySelector('.wq-btn'));
+        } else if(s.type==='vis'){
+          await sleep(500,run); press(q.querySelector('.wq-btn'));
+        } else {
+          var c=q.querySelectorAll('.wq-chip')[s.pick]; press(c); c.classList.add('is-on');
+        }
+        await sleep(380,run);
+        collapse(st); progress(i+1);
+        await sleep(450,run);
+      }
+      var pr=makeStep({k:'Promo code',v:'&ndash;'},true); pr.style.height='0px'; body.appendChild(pr); pr.offsetHeight; pr.style.height='54px';
+      var fin=finale(); grow(fin); progress(TOTAL);
+      await sleep(1500,run); press(fin.querySelector('.wq-go'));
+      await sleep(2600,run);
+      body.classList.add('is-out'); await sleep(600,run);
+    }
+  }
+  function staticEnd(){
+    body.innerHTML=''; root.classList.add('is-draft');
+    STEPS.concat([{k:'Promo code',v:'&ndash;'}]).forEach(function(s){ var st=makeStep(s,true); body.appendChild(st); st.style.height=st.querySelector('.wq-r').offsetHeight+'px'; });
+    body.appendChild(finale()); progress(TOTAL);
+  }
+  var started=false;
+  function start(){ alive++; var run=alive; play(run).catch(function(){}); }
+  new IntersectionObserver(function(e){
+    running=e[0].isIntersecting;
+    if(running && !started){ started=true; fit(); if(reduce) staticEnd(); else start(); }
+  },{threshold:.3}).observe(root);
+})();
+</script>

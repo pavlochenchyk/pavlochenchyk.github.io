@@ -1106,7 +1106,123 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
   },true);
 })();
 </script>
-</head>
+<style>/* Writers case: experiments 2 and 3, in-short summary by experiment */
+.wx-band{margin:0 0 40px}
+.wx-band__n{display:block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.wx-band__t{margin:0}
+.wx-band__s{font-size:22px;margin:0}
+#view-writers .wx-band:has(.wx-band__s){margin:0 0 28px}
+.wx-text{font-size:18px;line-height:1.55;margin:0;color:var(--ink-2)}
+.wx-text--wide{max-width:760px;margin:0 0 24px}
+.wx-traits{list-style:none;margin:0 0 40px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.wx-traits li{border:1px solid var(--tint-12);border-radius:16px;padding:20px 22px 22px;font-size:17px;line-height:1.4}
+.wx-traits span{display:block;color:var(--muted);font-size:14px;margin-bottom:14px}
+.wx-res{margin-top:8px}
+.wx-res--1{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
+.wx-note{margin:16px 0 0;font-size:14px;color:var(--muted)}
+.wx-form{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:center;margin:0 0 48px}
+.wx-form__text .tab__lead--big{margin:0 0 36px}
+.wx-form__vis{margin:0}
+.wx-form__vis .hint{margin-top:14px;text-align:center}
+.wr-sum__xs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.wr-sum__xs li{display:grid;grid-template-columns:28px 230px 1fr;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--tint-12)}
+.wr-sum__xs li:first-child{border-top:0;padding-top:0}
+.wr-sum__xn{font-size:14px;color:var(--muted)}
+.wr-sum__xt{font-size:17px;color:var(--ink)}
+.wr-sum__xm{display:flex;flex-wrap:wrap;gap:8px 36px;font-size:15px;color:var(--ink-2)}
+.wr-sum__xm span{display:inline-flex;align-items:baseline;gap:10px}
+.wr-sum__xm b{font-size:28px;font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+@media (max-width:860px){
+  .wx-traits{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wx-res--1{grid-template-columns:minmax(0,1fr)}
+  .wx-form{grid-template-columns:minmax(0,1fr);gap:36px}
+  .wx-form__vis{max-width:340px;width:100%;margin:0 auto}
+  .wr-sum__xs li{grid-template-columns:28px 1fr;row-gap:12px}
+  .wr-sum__xm{grid-column:2}
+}
+
+/* Order form prototype: a dark phone screen, built at 360x736 and scaled to fit */
+.wq{position:relative;width:100%}
+.wq-dev{position:relative;padding:9px;border-radius:44px;background:#0c0c0e;box-shadow:0 0 0 1px rgba(255,255,255,.06) inset,0 24px 60px -24px rgba(0,0,0,.45)}
+.wq-phone{position:relative;width:360px;height:736px;transform-origin:0 0;border-radius:35px;overflow:hidden;background:#161719;color:#f3f3f3;font-family:var(--font);font-size:15px;line-height:1.35;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;text-align:left}
+.wq-top{flex:none;background:#222329;position:relative;z-index:2}
+.wq-hd{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.wq-hd>svg{width:24px;height:24px;flex:none;color:#e9e9ee}
+.wq-hd__t{position:relative;flex:1;height:22px;margin:0;font-size:16px;font-weight:700;text-align:center}
+.wq-hd__a,.wq-hd__b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .4s,transform .4s}
+.wq-hd__b{opacity:0;transform:translateY(8px)}
+.wq-hd__b i{font-style:normal;color:#9a9ba3}
+.wq-cloud{width:22px;height:22px;color:#6f7078;transition:color .4s}
+.wq-cloud__ok{opacity:0;transition:opacity .3s}
+.wq.is-draft .wq-hd__a{opacity:0;transform:translateY(-8px)}
+.wq.is-draft .wq-hd__b{opacity:1;transform:none}
+.wq.is-saved .wq-cloud{color:#44c6a0}
+.wq.is-saved .wq-cloud__ok{opacity:1}
+.wq-pg{height:20px;display:flex;justify-content:center}
+.wq-pg::before{content:"";position:absolute;left:80px;right:80px;top:70px;height:8px;border-radius:4px;background:#34363d}
+.wq-pg__bar{position:absolute;left:80px;top:70px;height:8px;width:8px;border-radius:4px;background:#7a8ef5;transition:width .6s cubic-bezier(.65,0,.35,1)}
+.wq-body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:opacity .45s}
+.wq-body.is-out{opacity:0}
+.wq-st{flex:none;position:relative;overflow:hidden;margin-top:4px;background:#222329;border-radius:16px 16px 0 0;transition:height .55s cubic-bezier(.65,0,.35,1),border-radius .55s,background-color .55s}
+.wq-st.is-done{background:#1b1d20;border-radius:0}
+.wq-q{padding:28px 16px 24px;transition:opacity .3s}
+.wq-st.is-done .wq-q{opacity:0}
+.wq-r{position:absolute;left:0;right:0;top:0;min-height:54px;padding:16px 46px 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;opacity:0;transition:opacity .35s .2s}
+.wq-r::after{content:"";position:absolute;right:16px;top:17px;width:18px;height:18px;background:no-repeat center/18px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a7b83' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15.5 4.5l4 4L8 20H4v-4z'/%3E%3Cpath d='M4 21h16'/%3E%3C/svg%3E")}
+.wq-st.is-done .wq-r{opacity:1}
+.wq-r__k{font-size:12px;color:#a7a8b0;white-space:nowrap}
+.wq-r__v{font-size:15px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wq-r--multi{flex-direction:column;align-items:flex-start;gap:8px}
+.wq-r--multi .wq-r__v{text-align:left;white-space:normal}
+.wq-t{font-size:22px;font-weight:400;margin:0 0 18px;display:flex;justify-content:space-between;align-items:center}
+.wq-t svg{width:20px;height:20px;color:#a7a8b0}
+.wq-lb{font-size:13px;color:#a7a8b0;margin:16px 0 8px}
+.wq-lb:first-child{margin-top:0}
+.wq-fl{height:40px;border-radius:8px;background:#33343a;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:15px;color:#c9cad0;gap:8px}
+.wq-fl svg{width:18px;height:18px;flex:none;color:#c9cad0}
+.wq-fl--srch{justify-content:flex-start;color:#a7a8b0}
+.wq-fl.is-filled{color:#f3f3f3}
+.wq-chips{display:flex;flex-wrap:wrap;gap:8px}
+.wq-chip{display:inline-flex;align-items:center;height:38px;padding:0 14px;border-radius:8px;background:#34363d;font-size:14px;color:#f3f3f3;transition:background-color .2s,box-shadow .2s,transform .15s}
+.wq-chip.is-on{background:#3a3f63;box-shadow:0 0 0 1.5px #7a8ef5 inset}
+.wq-press{transform:scale(.95)}
+.wq-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wq-seg{display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:10px;background:#161719;font-size:16px;text-align:center}
+.wq-seg span{height:32px;line-height:32px;border-radius:7px;color:#cfd0d6;transition:background-color .3s,color .3s}
+.wq-seg span.is-on{background:#f3f3f3;color:#161719}
+.wq-seg--acc span.is-on{background:#7a8ef5;color:#0f1020}
+.wq-step{display:grid;grid-template-columns:40px 1fr 40px;align-items:center;height:40px;border-radius:8px;background:#33343a;text-align:center;font-size:16px}
+.wq-step b{font-weight:400;font-size:20px;color:#c9cad0}
+.wq-sub{font-size:12px;color:#a7a8b0;text-align:center;margin:6px 0 0}
+.wq-btn{position:relative;margin-top:22px;height:48px;border-radius:8px;background:#34363d;color:#6f7078;display:flex;align-items:center;justify-content:center;font-size:16px;transition:background-color .3s,color .3s,transform .15s}
+.wq-btn::after{content:"";position:absolute;right:4px;top:4px;width:40px;height:40px;border-radius:6px;background:rgba(0,0,0,.12) no-repeat center/18px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23161719' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+.wq-btn.is-on{background:#7a8ef5;color:#0f1020}
+.wq-tg{display:flex;align-items:center;gap:12px;height:42px;font-size:15px}
+.wq-tg i{position:relative;width:44px;height:24px;border-radius:12px;background:#4a4b52;flex:none;transition:background-color .25s}
+.wq-tg i::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#1b1d20;transition:transform .25s}
+.wq-tg.is-on i{background:#7a8ef5}
+.wq-tg.is-on i::after{transform:translateX(20px);background:#fff}
+.wq-tg b{margin-left:auto;font-weight:700;font-size:14px}
+.wq-tg b.is-free{color:#44c6a0}
+.wq-in{height:44px;border-radius:8px;border:1.5px solid #7a8ef5;background:#161719;display:flex;align-items:center;padding:0 12px;font-size:15px}
+.wq-in--area{height:96px;align-items:flex-start;padding:12px;line-height:1.45}
+.wq-in>span::after{content:"";display:inline-block;width:1.5px;height:18px;margin-left:1px;vertical-align:-3px;background:#f3f3f3;animation:wqCaret 1s steps(1) infinite}
+@keyframes wqCaret{50%{opacity:0}}
+.wq-in__ph{color:#7a7b83}
+.wq-ul{margin:14px 0 0;padding:0 0 0 18px;font-size:14px;line-height:1.6;color:#d9dae0}
+.wq-desc{font-size:14px;line-height:1.5;margin:14px 0 0;color:#d9dae0}
+.wq-fin{flex:none;margin-top:4px;background:#222329;padding:14px 16px 16px}
+.wq-price{display:flex;align-items:center;gap:10px;font-size:15px;color:#a7a8b0}
+.wq-price s{margin-left:auto;color:#a7a8b0}
+.wq-price em{font-style:normal;font-size:12px;font-weight:700;color:#0f1020;background:#44c6a0;border-radius:12px;padding:3px 9px}
+.wq-price b{color:#f3f3f3;font-size:16px}
+.wq-go{position:relative;margin-top:16px;height:48px;border-radius:8px;background:#44c6a0;color:#0f1020;display:flex;align-items:center;justify-content:center;font-size:16px;transition:transform .15s}
+.wq-go::after{content:"";position:absolute;right:4px;top:4px;width:40px;height:40px;border-radius:6px;background:#329377 no-repeat center/18px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23161719' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E")}
+.wq-tap{position:absolute;z-index:5;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(255,255,255,.35);box-shadow:0 0 0 2px rgba(255,255,255,.5);opacity:0;transform:scale(.4);pointer-events:none}
+.wq-tap.is-go{animation:wqTap .5s ease-out}
+@keyframes wqTap{0%{opacity:0;transform:scale(.4)}25%{opacity:1;transform:scale(.75)}100%{opacity:0;transform:scale(1.25)}}
+.wx-form__text .tab__lead--big{max-width:560px}
+</style></head>
 <body>
 <section class="view home" id="view-home">
   <div class="home__left">
@@ -1137,7 +1253,7 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 <article class="project">
   <div class="project__card">
     <div class="project__brand"><span class="project__nda" aria-label="Under NDA">NDA</span></div>
-    <p class="project__domain">Fixing the biggest funnel drop-off: +6% first orders</p>
+    <p class="project__domain">Three A/B tests: up to +12.5% first orders</p>
     <div class="project__foot"><p class="project__role">Feature Owner, Product Designer</p><p class="project__sub">2025</p></div>
   </div>
   <div class="project__img"><img src="../assets/cover-writers.jpg?v=2" width="580" height="355" alt="Freelance marketplace for student writing — choosing a writer, product design case" loading="lazy"><span class="project__glass" aria-hidden="true"><span class="project__cta">View case<svg viewBox="0 0 16 16" width="14" height="14" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
@@ -1793,16 +1909,17 @@ layout();})();</script></section>
   </dl>
   <div class="wr-sum">
     <p class="wr-sum__k">In short</p>
-    <p class="wr-sum__text">Choosing a writer was the biggest drop-off in the funnel, right before payment. Each order drew 30+ offers, and they all looked the same: perfect ratings, thousands of reviews, so customers couldn&#8217;t tell who to trust. Research showed what they look for, and I redesigned the offer card around it: a rating from recent orders, subject expertise, on-time delivery and writing samples.</p>
-    <ul class="wr-sum__res">
-      <li><b>+14%</b><span class="wr-sum__lbl">chose a writer<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-      <li><b>+6%</b><span class="wr-sum__lbl">first orders<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-      <li><b>+3.5%</b><span class="wr-sum__lbl">repeat orders<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></li>
-    </ul>
-    <p class="wr-sum__note">A/B test, all results statistically significant</p>
+    <p class="wr-sum__text">Three A/B tests over 1.5 years, each on a different step of the funnel. Choosing a writer was the biggest drop-off: each order drew 30+ offers that all looked the same, so I redesigned the offer card around what customers look for. Then we ranked writers by how often their customers come back, and replaced the long order form with a step-by-step one.</p>
+    <ol class="wr-sum__xs">
+      <li><span class="wr-sum__xn">01</span><span class="wr-sum__xt">Offer card redesign</span><span class="wr-sum__xm"><span><b>+14%</b>chose a writer</span><span><b>+6%</b>first orders</span><span><b>+3.5%</b>repeat orders</span></span></li>
+      <li><span class="wr-sum__xn">02</span><span class="wr-sum__xt">Sorting by repeat rate</span><span class="wr-sum__xm"><span><b>+6.9%</b>second orders</span></span></li>
+      <li><span class="wr-sum__xn">03</span><span class="wr-sum__xt">Step-by-step order form</span><span class="wr-sum__xm"><span><b>+12.5%</b>first orders</span><span><b>+6.2%</b>repeat orders</span></span></li>
+    </ol>
+    <p class="wr-sum__note">Long-running A/B tests, all results statistically significant</p>
   </div>
   <hr class="rule" id="wr-context">
   <div class="tab__section">
+    <div class="wx-band"><span class="wx-band__n">Experiment 1</span><p class="wx-band__s">Offer card redesign</p></div>
     <h2 class="tab__h">Context</h2>
     <ol class="numlist">
       <li><span>01</span>A writer profile is rarely one person: usually it&#8217;s a small company, so it takes orders in any subject</li>
@@ -1861,10 +1978,52 @@ layout();})();</script></section>
       <p class="wr-why__k">Why +14% choices didn&#8217;t become +14% orders</p>
       <p>After choosing a writer, many customers were surprised that they had to pay right away. Paying upfront is part of the business model, so some of the extra choices still dropped off at the payment step.</p>
     </div>
-    <div class="wr-why wr-why--next">
-      <p class="wr-why__k">Next step: ranking writers by repeat rate</p>
-      <p>We changed how offers are sorted: writers with a higher repeat rate, the share of customers who come back for a second order, moved up. They got more attention from first-time customers and were better at keeping them for the next order.</p>
+  </div>
+  <hr class="rule" id="wr-exp2">
+  <div class="tab__section">
+    <div class="wx-band"><span class="wx-band__n">Experiment 2</span><h2 class="tab__h wx-band__t">Sorting offers by repeat rate</h2></div>
+    <div class="two">
+      <p class="tab__lead tab__lead--big">Some writers kept customers much better than others, so we showed them first</p>
+      <p class="wx-text">We changed how offers are sorted: writers with a higher repeat rate, the share of customers who come back for a second order, moved up the list. First-time customers saw them first and were more likely to come back for the next order.</p>
     </div>
+    <p class="wr-group"><span>Why it worked</span></p>
+    <p class="wx-text wx-text--wide">Interviews showed it wasn&#8217;t about writing better. Customers came back to writers who were easy to work with:</p>
+    <ol class="wx-traits">
+      <li><span>01</span>Polite, clear communication</li>
+      <li><span>02</span>Quick replies to messages</li>
+      <li><span>03</span>Orders delivered on time</li>
+      <li><span>04</span>Revisions done on time</li>
+    </ol>
+    <ul class="wr-results wx-res wx-res--1"><li class="wr-res"><span class="wr-res__label">Second orders<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b class="wr-res__num">+6.9%</b></li></ul>
+    <p class="wx-note">Conversion from first to second order. Long-running A/B test, statistically significant</p>
+  </div>
+
+  <hr class="rule" id="wr-exp3">
+  <div class="tab__section">
+    <div class="wx-band"><span class="wx-band__n">Experiment 3</span><h2 class="tab__h wx-band__t">A step-by-step order form</h2></div>
+    <div class="wx-form">
+      <div class="wx-form__text">
+        <p class="tab__lead tab__lead--big">The order form was one long page with many required fields, and many customers gave up before finishing it</p>
+        <ol class="numlist wx-list">
+          <li><span>01</span>One question at a time, so the form never looks long</li>
+          <li><span>02</span>Popular options as one-click chips under every field</li>
+          <li><span>03</span>Each answer collapses into a line with the chosen option, so customers see their progress and can change any answer</li>
+        </ol>
+      </div>
+      <figure class="wx-form__vis">
+        <div class="wq" aria-label="Animated prototype of the step-by-step order form" role="img"><div class="wq-dev"><div class="wq-phone">
+          <div class="wq-top">
+            <div class="wq-hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><p class="wq-hd__t"><span class="wq-hd__a">Create new order</span><span class="wq-hd__b">Order 3501027 <i>(Draft)</i><svg class="wq-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10.5a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.6 9.1 4.5 4.5 0 0 0 7 18z"/><path class="wq-cloud__ok" d="M9.5 13.5l2 2 3.5-3.5"/></svg></span></p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 14v-2a7.5 7.5 0 0 1 15 0v2"/><rect x="3.5" y="13" width="4" height="6" rx="1.5"/><rect x="16.5" y="13" width="4" height="6" rx="1.5"/></svg></div>
+            <div class="wq-pg"><span class="wq-pg__bar"></span></div>
+          </div>
+          <div class="wq-body"></div>
+          <span class="wq-tap" aria-hidden="true"></span>
+        </div></div></div>
+        <figcaption class="hint">Prototype of the new form</figcaption>
+      </figure>
+    </div>
+    <ul class="wr-results wx-res"><li class="wr-res"><span class="wr-res__label">First orders<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b class="wr-res__num">+12.5%</b></li><li class="wr-res"><span class="wr-res__label">Repeat orders<svg class="wr-res__up" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b class="wr-res__num">+6.2%</b></li></ul>
+    <p class="wx-note">Long-running A/B test, statistically significant</p>
   </div>
 </div>
 <a class="totop" href="#wr-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 10l6-6.2M18 10l-6-6.2M12 3.8V19" stroke="currentColor" stroke-width="1.5"/></svg></a>
@@ -2542,6 +2701,115 @@ layout();})();</script></section>
     lis.forEach(function(li,i){ setTimeout(function(){ li.classList.add('qd-on'); },350+i*150); });
   },{rootMargin:'0px 0px -8% 0px'});
   io.observe(box);
+})();
+</script>
+<script>
+/* Order form prototype: plays the step-by-step form on a loop while it is on screen */
+(function(){
+  var root=document.querySelector('.wq'); if(!root) return;
+  var dev=root.querySelector('.wq-dev'), ph=root.querySelector('.wq-phone'), body=root.querySelector('.wq-body'),
+      bar=root.querySelector('.wq-pg__bar'), tap=root.querySelector('.wq-tap');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PEN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01" stroke-linecap="round"/></svg>';
+  var DOWN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+  var SRCH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>';
+  var CAL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" stroke-linecap="round"/></svg>';
+  var CLK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>';
+  function chips(a){ return '<div class="wq-chips">'+a.map(function(c){return '<span class="wq-chip">'+c+'</span>';}).join('')+'</div>'; }
+  var STEPS=[
+    {k:'Assignment type', v:'Essay (any type)', html:'<p class="wq-t">Assignment type</p><div class="wq-fl">Select assignment'+DOWN+'</div><p class="wq-lb">Popular</p>'+chips(['Essay (any type)','Discussion post','Research paper','Coursework','Case study']), pick:0},
+    {k:'Service', v:'Writing', html:'<p class="wq-t">Service'+PEN+'</p>'+chips(['Writing','Rewriting','Editing','Proofreading','Problem solving','Calculations']), pick:0},
+    {k:'Academic level', v:'College', html:'<p class="wq-t">Academic level</p>'+chips(['High school','College','Bachelor&#8217;s','Master&#8217;s','Doctorate']), pick:1},
+    {k:'Language', v:'English (US)', html:'<p class="wq-t">Language</p>'+chips(['English (US)','English (UK)','Spanish (ES)','French (FR)']), pick:0},
+    {k:'Size', v:'3 pages (double spacing)', type:'size', html:'<p class="wq-t">Size</p><div class="wq-seg"><span class="is-on">Pages</span><span>Words</span></div><p class="wq-lb" style="text-align:center">Pages</p><div class="wq-step"><b>&minus;</b><span class="wq-n">1</span><b class="wq-plus">+</b></div><p class="wq-sub"><span class="wq-w">~275</span> words</p><p class="wq-lb">Line spacing</p><div class="wq-fl is-filled">Double'+DOWN+'</div><div class="wq-btn is-on">Next</div>'},
+    {k:'Deadline', v:'In 3 days, 5:00 PM', html:'<p class="wq-t">Deadline'+PEN+'</p><div class="wq-row2"><div><p class="wq-lb">Date</p><div class="wq-fl is-filled">Wed, Sept 27'+CAL+'</div></div><div><p class="wq-lb">Time</p><div class="wq-fl is-filled">5:00 PM'+CLK+'</div></div></div><p class="wq-lb">Popular</p>'+chips(['3 hours','6 hours','12 hours','1 day','2 days','3 days','5 days']), pick:5, draft:true},
+    {k:'Add-ons', v:'1-Page abstract, Detailed outline', multi:true, type:'addons', html:'<p class="wq-t">Add-ons</p>'+[['1-Page abstract','$12.99'],['Graphics &amp; tables','$8.99'],['Printable sources','$6.99'],['Detailed outline','$9.99'],['Plagiarism &amp; AI report','FREE']].map(function(a){return '<div class="wq-tg"><i></i>'+a[0]+'<b'+(a[1]=='FREE'?' class="is-free"':'')+'>'+a[1]+'</b></div>';}).join('')+'<div class="wq-btn is-on">Next</div>'},
+    {k:'Topic', v:'The ethics of animal testing', multi:true, type:'text', html:'<p class="wq-t">Assignment&#8217;s topic or name</p><p class="wq-lb">Name your assignment</p><div class="wq-in"><span></span></div><div class="wq-btn">Next</div>'},
+    {k:'Subject', v:'Business and management', html:'<p class="wq-t">Subject</p><div class="wq-fl wq-fl--srch">'+SRCH+'Choose your subject</div><p class="wq-lb">Suggested</p>'+chips(['Nursing','Business and management','English','Psychology','Healthcare','Education']), pick:1},
+    {k:'Instructions', v:'Argumentative essay, five paragraphs, one peer-reviewed source', multi:true, type:'text', html:'<p class="wq-t">Instructions</p><div class="wq-in wq-in--area"><span></span></div><div class="wq-btn">Next</div>'},
+    {k:'Sources &amp; style', v:'1 source / APA 7th edition', type:'sources', html:'<p class="wq-t">Sources</p><div class="wq-fl wq-s1">Number of sources'+DOWN+'</div><p class="wq-t" style="margin-top:22px">Style</p><div class="wq-fl wq-s2">Citation style'+DOWN+'</div><div class="wq-btn">Next</div>'},
+    {k:'Visibility', v:'Open order', type:'vis', html:'<p class="wq-t">Visibility</p><div class="wq-seg wq-seg--acc"><span class="is-on">Open order</span><span>Private order</span></div><p class="wq-desc">Every writer can view and make proposals for your order.</p><ul class="wq-ul"><li>Receive proposals automatically</li><li>Fastest way to order</li></ul><div class="wq-btn is-on">Next</div>'}
+  ];
+  var TOTAL=STEPS.length+1, alive=0, running=false, scale=1;
+
+  function fit(){ var w=dev.clientWidth-18; if(w<=0) return; scale=w/360; ph.style.transform='scale('+scale+')'; dev.style.height=(736*scale+18)+'px'; }
+  fit(); if(window.ResizeObserver) new ResizeObserver(fit).observe(dev); else addEventListener('resize',fit);
+
+  function sleep(ms,run){ return new Promise(function(res,rej){ var left=ms; (function t(){ if(run!==alive) return rej(0); if(running) left-=50; if(left<=0) res(); else setTimeout(t,50); })(); }); }
+  function progress(i){ bar.style.width=Math.max(8,200*i/TOTAL)+'px'; }
+  function el(cls,html){ var d=document.createElement('div'); d.className=cls; d.innerHTML=html; return d; }
+  function rowHtml(s){ return '<span class="wq-r__k">'+s.k+'</span><span class="wq-r__v">'+s.v+'</span>'; }
+  function makeStep(s,done){
+    var st=el('wq-st'+(done?' is-done':''),'');
+    var q=el('wq-q',s.html), r=el('wq-r'+(s.multi?' wq-r--multi':''),rowHtml(s));
+    st.appendChild(q); st.appendChild(r); return st;
+  }
+  function grow(st){ body.appendChild(st); var h=st.scrollHeight; st.style.height='0px'; st.offsetHeight; st.style.height=h+'px'; }
+  function collapse(st){ var r=st.querySelector('.wq-r'); st.style.height=st.offsetHeight+'px'; st.offsetHeight; st.classList.add('is-done'); st.style.height=r.offsetHeight+'px'; }
+  function press(node){
+    var a=node.getBoundingClientRect(), b=ph.getBoundingClientRect();
+    tap.style.left=((a.left+a.width/2-b.left)/scale)+'px'; tap.style.top=((a.top+a.height/2-b.top)/scale)+'px';
+    tap.classList.remove('is-go'); tap.offsetWidth; tap.classList.add('is-go');
+    node.classList.add('wq-press'); setTimeout(function(){ node.classList.remove('wq-press'); },160);
+  }
+  function finale(){
+    return el('wq-fin','<div class="wq-price">Estimated price:<s>$332.60</s><em>3% OFF</em><b>$322.60</b></div><div class="wq-go">Select writer</div>');
+  }
+  async function type(box,text,run,speed){ var sp=box.querySelector('span'); for(var i=1;i<=text.length;i++){ sp.textContent=text.slice(0,i); await sleep(speed,run); } }
+
+  async function play(run){
+    for(;;){
+      body.innerHTML=''; body.classList.remove('is-out'); root.classList.remove('is-draft','is-saved'); progress(0.4);
+      await sleep(500,run);
+      for(var i=0;i<STEPS.length;i++){
+        var s=STEPS[i], st=makeStep(s); grow(st);
+        if(s.draft){ root.classList.add('is-draft'); setTimeout(function(){ root.classList.add('is-saved'); },500); setTimeout(function(){ root.classList.remove('is-saved'); },2200); }
+        await sleep(900,run);
+        var q=st.querySelector('.wq-q');
+        if(s.type==='size'){
+          var plus=q.querySelector('.wq-plus');
+          for(var n=2;n<=3;n++){ press(plus); q.querySelector('.wq-n').textContent=n; q.querySelector('.wq-w').textContent='~'+(275*n); await sleep(450,run); }
+          press(q.querySelector('.wq-btn'));
+        } else if(s.type==='addons'){
+          var tg=q.querySelectorAll('.wq-tg');
+          press(tg[0].querySelector('i')); tg[0].classList.add('is-on'); await sleep(450,run);
+          press(tg[3].querySelector('i')); tg[3].classList.add('is-on'); await sleep(500,run);
+          press(q.querySelector('.wq-btn'));
+        } else if(s.type==='text'){
+          var bx=q.querySelector('.wq-in'); await type(bx,s.v,run,s.v.length>40?28:45);
+          var bt=q.querySelector('.wq-btn'); bt.classList.add('is-on'); await sleep(350,run); press(bt);
+        } else if(s.type==='sources'){
+          var s1=q.querySelector('.wq-s1'), s2=q.querySelector('.wq-s2');
+          press(s1); await sleep(250,run); s1.firstChild.textContent='1 source required'; s1.classList.add('is-filled'); await sleep(450,run);
+          press(s2); await sleep(250,run); s2.firstChild.textContent='APA 7th edition'; s2.classList.add('is-filled'); q.querySelector('.wq-btn').classList.add('is-on'); await sleep(450,run);
+          press(q.querySelector('.wq-btn'));
+        } else if(s.type==='vis'){
+          await sleep(500,run); press(q.querySelector('.wq-btn'));
+        } else {
+          var c=q.querySelectorAll('.wq-chip')[s.pick]; press(c); c.classList.add('is-on');
+        }
+        await sleep(380,run);
+        collapse(st); progress(i+1);
+        await sleep(450,run);
+      }
+      var pr=makeStep({k:'Promo code',v:'&ndash;'},true); pr.style.height='0px'; body.appendChild(pr); pr.offsetHeight; pr.style.height='54px';
+      var fin=finale(); grow(fin); progress(TOTAL);
+      await sleep(1500,run); press(fin.querySelector('.wq-go'));
+      await sleep(2600,run);
+      body.classList.add('is-out'); await sleep(600,run);
+    }
+  }
+  function staticEnd(){
+    body.innerHTML=''; root.classList.add('is-draft');
+    STEPS.concat([{k:'Promo code',v:'&ndash;'}]).forEach(function(s){ var st=makeStep(s,true); body.appendChild(st); st.style.height=st.querySelector('.wq-r').offsetHeight+'px'; });
+    body.appendChild(finale()); progress(TOTAL);
+  }
+  var started=false;
+  function start(){ alive++; var run=alive; play(run).catch(function(){}); }
+  new IntersectionObserver(function(e){
+    running=e[0].isIntersecting;
+    if(running && !started){ started=true; fit(); if(reduce) staticEnd(); else start(); }
+  },{threshold:.3}).observe(root);
 })();
 </script>
 <script>
