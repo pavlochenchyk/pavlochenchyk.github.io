@@ -187,18 +187,11 @@ def build():
     h = swap(h, '<p class="wr-head__name">Freelance marketplace for student writing</p>',
              '<p class="wr-head__name">Three winning experiments that grew first and repeat orders</p>', "writers header")
     # Marketplace case: three experiments (offer card, sorting by repeat rate, step-by-step order form).
-    h = swap(h, r'<p class="wr-sum__text">Choosing a writer was the biggest drop-off.*?<p class="wr-sum__note">A/B test, all results statistically significant</p>',
-             '<p class="wr-sum__text">Three A/B tests over 1.5 years, each on a different step of the funnel. '
-             'Choosing a writer was the biggest drop-off: each order drew 30+ offers that all looked the same, so I redesigned the offer card around what customers look for. '
-             'Then we ranked writers by how often their customers come back, and replaced the long order form with a step-by-step one.</p>\n'
-             '    <ol class="wr-sum__xs">\n'
-             '      <li><span class="wr-sum__xn">01</span><span class="wr-sum__xt">Offer card redesign</span><span class="wr-sum__xm"><span><b>+14%</b>chose a writer</span><span><b>+6%</b>first orders</span><span><b>+3.5%</b>repeat orders</span></span></li>\n'
-             '      <li><span class="wr-sum__xn">02</span><span class="wr-sum__xt">Sorting by repeat rate</span><span class="wr-sum__xm"><span><b>+6.9%</b>second orders</span></span></li>\n'
-             '      <li><span class="wr-sum__xn">03</span><span class="wr-sum__xt">Step-by-step order form</span><span class="wr-sum__xm"><span><b>+12.5%</b>first orders</span><span><b>+6.2%</b>repeat orders</span></span></li>\n'
-             '    </ol>\n'
-             '    <p class="wr-sum__note">Long-running A/B tests, all results statistically significant</p>', "writers in short", regex=True)
+    # In short: one card per experiment, each with its own summary, numbers and a link to its section.
+    h = swap(h, r'<div class="wr-sum">\s*<p class="wr-sum__k">In short</p>\s*<p class="wr-sum__text">Choosing a writer was the biggest drop-off.*?<p class="wr-sum__note">A/B test, all results statistically significant</p>\s*</div>',
+             (PARTS / "wr_cards.html").read_text(encoding="utf-8").strip(), "writers in short", regex=True)
     h = swap(h, '<hr class="rule" id="wr-context">\n  <div class="tab__section">\n    <h2 class="tab__h">Context</h2>',
-             '<hr class="rule" id="wr-context">\n  <div class="tab__section">\n    <div class="wx-band"><span class="wx-band__n">Experiment 1</span><p class="wx-band__s">Offer card redesign</p></div>\n    <h2 class="tab__h">Context</h2>', "writers exp1 band")
+             '<hr class="rule" id="wr-exp1">\n  <div class="tab__section" id="wr-context">\n    <div class="wx-band"><span class="wx-band__n">Experiment 1</span><h2 class="tab__h wx-band__t">Offer card redesign</h2></div>\n    <h2 class="tab__h">Context</h2>', "writers exp1 band")
     exp = (PARTS / "wr_exp.html").read_text(encoding="utf-8")
     h = swap(h, r'\n    <div class="wr-why wr-why--next">.*?</div>\n  </div>\n</div>\n<a class="totop" href="#wr-top"',
              '\n  </div>' + exp + '</div>\n<a class="totop" href="#wr-top"', "writers exp2+3", regex=True)

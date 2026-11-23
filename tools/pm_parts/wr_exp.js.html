@@ -39,7 +39,7 @@
     var q=el('wq-q',s.html), r=el('wq-r'+(s.multi?' wq-r--multi':''),rowHtml(s));
     st.appendChild(q); st.appendChild(r); return st;
   }
-  function grow(st){ body.appendChild(st); var h=st.scrollHeight; st.style.height='0px'; st.offsetHeight; st.style.height=h+'px'; }
+  function grow(st,minH){ body.appendChild(st); var r=st.querySelector('.wq-r'); var h=st.classList.contains('is-done')&&r?r.offsetHeight:st.scrollHeight; h=Math.max(h,minH||0); st.style.height='0px'; st.style.marginTop='0px'; st.offsetHeight; st.style.height=h+'px'; st.style.marginTop=''; }
   function collapse(st){ var r=st.querySelector('.wq-r'); st.style.height=st.offsetHeight+'px'; st.offsetHeight; st.classList.add('is-done'); st.style.height=r.offsetHeight+'px'; }
   function press(node){
     var a=node.getBoundingClientRect(), b=ph.getBoundingClientRect();
@@ -56,8 +56,9 @@
     for(;;){
       body.innerHTML=''; body.classList.remove('is-out'); root.classList.remove('is-draft','is-saved'); progress(0.4);
       await sleep(500,run);
+      var st=makeStep(STEPS[0]); grow(st);
       for(var i=0;i<STEPS.length;i++){
-        var s=STEPS[i], st=makeStep(s); grow(st);
+        var s=STEPS[i];
         if(s.draft){ root.classList.add('is-draft'); setTimeout(function(){ root.classList.add('is-saved'); },500); setTimeout(function(){ root.classList.remove('is-saved'); },2200); }
         await sleep(900,run);
         var q=st.querySelector('.wq-q');
@@ -84,11 +85,16 @@
           var c=q.querySelectorAll('.wq-chip')[s.pick]; press(c); c.classList.add('is-on');
         }
         await sleep(380,run);
+        /* The answered step collapses while the next one rises from below in the same motion,
+           so the rows above only ever drift one way instead of dipping and coming back. */
+        /* The new card is at least as tall as the space the old one frees up (its sheet just reaches
+           further down), so earlier rows never sink back. */
+        var free=st.offsetHeight-st.querySelector('.wq-r').offsetHeight;
         collapse(st); progress(i+1);
-        await sleep(450,run);
+        if(i+1<STEPS.length){ st=makeStep(STEPS[i+1]); grow(st,free); }
+        else { var pr=makeStep({k:'Promo code',v:'&ndash;'},true); grow(pr); var fin=finale(); grow(fin,free-62); progress(TOTAL); }
+        await sleep(650,run);
       }
-      var pr=makeStep({k:'Promo code',v:'&ndash;'},true); pr.style.height='0px'; body.appendChild(pr); pr.offsetHeight; pr.style.height='54px';
-      var fin=finale(); grow(fin); progress(TOTAL);
       await sleep(1500,run); press(fin.querySelector('.wq-go'));
       await sleep(2600,run);
       body.classList.add('is-out'); await sleep(600,run);

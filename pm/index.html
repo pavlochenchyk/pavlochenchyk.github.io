@@ -1110,8 +1110,6 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .wx-band{margin:0 0 40px}
 .wx-band__n{display:block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
 .wx-band__t{margin:0}
-.wx-band__s{font-size:22px;margin:0}
-#view-writers .wx-band:has(.wx-band__s){margin:0 0 28px}
 .wx-text{font-size:18px;line-height:1.55;margin:0;color:var(--ink-2)}
 .wx-text--wide{max-width:760px;margin:0 0 24px}
 .wx-traits{list-style:none;margin:0 0 40px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
@@ -1124,21 +1122,30 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .wx-form__text .tab__lead--big{margin:0 0 36px}
 .wx-form__vis{margin:0}
 .wx-form__vis .hint{margin-top:14px;text-align:center}
-.wr-sum__xs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.wr-sum__xs li{display:grid;grid-template-columns:28px 230px 1fr;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--tint-12)}
-.wr-sum__xs li:first-child{border-top:0;padding-top:0}
-.wr-sum__xn{font-size:14px;color:var(--muted)}
-.wr-sum__xt{font-size:17px;color:var(--ink)}
-.wr-sum__xm{display:flex;flex-wrap:wrap;gap:8px 36px;font-size:15px;color:var(--ink-2)}
-.wr-sum__xm span{display:inline-flex;align-items:baseline;gap:10px}
-.wr-sum__xm b{font-size:28px;font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+.wx-cards{margin:48px 0 0}
+.wx-cards__lead{font-size:18px;line-height:1.5;margin:0 0 24px;max-width:760px;color:var(--ink-2)}
+.wx-cards__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.wx-cards__list li{display:flex}
+.wx-card{flex:1;display:flex;flex-direction:column;padding:30px 30px 26px;border-radius:24px;background:var(--panel);color:var(--ink);text-decoration:none;transition:background-color .45s,transform .25s,box-shadow .25s}
+.wx-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(0,0,0,.25)}
+.wx-card:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.wx-card__n{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.wx-card__t{font-size:22px;line-height:1.3;margin:0 0 12px}
+.wx-card__d{font-size:16px;line-height:1.5;color:var(--ink-2);margin:0 0 26px}
+.wx-card__m{display:flex;flex-direction:column;gap:12px;margin:auto 0 0;padding-top:22px;border-top:1px solid var(--tint-12)}
+.wx-card__m span{display:flex;align-items:baseline;gap:12px;font-size:15px;color:var(--ink-2)}
+.wx-card__m b{font-size:34px;font-weight:400;letter-spacing:-.02em;line-height:1;color:var(--ink);min-width:3.3ch}
+.wx-card__go{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:15px;color:var(--link)}
+.wx-card__go svg{width:16px;height:16px;transition:transform .25s}
+.wx-card:hover .wx-card__go svg{transform:translateY(3px)}
+#wr-exp1,#wr-exp2,#wr-exp3{scroll-margin-top:40px}
 @media (max-width:860px){
   .wx-traits{grid-template-columns:repeat(2,minmax(0,1fr))}
   .wx-res--1{grid-template-columns:minmax(0,1fr)}
   .wx-form{grid-template-columns:minmax(0,1fr);gap:36px}
   .wx-form__vis{max-width:340px;width:100%;margin:0 auto}
-  .wr-sum__xs li{grid-template-columns:28px 1fr;row-gap:12px}
-  .wr-sum__xm{grid-column:2}
+  .wx-cards__list{grid-template-columns:minmax(0,1fr)}
+  .wx-card{padding:26px 24px 22px}
 }
 
 /* Order form prototype: a dark phone screen, built at 360x736 and scaled to fit */
@@ -1163,7 +1170,7 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .wq-pg__bar{position:absolute;left:80px;top:70px;height:8px;width:8px;border-radius:4px;background:#7a8ef5;transition:width .6s cubic-bezier(.65,0,.35,1)}
 .wq-body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:opacity .45s}
 .wq-body.is-out{opacity:0}
-.wq-st{flex:none;position:relative;overflow:hidden;margin-top:4px;background:#222329;border-radius:16px 16px 0 0;transition:height .55s cubic-bezier(.65,0,.35,1),border-radius .55s,background-color .55s}
+.wq-st{flex:none;position:relative;overflow:hidden;margin-top:4px;background:#222329;border-radius:16px 16px 0 0;transition:height .55s cubic-bezier(.65,0,.35,1),margin-top .55s cubic-bezier(.65,0,.35,1),border-radius .55s,background-color .55s}
 .wq-st.is-done{background:#1b1d20;border-radius:0}
 .wq-q{padding:28px 16px 24px;transition:opacity .3s}
 .wq-st.is-done .wq-q{opacity:0}
@@ -1211,7 +1218,7 @@ img[src$="rocken-logo.svg"],img[src$="asalart-logo.png"],img[src$="rocken-wordma
 .wq-in__ph{color:#7a7b83}
 .wq-ul{margin:14px 0 0;padding:0 0 0 18px;font-size:14px;line-height:1.6;color:#d9dae0}
 .wq-desc{font-size:14px;line-height:1.5;margin:14px 0 0;color:#d9dae0}
-.wq-fin{flex:none;margin-top:4px;background:#222329;padding:14px 16px 16px}
+.wq-fin{flex:none;margin-top:4px;overflow:hidden;transition:height .55s cubic-bezier(.65,0,.35,1),margin-top .55s cubic-bezier(.65,0,.35,1);background:#222329;padding:14px 16px 16px}
 .wq-price{display:flex;align-items:center;gap:10px;font-size:15px;color:#a7a8b0}
 .wq-price s{margin-left:auto;color:#a7a8b0}
 .wq-price em{font-style:normal;font-size:12px;font-weight:700;color:#0f1020;background:#44c6a0;border-radius:12px;padding:3px 9px}
@@ -1907,19 +1914,36 @@ layout();})();</script></section>
     <div><dt>Team</dt><dd>Product Manager, Analyst, UX Researcher</dd></div>
     <div><dt>Period of time</dt><dd>2025</dd></div>
   </dl>
-  <div class="wr-sum">
-    <p class="wr-sum__k">In short</p>
-    <p class="wr-sum__text">Three A/B tests over 1.5 years, each on a different step of the funnel. Choosing a writer was the biggest drop-off: each order drew 30+ offers that all looked the same, so I redesigned the offer card around what customers look for. Then we ranked writers by how often their customers come back, and replaced the long order form with a step-by-step one.</p>
-    <ol class="wr-sum__xs">
-      <li><span class="wr-sum__xn">01</span><span class="wr-sum__xt">Offer card redesign</span><span class="wr-sum__xm"><span><b>+14%</b>chose a writer</span><span><b>+6%</b>first orders</span><span><b>+3.5%</b>repeat orders</span></span></li>
-      <li><span class="wr-sum__xn">02</span><span class="wr-sum__xt">Sorting by repeat rate</span><span class="wr-sum__xm"><span><b>+6.9%</b>second orders</span></span></li>
-      <li><span class="wr-sum__xn">03</span><span class="wr-sum__xt">Step-by-step order form</span><span class="wr-sum__xm"><span><b>+12.5%</b>first orders</span><span><b>+6.2%</b>repeat orders</span></span></li>
+  <div class="wx-cards">
+    <p class="wx-cards__lead">Three A/B tests over 1.5 years, each on a different step of the funnel. Pick one to start with</p>
+    <ol class="wx-cards__list">
+      <li><a class="wx-card" href="#wr-exp1">
+        <span class="wx-card__n">Experiment 1</span>
+        <span class="wx-card__t">Offer card redesign</span>
+        <span class="wx-card__d">Choosing a writer was the biggest drop-off before payment. Each order drew 30+ offers that all looked the same, so I redesigned the offer card around what customers look for.</span>
+        <span class="wx-card__m"><span><b>+14%</b>chose a writer</span><span><b>+6%</b>first orders</span><span><b>+3.5%</b>repeat orders</span></span>
+        <span class="wx-card__go">Read the case<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v11M3.5 9L8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a></li>
+      <li><a class="wx-card" href="#wr-exp2">
+        <span class="wx-card__n">Experiment 2</span>
+        <span class="wx-card__t">Sorting by repeat rate</span>
+        <span class="wx-card__d">Writers whose customers come back for a second order moved up the offer list. Interviews showed it was about communication and deadlines, not better writing.</span>
+        <span class="wx-card__m"><span><b>+6.9%</b>second orders</span></span>
+        <span class="wx-card__go">Read the case<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v11M3.5 9L8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a></li>
+      <li><a class="wx-card" href="#wr-exp3">
+        <span class="wx-card__n">Experiment 3</span>
+        <span class="wx-card__t">Step-by-step order form</span>
+        <span class="wx-card__d">A long form with many required fields became one question at a time, with popular options as one-click chips.</span>
+        <span class="wx-card__m"><span><b>+12.5%</b>first orders</span><span><b>+6.2%</b>repeat orders</span></span>
+        <span class="wx-card__go">Read the case<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v11M3.5 9L8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a></li>
     </ol>
     <p class="wr-sum__note">Long-running A/B tests, all results statistically significant</p>
   </div>
-  <hr class="rule" id="wr-context">
-  <div class="tab__section">
-    <div class="wx-band"><span class="wx-band__n">Experiment 1</span><p class="wx-band__s">Offer card redesign</p></div>
+  <hr class="rule" id="wr-exp1">
+  <div class="tab__section" id="wr-context">
+    <div class="wx-band"><span class="wx-band__n">Experiment 1</span><h2 class="tab__h wx-band__t">Offer card redesign</h2></div>
     <h2 class="tab__h">Context</h2>
     <ol class="numlist">
       <li><span>01</span>A writer profile is rarely one person: usually it&#8217;s a small company, so it takes orders in any subject</li>
@@ -2744,7 +2768,7 @@ layout();})();</script></section>
     var q=el('wq-q',s.html), r=el('wq-r'+(s.multi?' wq-r--multi':''),rowHtml(s));
     st.appendChild(q); st.appendChild(r); return st;
   }
-  function grow(st){ body.appendChild(st); var h=st.scrollHeight; st.style.height='0px'; st.offsetHeight; st.style.height=h+'px'; }
+  function grow(st,minH){ body.appendChild(st); var r=st.querySelector('.wq-r'); var h=st.classList.contains('is-done')&&r?r.offsetHeight:st.scrollHeight; h=Math.max(h,minH||0); st.style.height='0px'; st.style.marginTop='0px'; st.offsetHeight; st.style.height=h+'px'; st.style.marginTop=''; }
   function collapse(st){ var r=st.querySelector('.wq-r'); st.style.height=st.offsetHeight+'px'; st.offsetHeight; st.classList.add('is-done'); st.style.height=r.offsetHeight+'px'; }
   function press(node){
     var a=node.getBoundingClientRect(), b=ph.getBoundingClientRect();
@@ -2761,8 +2785,9 @@ layout();})();</script></section>
     for(;;){
       body.innerHTML=''; body.classList.remove('is-out'); root.classList.remove('is-draft','is-saved'); progress(0.4);
       await sleep(500,run);
+      var st=makeStep(STEPS[0]); grow(st);
       for(var i=0;i<STEPS.length;i++){
-        var s=STEPS[i], st=makeStep(s); grow(st);
+        var s=STEPS[i];
         if(s.draft){ root.classList.add('is-draft'); setTimeout(function(){ root.classList.add('is-saved'); },500); setTimeout(function(){ root.classList.remove('is-saved'); },2200); }
         await sleep(900,run);
         var q=st.querySelector('.wq-q');
@@ -2789,11 +2814,16 @@ layout();})();</script></section>
           var c=q.querySelectorAll('.wq-chip')[s.pick]; press(c); c.classList.add('is-on');
         }
         await sleep(380,run);
+        /* The answered step collapses while the next one rises from below in the same motion,
+           so the rows above only ever drift one way instead of dipping and coming back. */
+        /* The new card is at least as tall as the space the old one frees up (its sheet just reaches
+           further down), so earlier rows never sink back. */
+        var free=st.offsetHeight-st.querySelector('.wq-r').offsetHeight;
         collapse(st); progress(i+1);
-        await sleep(450,run);
+        if(i+1<STEPS.length){ st=makeStep(STEPS[i+1]); grow(st,free); }
+        else { var pr=makeStep({k:'Promo code',v:'&ndash;'},true); grow(pr); var fin=finale(); grow(fin,free-62); progress(TOTAL); }
+        await sleep(650,run);
       }
-      var pr=makeStep({k:'Promo code',v:'&ndash;'},true); pr.style.height='0px'; body.appendChild(pr); pr.offsetHeight; pr.style.height='54px';
-      var fin=finale(); grow(fin); progress(TOTAL);
       await sleep(1500,run); press(fin.querySelector('.wq-go'));
       await sleep(2600,run);
       body.classList.add('is-out'); await sleep(600,run);
