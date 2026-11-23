@@ -10,7 +10,9 @@
 .wx-res{margin-top:8px}
 .wx-res--1{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
 .wx-note{margin:16px 0 0;font-size:14px;color:var(--muted)}
-.wx-form{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:center;margin:0 0 48px}
+.wx-form{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:center;margin:0}
+.wx-form__text .wx-list{margin-bottom:40px}
+.wx-form__text .wx-res{grid-template-columns:repeat(2,minmax(0,1fr))}
 .wx-form__text .tab__lead--big{margin:0 0 36px}
 .wx-form__vis{margin:0}
 .wx-form__vis .hint{margin-top:14px;text-align:center}
@@ -31,10 +33,26 @@
 .wx-card__go svg{width:16px;height:16px;transition:transform .25s}
 .wx-card:hover .wx-card__go svg{transform:translateY(3px)}
 #wr-exp1,#wr-exp2,#wr-exp3{scroll-margin-top:40px}
+.wx-text--after{margin-top:28px;max-width:520px}
+.wx-sort{margin:0}
+.wx-sort__list{--h:84px;--g:12px;position:relative;list-style:none;margin:0;padding:0;height:calc(var(--h)*3 + var(--g)*2)}
+.wx-sort__c{position:absolute;left:0;right:0;top:calc((var(--h) + var(--g))*var(--p,0));height:var(--h);display:flex;align-items:center;gap:16px;padding:0 24px;border-radius:16px;background:var(--panel);transition:top .8s cubic-bezier(.65,0,.35,1),background-color .45s,box-shadow .45s}
+.wx-sort__c.is-lift{box-shadow:0 14px 30px -14px rgba(0,0,0,.28)}
+.wx-sort__c.is-top{box-shadow:0 0 0 1.5px var(--green) inset,0 14px 30px -18px rgba(0,0,0,.22)}
+.wx-sort__av{width:40px;height:40px;flex:none;color:var(--tint-12)}
+.wx-sort__av svg{width:100%;height:100%;fill:currentColor}
+.wx-sort__ln{flex:1;display:flex;flex-direction:column;gap:8px}
+.wx-sort__ln i{display:block;height:9px;border-radius:5px;background:var(--tint-12);width:80%}
+.wx-sort__ln i+i{width:50%}
+.wx-sort__m{display:flex;flex-direction:column;align-items:flex-end;flex:none;min-width:96px}
+.wx-sort__m b{font-size:30px;font-weight:400;letter-spacing:-.02em;line-height:1.1}
+.wx-sort__m small{font-size:13px;color:var(--muted)}
+.wx-sort .hint{margin-top:14px}
 @media (max-width:860px){
   .wx-traits{grid-template-columns:repeat(2,minmax(0,1fr))}
   .wx-res--1{grid-template-columns:minmax(0,1fr)}
   .wx-form{grid-template-columns:minmax(0,1fr);gap:36px}
+  .wx-form__text .wx-res{grid-template-columns:minmax(0,1fr)}
   .wx-form__vis{max-width:340px;width:100%;margin:0 auto}
   .wx-cards__list{grid-template-columns:minmax(0,1fr)}
   .wx-card{padding:26px 24px 22px}

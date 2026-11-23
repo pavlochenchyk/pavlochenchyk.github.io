@@ -113,3 +113,18 @@
   },{threshold:.3}).observe(root);
 })();
 </script>
+<script>
+/* Sorting illustration: offers start in arrival order, then line up by repeat rate */
+(function(){
+  var list=document.querySelector('.wx-sort__list'); if(!list) return;
+  var cards=[].slice.call(list.children), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function set(sorted){ cards.forEach(function(c,i){ var p=sorted?+c.dataset.o:i, was=+(c.style.getPropertyValue('--p')||p); c.style.setProperty('--p',p); c.style.zIndex=p<was?3:(p>was?1:2); c.classList.toggle('is-lift',p<was); c.classList.toggle('is-top',sorted&&p===0); }); setTimeout(function(){ cards.forEach(function(c){ c.classList.remove('is-lift'); }); },850); }
+  set(true); if(reduce) return;
+  var timer=null, sorted=true;
+  function loop(){ sorted=!sorted; set(sorted); timer=setTimeout(loop,sorted?3200:1600); }
+  new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){ if(!timer){ set(false); sorted=false; timer=setTimeout(loop,900); } }
+    else { clearTimeout(timer); timer=null; set(true); }
+  },{threshold:.5}).observe(list);
+})();
+</script>
