@@ -183,8 +183,10 @@ def build():
              '<p class="wr-head__name">Three winning experiments that grew first and repeat orders</p>', "writers header")
     # Marketplace case: three experiments (offer card, sorting by repeat rate, step-by-step order form).
     # Marketplace case roles: one line, level first; the team without a separate PM.
-    h = swap(h, '<div><dt>Role</dt><dd>Feature Owner, Product Designer</dd></div>\n    <div><dt>Team</dt><dd>Product Manager, Analyst, UX Researcher</dd></div>',
-             '<div><dt>Role</dt><dd>Head of Product &amp; Design (hands-on)</dd></div>\n    <div><dt>Team</dt><dd>Analyst, UX Researcher</dd></div>', "writers roles")
+    h = swap(h, '<div><dt>Role</dt><dd>Chief Design Officer (hands-on)</dd></div>',
+             '<div><dt>Role</dt><dd>Head of Product &amp; Design (hands-on)</dd></div>', "writers role")
+    h = swap(h, '<p class="project__role">Chief Design Officer (hands-on)</p>',
+             '<p class="project__role">Head of Product &amp; Design (hands-on)</p>', "writers card role")
     h = swap(h, '<div><dt>Team</dt><dd>Analyst, UX Researcher</dd></div>\n    <div><dt>Period of time</dt><dd>2025</dd></div>',
              '<div><dt>Team</dt><dd>Analyst, UX Researcher</dd></div>\n    <div><dt>Period of time</dt><dd>2024&#8211;2025</dd></div>', "writers period")
     # In short: one card per experiment, each with its own summary, numbers and a link to its section.
