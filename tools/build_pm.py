@@ -136,8 +136,8 @@ def build():
 
     desc_design = ("Pavlo Chenchyk — Head of Design and Design Lead with 10+ years in product design. "
                    "Former Chief Design Officer who grew a design and research team from 2 to 17 people.")
-    desc_pm = ("Pavlo Chenchyk — Product Manager with 10+ years in B2C and SaaS products. Led a subscription "
-               "iOS app venture: web-to-app funnel, monetization, retention and P&amp;L. Former Chief Design Officer.")
+    desc_pm = ("Pavlo Chenchyk — Product Manager with 10+ years of building web and mobile products. "
+               "Growth and monetization across subscription, marketplace and e-commerce products.")
     h = swap(h, f'content="{desc_design}"', f'content="{desc_pm}"', "meta descriptions", count=2)
     h = swap(h, '<meta property="og:title" content="Pavlo Chenchyk — Head of Design · Design Lead">',
              '<meta property="og:title" content="Pavlo Chenchyk — Product Manager · Growth &amp; Monetization">', "og title")
