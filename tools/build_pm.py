@@ -46,7 +46,7 @@ def company(html, marker, new_block, name):
 ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
-    "Product manager with 10+ years building web and mobile products, focused on growth and monetization across subscription, marketplace and e-commerce models. Most recently I led a subscription iOS app at NODERA Group, a venture builder: launched the MVP in 2 months, cut blended CAC by 74% with audience and creative testing, and grew AOV 1.8&#215; with intro offers and longer plans. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company, I sat on the C-level team, co-owned product discovery and delivery for 3+ products and cut hypothesis-to-release time by 43%. Earlier I founded and ran an e-commerce business. A UX and research background keeps my discovery grounded in customer evidence, and I work AI-first: prototyping, analysis of aggregated data and creative production."
+    "Product manager with 10+ years building web and mobile products, focused on growth and monetization across subscription, marketplace and e-commerce models. Most recently I led a subscription iOS app at NODERA Group, a venture builder: launched the MVP in 2 months, cut blended CAC by 74% with audience and creative testing, and grew AOV 1.8&#215; with intro offers and longer plans. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company, I sat on the C-level team, co-owned discovery and delivery for 3+ products, cut hypothesis-to-release time by 43% and grew marketplace first orders by 12.5% through A/B-tested funnel changes. Earlier I founded and ran an e-commerce business. A UX and research background keeps my discovery grounded in customer evidence, and I work AI-first: prototyping, analysis of aggregated data and creative production."
 )
 
 SKILLS = {
@@ -55,7 +55,7 @@ SKILLS = {
         "Hypothesis prioritization", "A/B testing", "Product analytics",
         "Retention and engagement"]),
     "founder": ("Growth &amp; business", "Growth and business skills", [
-        "Web-to-app funnels", "Onboarding and paywall optimization", "Pricing experiments",
+        "Web-to-app funnels", "Marketplace funnels and ranking", "Onboarding and paywall optimization", "Pricing experiments",
         "Subscription and hybrid monetization", "Paid acquisition, ASO and creative testing",
         "P&amp;L and financial forecasting", "Unit economics"]),
     "manager": ("Leadership", "Leadership skills", [
@@ -105,6 +105,7 @@ READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
 DEVELUX = company_block("&#8220;DEVELUX&#8221;", "Multiproduct EdTech company", [job(
     'Head of Product &amp; Design <span class="job__off">&middot; official title: Chief Design Officer</span>', "Jan 2024 &ndash; Mar 2026", [
         'Part of the C-level team reporting to the CEO; co-set product strategy and priorities for 3+ products, including <a href="https://studyagent.com/" target="_blank" rel="noopener">StudyAgent</a>. Led a product design and research team of up to 17 people.',
+        'On a freelance marketplace, ran funnel A/B tests that grew first orders by 12.5% (step-by-step order form) and repeat orders by 6.9% (ranking writers by repeat rate); an offer card rebuilt around customer research added +6% first orders (<a href="#writers">case study</a>).',
         "Co-owned product discovery and delivery for 3+ products: feature roadmap, hypothesis backlog and success metrics.",
         'Cut median time from hypothesis to release from 3.5 to 2&nbsp;weeks and raised the share of initiatives hitting their success metric from 9% to 14% (<a href="#develux">case study</a>).',
         "Set up UX Research and UX Writing and a shared insight hub that feeds product discovery.",
