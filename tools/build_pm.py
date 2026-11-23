@@ -132,15 +132,15 @@ def build():
     h = SRC.read_text(encoding="utf-8")
 
     h = swap(h, "<title>Pavlo Chenchyk — Head of Design · Design Lead</title>",
-             "<title>Pavlo Chenchyk — Product Manager · Growth &amp; Monetization</title>", "title")
+             "<title>Pavlo Chenchyk — Product &amp; Design Manager</title>", "title")
 
     desc_design = ("Pavlo Chenchyk — Head of Design and Design Lead with 10+ years in product design. "
                    "Former Chief Design Officer who grew a design and research team from 2 to 17 people.")
-    desc_pm = ("Pavlo Chenchyk — Product Manager with 10+ years of building web and mobile products. "
+    desc_pm = ("Pavlo Chenchyk — product and design manager with 10+ years of building web and mobile products. "
                "Growth and monetization across subscription, marketplace and e-commerce products.")
     h = swap(h, f'content="{desc_design}"', f'content="{desc_pm}"', "meta descriptions", count=2)
     h = swap(h, '<meta property="og:title" content="Pavlo Chenchyk — Head of Design · Design Lead">',
-             '<meta property="og:title" content="Pavlo Chenchyk — Product Manager · Growth &amp; Monetization">', "og title")
+             '<meta property="og:title" content="Pavlo Chenchyk — Product &amp; Design Manager">', "og title")
     h = swap(h, '<meta property="og:url" content="https://pavlochenchyk.github.io/">',
              '<meta property="og:url" content="https://pavlochenchyk.github.io/pm/">', "og url")
 
