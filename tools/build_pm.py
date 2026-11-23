@@ -46,7 +46,7 @@ def company(html, marker, new_block, name):
 ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
-    "Product manager with 10+ years building web and mobile products, focused on growth and monetization across subscription, marketplace and e-commerce models. Most recently I led a subscription iOS app at NODERA Group, a venture builder: launched the MVP in 2 months, cut blended CAC by 74% with audience and creative testing, and grew AOV 1.8&#215; with intro offers and longer plans. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company, I sat on the C-level team, co-owned discovery and delivery for 3+ products, cut hypothesis-to-release time by 43% and grew marketplace first orders by 12.5% through A/B-tested funnel changes. Earlier I founded and ran an e-commerce business. A UX and research background keeps my discovery grounded in customer evidence, and I work AI-first: prototyping, analysis of aggregated data and creative production."
+    "Product manager with 10+ years of building web and mobile products and a background in UX and research. I focus on growth and monetization across subscription, marketplace and e-commerce products. Most recently I led a subscription iOS app at NODERA Group, a venture builder: took it from idea to launch and cut customer acquisition cost by 74%. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company, I was part of the C-level team, co-owned product discovery and delivery for 3+ products and grew marketplace first orders by 12.5%. Earlier I founded and ran an e-commerce business. I work AI-first: prototyping, data analysis and creative production."
 )
 
 SKILLS = {
@@ -55,11 +55,11 @@ SKILLS = {
         "Hypothesis prioritization", "A/B testing", "Product analytics",
         "Retention and engagement"]),
     "founder": ("Growth &amp; business", "Growth and business skills", [
-        "Web-to-app funnels", "Marketplace funnels and ranking", "Onboarding and paywall optimization", "Pricing experiments",
-        "Subscription and hybrid monetization", "Paid acquisition, ASO and creative testing",
+        "Conversion funnels (web-to-app, marketplace)", "Onboarding and paywall optimization", "Pricing experiments",
+        "Subscription monetization", "User acquisition across paid and organic channels", "Creative testing",
         "P&amp;L and financial forecasting", "Unit economics"]),
     "manager": ("Leadership", "Leadership skills", [
-        "Cross-functional teams and external partners", "OKRs and goal setting",
+        "Cross-functional teams", "OKRs and goal setting",
         "Hiring and team growth", "Work with C-level stakeholders"]),
     "ai": ("AI &amp; tools", "AI and tools", [
         "Claude Code", "AI-assisted data analysis", "Mixpanel", "Google Analytics 4", "Adapty", "AppsFlyer",
@@ -92,25 +92,19 @@ def company_block(name, kind, jobs, tail=""):
 READBERRY = company_block("&#8220;NODERA-Group&#8221;", "Venture builder", [job(
     'Venture Lead &amp; Product Manager',
     "Mar 2026 &ndash; Nov 2026", [
-        "Took a subscription iOS app from discovery to App Store launch in 2 months and ran it as a unit economics test.",
-        "Owned strategy, roadmap and P&amp;L; steered ad spend by forecasts vs actuals.",
-        "Cut blended CAC by 74% ($263 &#8594; $68): found a high-intent audience and scaled creative production 10&#215; across Meta, ASA and ASO.",
-        "Built and iterated a web-to-app funnel (web quiz &#8594; paywall &#8594; app) to 2.3% landing-to-paid on a hard paywall.",
-        "Grew AOV 1.8&#215; with intro offers and longer plans and lifted LTV/CAC from 0.4&#215; to 1.3&#215;; held a 53% monthly rebill rate on web with renewal priced 67% above the intro.",
-        "Raised activation from 36% to 55% and doubled week-3 retention with a new player, an original-text mode and quizzes.",
-        "Designed the metric set and a CRM dashboard with automated feeds from Mixpanel and Adapty; ran funnel, cohort, creative and failed-payment reviews to decide what to scale or cut.",
-        "Built the scale-up P&amp;L and payback model behind the decision not to fund the next stage.",
+        'Took a subscription iOS app from discovery to an MVP launch in 2 months to test unit economics on real traffic; owned strategy, roadmap and P&amp;L.',
+        'Cut customer acquisition cost by 74% by finding a high-intent audience and scaling creative testing in Meta and Apple Search Ads.',
+        'Built a web-to-app funnel (web quiz &#8594; paywall &#8594; app) and grew 30-day ARPPU by 37% with intro offers and longer plans.',
+        'Raised activation by 53% and doubled week-3 retention by improving the core product experience.',
     ])])
 
 DEVELUX = company_block("&#8220;DEVELUX&#8221;", "Multiproduct EdTech company", [job(
     'Head of Product &amp; Design <span class="job__off">&middot; official title: Chief Design Officer</span>', "Jan 2024 &ndash; Mar 2026", [
-        'Part of the C-level team reporting to the CEO; co-set product strategy and priorities for 3+ products, including <a href="https://studyagent.com/" target="_blank" rel="noopener">StudyAgent</a>. Led a product design and research team of up to 17 people.',
-        'On a freelance marketplace, ran funnel A/B tests that grew first orders by 12.5% (step-by-step order form) and repeat orders by 6.9% (ranking writers by repeat rate); an offer card rebuilt around customer research added +6% first orders (<a href="#writers">case study</a>).',
-        "Co-owned product discovery and delivery for 3+ products: feature roadmap, hypothesis backlog and success metrics.",
-        'Cut median time from hypothesis to release from 3.5 to 2&nbsp;weeks and raised the share of initiatives hitting their success metric from 9% to 14% (<a href="#develux">case study</a>).',
-        "Set up UX Research and UX Writing and a shared insight hub that feeds product discovery.",
-        "Cascaded company OKRs every quarter to department leads and individual team members.",
-        "Grew the team from 2 to 17 people within the planned headcount and budget.",
+        'Part of the C-level team reporting to the CEO; set product strategy and priorities for 3+ products and grew the product design and research team from 2 to 17 people.',
+        'Co-owned product discovery and delivery: feature roadmap, hypothesis backlog and success metrics.',
+        'Cut time from hypothesis to release by 43% and raised the share of initiatives hitting their success metric 1.5&#215; (<a href="#develux">case study</a>).',
+        'On a freelance marketplace, grew first orders by 12.5% and repeat orders by 6.9% through A/B-tested funnel improvements (<a href="#writers">case study</a>).',
+        'Set up UX Research and UX Writing and a shared insight hub that feeds product discovery.',
     ], note="Promoted from Lead Product Designer (Mar 2023 &ndash; Jan 2024)")])
 
 ROCKEN = company_block("&#8220;ROCKEN&#8221;", "HR tech", [job(
