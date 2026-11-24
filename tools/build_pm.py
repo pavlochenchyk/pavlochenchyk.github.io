@@ -162,6 +162,10 @@ def build():
              '<img src="assets/cover-develux-pm.jpg" width="580" height="355" alt="Develux — product processes across product management, design and research"', "develux cover")
     # Scroll reveal: include the Readberry case.
     h = swap(h, "var CASES=['rocken','tabletki','develux','writers'];", "var CASES=['readberry','rocken','tabletki','develux','writers'];", "reveal cases")
+    # Roles ring: PM version reads "Product • Manager • Designer" from the start.
+    h = swap(h, 'aria-label="Designer, manager, product"', 'aria-label="Product, manager, designer"', "ring label")
+    h = swap(h, 'DESIGNER&#160;&#8226;&#160;MANAGER&#160;&#8226;&#160;PRODUCT&#160;&#8226;&#160;',
+             'PRODUCT&#160;&#8226;&#160;MANAGER&#160;&#8226;&#160;DESIGNER&#160;&#8226;&#160;', "ring order")
     # Rocken case: product work only, no pure UI/design parts (CRM, Dashboard, UI block).
     h = swap(h, r'<article class="product">\s*<img src="assets/r-crm\.jpg".*?</article>\s*', "", "rocken crm card", regex=True)
     h = swap(h, r'<article class="product">\s*<img src="assets/r-dash\.jpg".*?</article>\s*', "", "rocken dash card", regex=True)
