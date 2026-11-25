@@ -46,7 +46,7 @@ def company(html, marker, new_block, name):
 ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
-    "Product manager with 10+ years of building web and mobile products and a background in UX and research. I focus on growth and monetization across subscription, marketplace and e-commerce products. Most recently I led a subscription iOS app at NODERA Group, a venture builder: took it from idea to launch and cut customer acquisition cost by 74%. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company, I was part of the C-level team, co-owned product discovery and delivery for 3+ products and grew marketplace first orders by 12.5%. Earlier I founded and ran an e-commerce business. I work AI-first: prototyping, data analysis and creative production."
+    "Product manager with 10+ years in web and mobile, 4+ of them in product ownership roles, with a UX and research background. I focus on growth and monetization in subscription, marketplace and e-commerce products. Most recently I led a subscription iOS app at NODERA Group, a venture builder, from idea to MVP in 2 months: CAC −74%, predicted LTV +44% from pricing, activation 36% → 55%. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company (C-level), I grew marketplace first orders by 12.5% and conversion to a second order by 6.9% through A/B tests. Earlier I founded an e-commerce business. I work AI-first, from prototypes in code to data analysis."
 )
 
 SKILLS = {
