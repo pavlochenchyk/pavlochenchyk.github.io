@@ -46,7 +46,7 @@ def company(html, marker, new_block, name):
 ROLE = "Product Manager &middot; Growth &amp; Monetization"
 
 SUMMARY = (
-    "Product manager with 10+ years in web and mobile, 4+ of them in product ownership roles, with a UX and research background. I focus on growth and monetization in subscription, marketplace and e-commerce products. Most recently I led a subscription iOS app at NODERA Group, a venture builder, from idea to MVP in 2 months: CAC −74%, predicted LTV +44% from pricing, activation 36% → 55%. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company (C-level), I grew marketplace first orders by 12.5% and conversion to a second order by 6.9% through A/B tests. Earlier I founded an e-commerce business. I work AI-first, from prototypes in code to data analysis."
+    "Product manager with 10+ years in web and mobile, 4+ of them in product ownership roles, with a UX and research background. I focus on growth and monetization in subscription, marketplace and e-commerce products. Most recently I led a subscription iOS app at NODERA Group, a venture builder, from idea to MVP in 2 months: CAC −74%, predicted LTV +44% from pricing, activation 36% → 55%. Before that, as Head of Product &amp; Design at Develux, a multi-product EdTech company (C-level), I grew marketplace first-order conversion by 12.5% and second-order conversion by 6.9% through A/B tests. Earlier I founded an e-commerce business. I work AI-first, from prototypes in code to data analysis."
 )
 
 SKILLS = {
@@ -103,7 +103,7 @@ DEVELUX = company_block("&#8220;DEVELUX&#8221;", "Multiproduct EdTech company", 
         'Part of the C-level team reporting to the CEO; set product strategy and priorities for 3+ products and grew the product design and research team from 2 to 17 people.',
         'Co-owned product discovery and delivery: feature roadmap, hypothesis backlog and success metrics.',
         'Cut time from hypothesis to release by 43% and raised the share of initiatives hitting their success metric 1.5&#215; (<a href="#develux">case study</a>).',
-        'On a freelance marketplace, grew first orders by 12.5% and repeat orders by 6.9% through A/B-tested funnel improvements (<a href="#writers">case study</a>).',
+        'On a freelance marketplace, grew first-order conversion by 12.5% and second-order conversion by 6.9% through A/B-tested funnel improvements (<a href="#writers">case study</a>).',
         'Set up UX Research and UX Writing and a shared insight hub that feeds product discovery.',
     ], note="Promoted from Lead Product Designer (Mar 2023 &ndash; Jan 2024)")])
 
