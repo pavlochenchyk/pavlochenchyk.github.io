@@ -347,3 +347,13 @@
 .view .rb .back:hover,.view .rb .back:focus-visible{color:var(--ink)}
 @media (max-width:600px){.view .case .back{height:40px;font-size:16px}.view .case .back svg{width:48px}}
 .job__off{font-weight:400;color:var(--muted)}
+
+.rb-exp__pk{margin:0 0 8px;font-size:13px;color:var(--rb-cap)}
+.rb-exp__plans{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px}
+.rb-exp__plans li{display:grid;grid-template-columns:1fr auto;column-gap:8px;row-gap:1px}
+.rb-exp__pn{font-size:13px;color:var(--rb-cap)}
+.rb-exp__ps{font-size:13px;font-weight:600;color:var(--ink-2);text-align:right;font-variant-numeric:tabular-nums}
+.rb-exp__pp{grid-column:1/-1;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
+.rb-exp.is-best .rb-exp__pp{color:var(--green)}
+.rb-exp__kv:not(.rb-exp__kv--all){margin-top:auto}
+.rb-exp__kv--all{margin-top:0}
