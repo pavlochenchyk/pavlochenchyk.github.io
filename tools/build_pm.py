@@ -62,7 +62,7 @@ SKILLS = {
         "Cross-functional teams", "OKRs and goal setting",
         "Hiring and team growth", "Work with C-level stakeholders"]),
     "ai": ("AI &amp; tools", "AI and tools", [
-        "Claude Code", "AI-assisted data analysis", "Mixpanel", "Google Analytics 4", "Adapty", "AppsFlyer",
+        "Claude Code", "AI-assisted data analysis", "Mixpanel", "Google Analytics 4", "GrowthBook", "Adapty", "AppsFlyer",
         "FunnelFox", "Meta Ads Manager", "Google Ads", "Figma"]),
 }
 
